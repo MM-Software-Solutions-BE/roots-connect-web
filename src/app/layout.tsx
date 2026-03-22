@@ -32,11 +32,19 @@ export const metadata: Metadata = {
     siteName: "Roots Connect",
     title: "Roots Connect",
     description: defaultDescription,
+    /** Placeholder — replace with a 1200×630 branded image when available */
+    images: [
+      {
+        url: "/images/brand/roots-connect-logo.jpeg",
+        alt: "Roots Connect",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Roots Connect",
     description: defaultDescription,
+    images: ["/images/brand/roots-connect-logo.jpeg"],
   },
 };
 

@@ -4,7 +4,7 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
-**Volgende focus:** §7 Partners (content) · §8 Contact/events afronden · **`openGraph.images`** wanneer beeld 1200×630 klaar is (**0.5b**).
+**Volgende focus:** echte partnerlogo’s + eventkalender · dedicated **OG 1200×630** · §8.2 formulier indien gewenst.
 
 ---
 
@@ -17,13 +17,13 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | 0.4c | 0.4 | Footer: zelfde logo in lichte box op donkere footer | ✅ |
 | 0.4d | 0.4 | Optioneel: witte/monochrome variant voor footer zonder box | ⬜ |
 | 0.5a | 0.5 / T.15 | `metadataBase` (`SITE_URL`), canonical `/` + `/privacy`, OG + Twitter summary | ✅ |
-| 0.5b | 0.5 | `openGraph.images` (1200×630 of vergelijkbaar) — ontwerp nog te leveren | ⬜ |
-| 0.5c | 0.5 | `twitter:card` summary (zonder groot beeld tot **0.5b**) | ✅ |
+| 0.5b | 0.5 | `openGraph.images` + Twitter: nu **logo** als placeholder; ideaal: apart beeld **1200×630** | 🟡 |
+| 0.5c | 0.5 | `twitter:card` **summary_large_image** (met placeholder-logo) | ✅ |
 | 3.x | §3 | Copy finetunen na goedkeuring klant (tone, lengte) | ⬜ |
 | 5.x | §5.2 | Afstemmen: booklet zegt **4** collaboraties, PDF zegt “Multiple” — één wording kiezen | ⬜ |
 | 6.x | §6 | Foto’s: Redouan + Anass in `team/*.png`; Houda, Mina, Yuan nog toevoegen → `src/data/team.ts` | 🟡 |
 | 8.x | §8.2 | Kiezen: alleen `mailto:` vs. formulier (Netlify/Vercel/Resend) + spamstrategie | ⬜ |
-| 9.x | §9 | Social-URL’s verifiëren in `src/config/site.ts` (nu placeholders) | 🟡 |
+| 9.x | §9 | LinkedIn + Instagram gezet ([company](https://be.linkedin.com/company/roots-connectnetwork), @rootsconnectnetwork) | ✅ |
 | 10.x | §10 | Privacytekst door klant of template BE | ⬜ |
 
 ---
@@ -36,7 +36,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | ✅ | 0.2 | Design tokens / thema: kleuren uit **Colors.txt** in Tailwind/shadcn (`#f3f3e7` beige, `#0e293e` blauw, `#A28772` bruin). Zie `globals.css` (`rc-*` + semantische vars). | Colors.txt |
 | ✅ | 0.3 | Typografie en basislayout (max-width, sectie-rhythm). `SectionShell` + Geist als `--font-sans`. | Algemeen |
 | ✅ | 0.4 | **Logo** header + footer (`SiteLogo`, `public/images/brand/roots-connect-logo.jpeg`). | PDF landingspagina |
-| 🟡 | 0.5 | Metadata SEO: *Nu:* `metadataBase`, OG, Twitter, canonicals, `SITE_URL`. *Nog:* **`og:image`** (zie **0.5b**). | PDF + booklet |
+| 🟡 | 0.5 | Metadata SEO: `metadataBase`, OG/Twitter met placeholder-beeld, canonicals. *Nog:* professioneel **OG 1200×630** (zie **0.5b**). | PDF + booklet |
 
 ---
 
@@ -121,8 +121,8 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 7.1 | Placeholder of grid voor **partnerlogo’s + namen** (content “wordt later aangevuld”). *Nu:* lege sectie + copy-placeholder. | PDF |
-| 🟡 | 7.2 | Structuur klaarzetten (bijv. CMS later of statische array) zonder fictieve logo’s. | PDF |
+| 🟡 | 7.1 | Grid met **voorbeeld-partners** (duidelijk gelabeld). Vervang in `src/data/partners.ts` + `public/images/partners/`. | PDF |
+| ✅ | 7.2 | Structuur: `PartnerEntry[]` in `partners.ts`, optioneel `logoSrc`. | PDF |
 
 ---
 
@@ -130,9 +130,9 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 8.1 | **Contact**-sectie: e-mail **info@rootsconnect.be**. *Nu:* `mailto:` in `contact-section.tsx`. *Nog:* telefoon/adres indien beschikbaar. | PDF |
-| ⬜ | 8.2 | Formulier of mailto (keuze: spam vs. UX); bevestiging na verzenden indien formulier. | Best practice |
-| 🟡 | 8.3 | **Events**-sectie (`#events`) — inhoud/kalender nog afstemmen; placeholder aanwezig. | PDF |
+| 🟡 | 8.1 | **Contact:** kaart met `SITE.email`, LinkedIn/Instagram, placeholder telefoon/adres. | PDF |
+| ⬜ | 8.2 | Formulier vs. mailto + eventuele bevestiging (nu o.a. `mailto` met subject voor events). | Best practice |
+| 🟡 | 8.3 | **Events:** voorbeelden in `src/data/events.ts`, CTA naar `#contact`. Vervang door echte agenda. | PDF |
 
 ---
 
@@ -140,7 +140,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 9.1 | Quicklinks **LinkedIn**, **Instagram** — URLs in `src/config/site.ts` (controleren op live). | PDF |
+| ✅ | 9.1 | Quicklinks **LinkedIn**, **Instagram** (`site.ts`, officiële company + IG). | PDF |
 | 🟡 | 9.2 | Contact: e-mail **info@rootsconnect.be**; telefoon/adres indien beschikbaar. | PDF |
 | ✅ | 9.3 | **Ondernemingsnummer:** BE1026.631.469. | PDF |
 | ✅ | 9.4 | Link naar **Privacy Policy** → `/privacy`. | PDF |
@@ -200,7 +200,7 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | ⬜ | T.12 | **Error monitoring** (optioneel, bv. Sentry) op productie. | Developers. |
 | ⬜ | T.13 | **Lighthouse / Core Web Vitals** baseline vóór launch (mobile + desktop). | KPI. |
 | ⬜ | T.14 | **Toegankelijkheid**-audit: contrast, focus, formulierlabels, heading-hiërarchie, skip-link optioneel. | Kwaliteit. |
-| 🟡 | T.15 | **`metadata`/`opengraph`**: `metadataBase`, OG, Twitter summary, per-pagina canonical. *Nog:* **`og:image`**. |
+| 🟡 | T.15 | **`metadata`/`opengraph`**: `metadataBase`, OG + Twitter images (placeholder logo). *Nog:* **dedicated OG asset 1200×630**. |
 | ⬜ | T.16 | **Dependencies**: periodiek `npm audit` / Dependabot; major upgrades gepland. | Onderhoud. |
 | ⬜ | T.17 | **E-mail vanaf domein** (SPF, DKIM, DMARC) als je later mail vanaf @rootsconnect.be stuurt. | DNS. |
 
@@ -218,6 +218,8 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/app/not-found.tsx` | 404-pagina |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
 | `src/config/site.ts` | `SITE_URL`, e-mail, KBO, social URLs, footer-credit |
+| `src/data/partners.ts` | Partnerkaarten (placeholders + optioneel `logoSrc`) |
+| `src/data/events.ts` | Eventvoorbeelden voor §Events |
 | `src/app/privacy/page.tsx` | Privacy Policy (starter) |
 | `src/components/site-header.tsx` | Sticky nav, desktop links, ⋮-dropdown, mobiel Sheet |
 | `src/components/site-logo.tsx` | `next/image` logo (`/images/brand/roots-connect-logo.jpeg`) |
@@ -234,4 +236,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** SEO (`SITE_URL`, `metadataBase`, OG, Twitter, canonicals), `sitemap`/`robots`, `not-found`. *Build:* `npm run build` slaagt (CI nog **T.1**).
+- **Laatste update:** §7/§8 placeholders, echte LinkedIn/IG-URL’s, OG/Twitter image (logo); `partners.ts`, `events.ts`. *Build:* `npm run build` slaagt (CI nog **T.1**).

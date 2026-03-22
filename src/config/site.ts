@@ -1,6 +1,6 @@
 /**
  * Central place for contact, legal, and social URLs.
- * Replace social URLs when official Roots Connect profiles are confirmed.
+ * Social links (LinkedIn company page, Instagram).
  */
 export const SITE_URL = "https://rootsconnect.be" as const;
 
@@ -12,7 +12,7 @@ export const SITE = {
   /** Shown after © in the footer — update to your name or studio */
   webCredit: "MM Software Solutions",
   social: {
-    linkedin: "https://www.linkedin.com/company/rootsconnect",
-    instagram: "https://www.instagram.com/rootsconnect.be",
+    linkedin: "https://be.linkedin.com/company/roots-connectnetwork",
+    instagram: "https://www.instagram.com/rootsconnectnetwork/",
   },
 } as const;

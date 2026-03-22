@@ -22,10 +22,10 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| ⬜ | 1.1 | Horizontale nav: **Home · About Us · Our Approach · Our Impact · Contact** (ankers of routes). *Sectie-`id`s in code:* `home`, `about-us`, `our-approach`, `our-impact`, `contact`. | PDF |
-| ⬜ | 1.2 | Rechts: **menu met 3 bolletjes** (hamburger of dropdown) met: **Our Team**, **Our Partners**, **Events**. | PDF |
-| 🟡 | 1.3 | Submenu → juiste sectie: **`#our-team`**, **`#our-partners`**, **`#events`** bestaan als ankers; nog koppelen vanuit UI. | PDF |
-| ⬜ | 1.4 | Sticky header + mobiel gedrag (breakpoint, toegankelijk toetsenbord/focus). | PDF + best practice |
+| ✅ | 1.1 | Horizontale nav: **Home · About Us · Our Approach · Our Impact · Contact** (ankers). Config: `src/config/navigation.ts`, UI: `src/components/site-header.tsx`. | PDF |
+| ✅ | 1.2 | Rechts: **dropdown met ⋮** (More-vertical icoon) met **Our Team**, **Our Partners**, **Events**. | PDF |
+| ✅ | 1.3 | Submenu → **`#our-team`**, **`#our-partners`**, **`#events`** (dropdown + mobiel menu). | PDF |
+| ✅ | 1.4 | **Sticky** header (`sticky top-0`), **lg** breakpoint: desktop-nav + ⋮; kleiner scherm: **Sheet**-menu met alle links. Focus-styles op links. | PDF + best practice |
 
 ---
 
@@ -184,6 +184,8 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/app/page.tsx` | Homepagina: alleen import + volgorde secties |
 | `src/app/globals.css` | Brand tokens `rc-*`, shadcn-variabelen |
 | `src/app/layout.tsx` | Metadata, fonts |
+| `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
+| `src/components/site-header.tsx` | Sticky nav, desktop links, ⋮-dropdown, mobiel Sheet |
 | `src/components/sections/` | `home-section`, `about-section`, `approach-section`, `impact-section`, `team-section`, `partners-section`, `events-section`, `contact-section`, `site-footer`, `section-shell`, `index.ts` |
 
 ---

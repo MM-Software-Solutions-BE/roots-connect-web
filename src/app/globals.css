@@ -141,8 +141,21 @@
 }
 
 @layer components {
-  /** Hover lift + shadow only when user has not requested reduced motion */
-  .rc-card-hover {
-    @apply motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md;
+  /**
+   * Hover lift + shadow — use explicit @media, not motion-safe: in @apply
+   * (Tailwind v4 often skips compound motion-safe:hover utilities in @apply).
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    .rc-card-hover {
+      transition:
+        transform 200ms ease-out,
+        box-shadow 200ms ease-out;
+    }
+    .rc-card-hover:hover {
+      transform: translateY(-0.25rem);
+      box-shadow:
+        0 10px 15px -3px rgb(14 41 62 / 0.12),
+        0 4px 6px -4px rgb(14 41 62 / 0.08);
+    }
   }
 }

@@ -154,7 +154,6 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 | ID | Taak | Opmerking |
 |----|------|-----------|
-| T.1 | **CI** (bv. GitHub Actions): `lint` + `build` op elke push/PR. | Voorkomt kapotte deploys. |
 | T.2 | **Hosting** kiezen en **build output** valideren (Vercel/Netlify/Cloudflare Pages + Next.js). | Hoort bij 0.1 maar incl. preview-URLs. |
 | T.3 | **`robots.txt`** + **`sitemap.xml`** (of `app/sitemap.ts` in Next.js). | Crawlers; geen UI. |
 | T.4 | **`favicon.ico`**, **apple-touch-icon**, eventueel `manifest.webmanifest` (PWA-lite). | Tab/bladwijzer; geen sectie op de pagina. |

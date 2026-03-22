@@ -4,6 +4,10 @@
  */
 export const SITE_URL = "https://rootsconnect.be" as const;
 
+/** Shared for metadata, JSON-LD, manifest. */
+export const SITE_DESCRIPTION =
+  "Connecting roots through law — Empowering the next generation of legal talent. Belgian network of lawyers supporting students from underrepresented backgrounds." as const;
+
 export const SITE = {
   name: "Roots Connect",
   email: "info@rootsconnect.be",

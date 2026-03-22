@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { CookieBanner } from "@/components/cookie-banner";
 import { JsonLd } from "@/components/json-ld";
 import { SkipLink } from "@/components/skip-link";
 import { SiteHeader } from "@/components/site-header";
-import { SITE_URL } from "@/config/site";
+import { SITE_DESCRIPTION, SITE_URL } from "@/config/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,8 +18,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const defaultDescription =
-  "Connecting roots through law — Empowering the next generation of legal talent. Belgian network of lawyers supporting students from underrepresented backgrounds.";
+export const viewport: Viewport = {
+  themeColor: "#0e293e",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,14 +28,14 @@ export const metadata: Metadata = {
     default: "Roots Connect",
     template: "%s | Roots Connect",
   },
-  description: defaultDescription,
+  description: SITE_DESCRIPTION,
   openGraph: {
     type: "website",
     locale: "en_BE",
     url: "/",
     siteName: "Roots Connect",
     title: "Roots Connect",
-    description: defaultDescription,
+    description: SITE_DESCRIPTION,
     /** Placeholder — replace with a 1200×630 branded image when available */
     images: [
       {
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Roots Connect",
-    description: defaultDescription,
+    description: SITE_DESCRIPTION,
     images: ["/images/brand/roots-connect-logo.jpeg"],
   },
 };

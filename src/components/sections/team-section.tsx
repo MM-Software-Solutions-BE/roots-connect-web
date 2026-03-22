@@ -19,7 +19,7 @@ export function TeamSection() {
       <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {TEAM_MEMBERS.map((member) => (
           <li key={member.name}>
-            <article className="flex flex-col">
+            <article className="rc-card-hover flex flex-col rounded-xl">
               <div className="border-rc-blue/15 bg-rc-blue/5 relative mb-4 aspect-[4/5] w-full overflow-hidden rounded-xl border shadow-sm">
                 {member.imageSrc ? (
                   <Image

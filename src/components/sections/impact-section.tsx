@@ -54,7 +54,7 @@ export function ImpactSection() {
         {tiles.map(({ stat, label, Icon }) => (
           <article
             key={label}
-            className="border-rc-blue/15 from-rc-beige/40 bg-linear-to-br to-white/80 rounded-xl border p-6 shadow-sm ring-1 ring-rc-blue/5"
+            className="border-rc-blue/15 from-rc-beige/40 bg-linear-to-br to-white/80 rc-card-hover rounded-xl border p-6 shadow-sm ring-1 ring-rc-blue/5"
           >
             <div className="mb-5 flex items-center gap-4">
               <div

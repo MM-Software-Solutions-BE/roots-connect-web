@@ -33,7 +33,7 @@ export function EventsSection() {
       <ul className="space-y-6">
         {EVENT_HIGHLIGHTS.map((ev) => (
           <li key={ev.id}>
-            <article className="border-rc-blue/15 bg-white/45 rounded-xl border p-5 shadow-sm">
+            <article className="border-rc-blue/15 bg-white/45 rc-card-hover rounded-xl border p-5 shadow-sm">
               <p className="text-rc-brown mb-1 text-xs font-semibold tracking-wide uppercase">
                 {ev.whenWhere}
               </p>

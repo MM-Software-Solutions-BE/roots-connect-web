@@ -1,5 +1,6 @@
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { SectionShell } from "@/components/sections/section-shell";
+import { mailtoEventUpdates, mailtoGeneral } from "@/config/mailto-links";
 import { SITE } from "@/config/site";
 
 export function ContactSection() {
@@ -23,7 +24,7 @@ export function ContactSection() {
         <p className="text-rc-blue/90 mb-4">
           <span className="text-rc-blue/70 mr-2 text-sm">Email</span>
           <a
-            href={`mailto:${SITE.email}`}
+            href={mailtoGeneral}
             className="text-rc-blue font-medium underline decoration-rc-brown/40 underline-offset-4 hover:decoration-rc-brown"
           >
             {SITE.email}
@@ -56,7 +57,7 @@ export function ContactSection() {
         <p className="text-rc-blue/80 mb-3 text-sm font-medium">
           Stay informed about upcoming events
         </p>
-        <PrimaryCtaLink href={`mailto:${SITE.email}?subject=Events%20updates`}>
+        <PrimaryCtaLink href={mailtoEventUpdates}>
           Email us for event updates
         </PrimaryCtaLink>
         <p className="text-rc-blue/60 mt-2 text-xs">

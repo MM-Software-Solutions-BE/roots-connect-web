@@ -4,6 +4,27 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
+**Volgende focus (door ons gekozen):** inhoud per sectie top‑down; waar details ontbreken staan **subtaken** hieronder zodat je die later kunt invullen zonder de hoofd-ID te verliezen.
+
+---
+
+## Subtaken — open details (TBD)
+
+| Ref | Hoofdtask | Subtaak | Status |
+|-----|-----------|---------|--------|
+| 0.4a | 0.4 Logo | Bestand leveren: `public/logo.svg` (of PNG), eventueel witte variant voor donkere footer | ⬜ |
+| 0.4b | 0.4 | Header: `<img>` of `next/image` met vaste hoogte + `alt` | ⬜ |
+| 0.4c | 0.4 | Footer: zelfde logo of vereenvoudigde variant | ⬜ |
+| 0.5a | 0.5 / T.15 | `metadataBase` + canonical `https://rootsconnect.be` (pas invullen als domein live) | ⬜ |
+| 0.5b | 0.5 | `openGraph.images` (1200×630 of vergelijkbaar) — ontwerp nog te leveren | ⬜ |
+| 0.5c | 0.5 | `twitter:card` + optioneel `site` | ⬜ |
+| 3.x | §3 | Copy finetunen na goedkeuring klant (tone, lengte) | ⬜ |
+| 5.x | §5.2 | Afstemmen: booklet zegt **4** collaboraties, PDF zegt “Multiple” — één wording kiezen | ⬜ |
+| 6.x | §6 | Foto’s 6× ontvangen + crop/rechten + fallback als foto ontbreekt | ⬜ |
+| 8.x | §8.2 | Kiezen: alleen `mailto:` vs. formulier (Netlify/Vercel/Resend) + spamstrategie | ⬜ |
+| 9.x | §9 | Exacte URL’s LinkedIn + Instagram + naam developer in footer | ⬜ |
+| 10.x | §10 | Privacytekst door klant of template BE | ⬜ |
+
 ---
 
 ## 0. Project & basis
@@ -35,8 +56,15 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | :---: |----|------|------|
 | ✅ | 2.1 | Tagline: **"Connecting roots through law"**. | PDF |
 | ✅ | 2.2 | Subtitel: **"Empowering the next generation of legal talent"**. | PDF |
-| ⬜ | 2.3 | Korte introductietekst (eerste alinea over Belgian network / underrepresented backgrounds / bicultural / first-generation). | PDF |
-| ⬜ | 2.4 | CTA-knop: **"Stay informed about our upcoming events"** → linkt naar **Contact** (sectie of pagina). | PDF |
+| ✅ | 2.3 | Korte introductietekst (Belgian network, underrepresented backgrounds, bicultural, first-generation). *Tekst in* `home-section.tsx` (`INTRO_COPY`). | PDF |
+| ✅ | 2.4 | CTA-knop **"Stay informed about our upcoming events"** → **`#contact`**. | PDF |
+
+**Subtaken (optioneel later):**
+
+| Ref | Subtaak | Status |
+|-----|---------|--------|
+| 2.a | Tweede alinea of highlight als klant meer copy wil | ⬜ |
+| 2.b | Achtergrond / decoratief element (patroon, foto) — alleen als gewenst | ⬜ |
 
 ---
 

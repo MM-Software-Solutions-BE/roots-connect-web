@@ -14,20 +14,37 @@ export function ApproachSection() {
         Our approach
       </h2>
       <p className="text-rc-blue/85 mb-10 max-w-3xl text-pretty leading-relaxed">
-        {/* todo §4.1 */}Bridge intro.
+        Roots Connect acts as a bridge between students and the legal profession. We focus on
+        being the point of contact for law students who have questions about legal careers.
       </p>
-      <ul className="text-rc-blue/85 space-y-6">
-        <li>
-          <span className="text-rc-blue font-semibold">Pillar 1 — Impactful events</span>
-          <p className="mt-1">{/* todo §4.2 */}</p>
+      <ul className="text-rc-blue/85 space-y-8 text-pretty leading-relaxed">
+        <li className="list-none">
+          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
+            Pillar 1 — Impactful events
+          </h3>
+          <p>
+            Interactive events for students featuring (bi-cultural) lawyers and legal
+            professionals who share their personal experiences and engage in open and honest
+            conversations about careers, diversity and inclusion.
+          </p>
         </li>
-        <li>
-          <span className="text-rc-blue font-semibold">Pillar 2 — Dialogue with the sector</span>
-          <p className="mt-1">{/* todo §4.3 */}</p>
+        <li className="list-none">
+          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
+            Pillar 2 — Dialogue with the sector
+          </h3>
+          <p>
+            Dialogue with law firms, the legal sector more broadly, the judiciary, companies,
+            universities and student associations to share knowledge and experiences.
+          </p>
         </li>
-        <li>
-          <span className="text-rc-blue font-semibold">Pillar 3 — Sustainable partnerships</span>
-          <p className="mt-1">{/* todo §4.4 */}</p>
+        <li className="list-none">
+          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
+            Pillar 3 — Sustainable partnerships
+          </h3>
+          <p>
+            We seek long-term partners who share our mission. With their support, we can organise
+            events, remunerate speakers and further strengthen our network.
+          </p>
         </li>
       </ul>
     </SectionShell>

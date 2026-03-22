@@ -4,7 +4,7 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
-**Volgende focus (door ons gekozen):** inhoud per sectie top‑down; waar details ontbreken staan **subtaken** hieronder zodat je die later kunt invullen zonder de hoofd-ID te verliezen.
+**Volgende focus:** §6 Team (foto’s + kaarten) → §9 Footer → §10 Privacy; zie **Subtaken** voor logo/OG/assets.
 
 ---
 
@@ -72,11 +72,11 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 3.1 | Tekst: oprichting door drie lawyers, namen en rollen (Redouan Lakhal, Anass Arbage, Houda Berrada) + brug tussen studenten en sector. | PDF |
-| ⬜ | 3.2 | Alinea’s: analyse juridisch beroep / representatie / diverse studenten / first-generation / percepties en barrières. | PDF |
-| 🟡 | 3.3 | Blok **Our Mission**: visie (sector reflecteert diversiteit; geen barrière door achtergrond; topniveau). | PDF |
-| ⬜ | 3.4 | Mission: non-profit, inclusief netwerk, bicultural + first-generation trajectories. | PDF |
-| ⬜ | 3.5 | CTA: **"Become our partner"** → **Contact**. | PDF |
+| ✅ | 3.1 | Tekst: oprichting door drie lawyers, namen en rollen + brug naar sector. *In* `about-section.tsx`. | PDF |
+| ✅ | 3.2 | Alinea’s: analyse juridisch beroep / representatie / first-generation / percepties en barrières. | PDF |
+| ✅ | 3.3 | Blok **Our Mission** (visie: diversiteit, geen barrière door achtergrond, topniveau). Visueel: linkse border + `Our mission`. | PDF |
+| ✅ | 3.4 | Mission: non-profit, inclusief netwerk, bicultural + first-generation. | PDF |
+| ✅ | 3.5 | CTA **"Become our partner"** → **`#contact`** (`PrimaryCtaLink`). | PDF |
 
 ---
 
@@ -84,10 +84,10 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 4.1 | Inleiding: brug tussen studenten en advocatuur; aanspreekpunt voor vragen over legal careers. | PDF |
-| 🟡 | 4.2 | Pijler 1 — **Impactful events** (interactieve events, bi-cultural lawyers, careers, D&I). | PDF |
-| 🟡 | 4.3 | Pijler 2 — **Dialogue with the sector** (kantoren, judiciary, bedrijven, universiteiten, studentenverenigingen). | PDF |
-| 🟡 | 4.4 | Pijler 3 — **Sustainable partnerships** (events, sprekers vergoeden, netwerk versterken). | PDF |
+| ✅ | 4.1 | Inleiding: brug + aanspreekpunt voor legal careers. | PDF |
+| ✅ | 4.2 | Pijler 1 — **Impactful events**. | PDF |
+| ✅ | 4.3 | Pijler 2 — **Dialogue with the sector**. | PDF |
+| ✅ | 4.4 | Pijler 3 — **Sustainable partnerships**. | PDF |
 
 ---
 
@@ -95,11 +95,11 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 5.1 | UI: **visuele blokken/tegels met cijfers** (niet alleen platte lijst). *Nu:* placeholder-grid in `impact-section.tsx`. | PDF |
-| ⬜ | 5.2 | Tegel 1: samenwerkingen met studentenverenigingen (booklet noemt concreet **4** collaboraties — afstemmen met klant of generiek “Multiple”). | PDF + booklet |
-| ⬜ | 5.3 | Tegel 2: **10,000+** maandelijkse views op social media (booklet: Instagram + LinkedIn). | PDF + booklet |
-| ⬜ | 5.4 | Tegel 3: **170+** leden in de community (young professionals). | PDF + booklet |
-| ⬜ | 5.5 | Tegel 4: **Ad hoc support** — regelmatig contact door studenten met praktische vragen. | PDF + booklet |
+| ✅ | 5.1 | UI: tegels met prominente stat + beschrijving. *In* `impact-section.tsx`. | PDF |
+| 🟡 | 5.2 | Tegel 1: nu **“Multiple”** (PDF-tekst). Subtaak **5.x**: eventueel **“4”** als klant booklet volgt. | PDF + booklet |
+| ✅ | 5.3 | Tegel 2: **10,000+** monthly views (social). | PDF + booklet |
+| ✅ | 5.4 | Tegel 3: **170+** leden community. | PDF + booklet |
+| ✅ | 5.5 | Tegel 4: ad hoc support / studentenvragen. | PDF + booklet |
 
 ---
 
@@ -214,6 +214,7 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/app/layout.tsx` | Metadata, fonts |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
 | `src/components/site-header.tsx` | Sticky nav, desktop links, ⋮-dropdown, mobiel Sheet |
+| `src/components/primary-cta-link.tsx` | Herbruikbare primaire CTA-knop (`#contact`) |
 | `src/components/sections/` | `home-section`, `about-section`, `approach-section`, `impact-section`, `team-section`, `partners-section`, `events-section`, `contact-section`, `site-footer`, `section-shell`, `index.ts` |
 
 ---
@@ -222,4 +223,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** todo gesynchroniseerd met huidige Next.js-structuur (secties per component, tokens, placeholders). *Build:* `npm run build` slaagt lokaal (CI nog **T.1**).
+- **Laatste update:** §3–§5 copy ingevuld (About, Mission, Approach, Impact-tegels); `PrimaryCtaLink` gedeeld. *Build:* `npm run build` slaagt (CI nog **T.1**).

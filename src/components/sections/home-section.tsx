@@ -11,7 +11,7 @@ export function HomeSection() {
   return (
     <SectionShell
       id="home"
-      containerClassName="max-w-6xl py-20 lg:py-28"
+      containerClassName="max-w-5xl py-20 lg:py-28"
       className="border-b border-rc-blue/10"
     >
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
@@ -31,15 +31,20 @@ export function HomeSection() {
           <PrimaryCtaLink href="#contact">Stay informed about our upcoming events</PrimaryCtaLink>
         </div>
 
-        <div className="relative w-full">
-          <div className="border-rc-blue/15 relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[0_20px_50px_-15px_rgba(14,41,62,0.25)] ring-1 ring-rc-blue/10">
+        <div className="relative flex w-full justify-center lg:justify-end">
+          {/*
+            max-w-sm: square stays compact so the hero doesn’t read wider than other sections.
+            Same max-w-5xl shell as the rest of the site (was max-w-6xl before).
+          */}
+          <div className="border-rc-blue/15 relative aspect-square w-full max-w-sm overflow-hidden rounded-2xl shadow-[0_20px_50px_-15px_rgba(14,41,62,0.25)] ring-1 ring-rc-blue/10">
+            {/* Crop: object-[x%] lager = meer linkerkant zichtbaar (Redouan links) */}
             <Image
               src={HOME_HERO_IMAGE.src}
               alt={HOME_HERO_IMAGE.alt}
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="origin-center object-cover object-center [transform:scale(1.14)]"
+              sizes="(max-width: 1024px) 100vw, 384px"
+              className="origin-center object-cover object-[20%_center] [transform:scale(1.1)]"
             />
           </div>
         </div>

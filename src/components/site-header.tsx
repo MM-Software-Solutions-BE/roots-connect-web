@@ -20,6 +20,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { SiteLogo } from "@/components/site-logo";
 import { cn } from "@/lib/utils";
 
 const navLinkClass =
@@ -37,9 +38,10 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href={sectionHref("home")}
-          className="text-rc-blue shrink-0 text-lg font-semibold tracking-tight"
+          className="text-rc-blue shrink-0 flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige rounded-sm"
         >
-          Roots Connect
+          <SiteLogo variant="header" priority />
+          <span className="sr-only">Roots Connect — Home</span>
         </a>
 
         <nav

@@ -4,7 +4,7 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
-**Volgende focus:** §6 Team (foto’s + kaarten) → §9 Footer → §10 Privacy; zie **Subtaken** voor logo/OG/assets.
+**Volgende focus:** §9 Footer (links, KBO, ©) → §10 Privacy; optioneel extra teamfoto’s in `public/images/team/`.
 
 ---
 
@@ -12,15 +12,16 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Ref | Hoofdtask | Subtaak | Status |
 |-----|-----------|---------|--------|
-| 0.4a | 0.4 Logo | Bestand leveren: `public/logo.svg` (of PNG), eventueel witte variant voor donkere footer | ⬜ |
-| 0.4b | 0.4 | Header: `<img>` of `next/image` met vaste hoogte + `alt` | ⬜ |
-| 0.4c | 0.4 | Footer: zelfde logo of vereenvoudigde variant | ⬜ |
+| 0.4a | 0.4 Logo | Bestand: `public/images/brand/roots-connect-logo.jpeg` (hernoemd van `logo.jpeg`) | ✅ |
+| 0.4b | 0.4 | Header: `SiteLogo` + `next/image`, `alt="Roots Connect"` | ✅ |
+| 0.4c | 0.4 | Footer: zelfde logo in lichte box op donkere footer | ✅ |
+| 0.4d | 0.4 | Optioneel: witte/monochrome variant voor footer zonder box | ⬜ |
 | 0.5a | 0.5 / T.15 | `metadataBase` + canonical `https://rootsconnect.be` (pas invullen als domein live) | ⬜ |
 | 0.5b | 0.5 | `openGraph.images` (1200×630 of vergelijkbaar) — ontwerp nog te leveren | ⬜ |
 | 0.5c | 0.5 | `twitter:card` + optioneel `site` | ⬜ |
 | 3.x | §3 | Copy finetunen na goedkeuring klant (tone, lengte) | ⬜ |
 | 5.x | §5.2 | Afstemmen: booklet zegt **4** collaboraties, PDF zegt “Multiple” — één wording kiezen | ⬜ |
-| 6.x | §6 | Foto’s 6× ontvangen + crop/rechten + fallback als foto ontbreekt | ⬜ |
+| 6.x | §6 | Foto’s: Redouan + Anass in `team/*.png`; Houda, Mina, Yuan nog toevoegen → `src/data/team.ts` | 🟡 |
 | 8.x | §8.2 | Kiezen: alleen `mailto:` vs. formulier (Netlify/Vercel/Resend) + spamstrategie | ⬜ |
 | 9.x | §9 | Exacte URL’s LinkedIn + Instagram + naam developer in footer | ⬜ |
 | 10.x | §10 | Privacytekst door klant of template BE | ⬜ |
@@ -34,7 +35,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | ⬜ | 0.1 | Domein/hosting koppelen aan **rootsconnect.be** (DNS, HTTPS). | PDF landingspagina |
 | ✅ | 0.2 | Design tokens / thema: kleuren uit **Colors.txt** in Tailwind/shadcn (`#f3f3e7` beige, `#0e293e` blauw, `#A28772` bruin). Zie `globals.css` (`rc-*` + semantische vars). | Colors.txt |
 | ✅ | 0.3 | Typografie en basislayout (max-width, sectie-rhythm). `SectionShell` + Geist als `--font-sans`. | Algemeen |
-| ⬜ | 0.4 | **Logo** bovenaan header én **logo onderaan** (footer), zoals briefing. | PDF landingspagina |
+| ✅ | 0.4 | **Logo** header + footer (`SiteLogo`, `public/images/brand/roots-connect-logo.jpeg`). | PDF landingspagina |
 | 🟡 | 0.5 | Metadata SEO: titel, beschrijving, Open Graph; taal **EN**. *Nu:* `title` + `description` in `layout.tsx`. *Nog:* `og:image`, canonical, `twitter:*` (zie ook **T.15**). | PDF + booklet |
 
 ---
@@ -107,12 +108,12 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 6.1 | Per persoon: **foto, naam, functie, rechtsdomein**. | PDF |
-| ⬜ | 6.2 | Redouan Lakhal — President-Director — Employment Law. | PDF |
-| ⬜ | 6.3 | Anass Arbage — VP Director — Corporate & Commercial Law. | PDF |
-| ⬜ | 6.4 | Houda Berrada — VP Director — Environmental Law. | PDF |
-| ⬜ | 6.5 | Mina Boel — Public Relations Manager — Environmental Law. | PDF |
-| ⬜ | 6.6 | Yuan Sun — Marketing Manager — Commercial Law. | PDF |
+| ✅ | 6.1 | Per persoon: **foto** (indien beschikbaar), naam, functie, rechtsdomein. Data: `src/data/team.ts`, UI: `team-section.tsx`. | PDF |
+| ✅ | 6.2 | Redouan Lakhal — foto `redouan-lakhal.png`. | PDF |
+| ✅ | 6.3 | Anass Arbage — foto `anass-arbage.png`. | PDF |
+| 🟡 | 6.4 | Houda Berrada — nog geen foto (placeholder). | PDF |
+| 🟡 | 6.5 | Mina Boel — nog geen foto (placeholder). | PDF |
+| 🟡 | 6.6 | Yuan Sun — nog geen foto (placeholder). | PDF |
 
 ---
 
@@ -214,6 +215,11 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/app/layout.tsx` | Metadata, fonts |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
 | `src/components/site-header.tsx` | Sticky nav, desktop links, ⋮-dropdown, mobiel Sheet |
+| `src/components/site-logo.tsx` | `next/image` logo (`/images/brand/roots-connect-logo.jpeg`) |
+| `src/data/team.ts` | Teamleden + image-paden |
+| `public/images/brand/roots-connect-logo.jpeg` | Logo (bron: `logo.jpeg`) |
+| `public/images/team/redouan-lakhal.png` | Redouan (bron: `redouane.png`) |
+| `public/images/team/anass-arbage.png` | Anass (bron: `anas.png`) |
 | `src/components/primary-cta-link.tsx` | Herbruikbare primaire CTA-knop (`#contact`) |
 | `src/components/sections/` | `home-section`, `about-section`, `approach-section`, `impact-section`, `team-section`, `partners-section`, `events-section`, `contact-section`, `site-footer`, `section-shell`, `index.ts` |
 
@@ -223,4 +229,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** §3–§5 copy ingevuld (About, Mission, Approach, Impact-tegels); `PrimaryCtaLink` gedeeld. *Build:* `npm run build` slaagt (CI nog **T.1**).
+- **Laatste update:** logo + teamfoto’s (Redouan, Anass) in `public/images/`; `SiteLogo`, `team.ts`. *Build:* `npm run build` slaagt (CI nog **T.1**).

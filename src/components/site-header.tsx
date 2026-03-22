@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -15,11 +16,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { LanguageMenu } from "@/components/language-menu";
 import { SITE } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -31,8 +34,6 @@ function scrollToSection(id: string) {
 }
 
 export function SiteHeader() {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
   return (
     <header className="bg-rc-beige/95 supports-backdrop-filter:bg-rc-beige/90 sticky top-0 z-50 border-b border-rc-blue/10 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -54,7 +55,8 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 items-center lg:flex">
+        <div className="hidden shrink-0 items-center gap-0.5 lg:flex">
+          <LanguageMenu />
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
@@ -69,9 +71,11 @@ export function SiteHeader() {
               <MoreVerticalIcon className="size-5" aria-hidden />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="min-w-44">
-              <DropdownMenuLabel className="text-xs font-normal text-muted-foreground">
-                More
-              </DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel className="text-xs font-normal text-muted-foreground">
+                  More
+                </DropdownMenuLabel>
+              </DropdownMenuGroup>
               <DropdownMenuSeparator />
               {SECONDARY_NAV.map(({ id, label }) => (
                 <DropdownMenuItem
@@ -86,8 +90,9 @@ export function SiteHeader() {
           </DropdownMenu>
         </div>
 
-        <div className="flex lg:hidden">
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+        <div className="flex items-center gap-0.5 lg:hidden">
+          <LanguageMenu />
+          <Sheet>
             <SheetTrigger
               render={
                 <Button
@@ -109,27 +114,35 @@ export function SiteHeader() {
                   Navigate
                 </p>
                 {PRIMARY_NAV.map(({ id, label }) => (
-                  <a
+                  <SheetClose
                     key={id}
-                    href={sectionHref(id)}
-                    className={cn(navLinkClass, "py-2")}
-                    onClick={() => setMobileOpen(false)}
+                    nativeButton={false}
+                    render={
+                      <a
+                        href={sectionHref(id)}
+                        className={cn(navLinkClass, "py-2")}
+                      />
+                    }
                   >
                     {label}
-                  </a>
+                  </SheetClose>
                 ))}
                 <p className="text-muted-foreground mt-6 mb-2 text-xs font-medium tracking-wide uppercase">
                   More
                 </p>
                 {SECONDARY_NAV.map(({ id, label }) => (
-                  <a
+                  <SheetClose
                     key={id}
-                    href={sectionHref(id)}
-                    className={cn(navLinkClass, "py-2")}
-                    onClick={() => setMobileOpen(false)}
+                    nativeButton={false}
+                    render={
+                      <a
+                        href={sectionHref(id)}
+                        className={cn(navLinkClass, "py-2")}
+                      />
+                    }
                   >
                     {label}
-                  </a>
+                  </SheetClose>
                 ))}
               </nav>
             </SheetContent>

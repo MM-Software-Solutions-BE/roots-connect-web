@@ -2,7 +2,11 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="bg-rc-beige text-rc-blue flex min-h-[60vh] flex-col items-center justify-center px-4 py-16">
+    <main
+      id="main"
+      tabIndex={-1}
+      className="bg-rc-beige text-rc-blue flex min-h-[60vh] flex-col items-center justify-center px-4 py-16"
+    >
       <p className="text-rc-brown mb-2 text-sm font-medium">
         Error 404
       </p>

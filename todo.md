@@ -4,7 +4,7 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
-**Volgende focus:** echte partnerlogo’s + eventkalender · dedicated **OG 1200×630** · §8.2 formulier indien gewenst.
+**Volgende focus:** hosting (**0.1** / **T.2**) · dedicated **OG 1200×630** · §8.2 formulier · optioneel **Dependabot** (**T.16**).
 
 ---
 
@@ -186,20 +186,20 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 | Status | ID | Taak | Opmerking |
 | :---: |----|------|-----------|
-| ⬜ | T.1 | **CI** (bv. GitHub Actions): `lint` + `build` op push/PR. | Voorkomt kapotte deploys. |
+| ✅ | T.1 | **GitHub Actions** `.github/workflows/ci.yml`: `npm ci`, `lint`, `build`. | Voorkomt kapotte deploys. |
 | ⬜ | T.2 | **Hosting** kiezen en **build output** valideren (Vercel/Netlify/Cloudflare Pages + Next.js). | Hoort bij 0.1 maar incl. preview-URLs. |
 | ✅ | T.3 | **`robots.ts`** + **`sitemap.ts`** → `/robots.txt`, `/sitemap.xml` (`SITE_URL`). | Crawlers; geen UI. |
-| ⬜ | T.4 | **`favicon.ico`**, **apple-touch-icon**, eventueel `manifest.webmanifest` (PWA-lite). | Tab/bladwijzer; geen sectie op de pagina. |
-| ⬜ | T.5 | **Structured data** (JSON-LD `Organization` / `WebSite`) voor zoekmachines. | Rich results mogelijk. |
+| 🟡 | T.4 | **`app/icon.jpg`** + **`app/apple-icon.jpg`** (kopie logo). *Optioneel:* `manifest`, aparte `.ico`. | Tab/bladwijzer. |
+| ✅ | T.5 | **JSON-LD** `Organization` + `WebSite` (`JsonLd` in `layout.tsx`). | Rich results mogelijk. |
 | ⬜ | T.6 | **Security headers** in `next.config` (o.a. HSTS via platform, `X-Frame-Options`, CSP indien haalbaar). | Geen zichtbare feature. |
 | ⬜ | T.7 | **Images**: `next/image`, formaten en sizes; lazy loading waar passend. | Sneller laden. |
 | ⬜ | T.8 | **Fonts**: subset/limit FOIT; geen onnodige font-weights. | Performance. |
-| 🟡 | T.9 | **`not-found.tsx`** (404). *500:* platform/hosting. | Professioneel. |
-| ⬜ | T.10 | **`.env.example`** documenteren (alleen keys, geen secrets); echte secrets in hosting. | Alleen voor developers. |
+| ✅ | T.9 | **`not-found.tsx`** + `#main` op 404/home/privacy. | Professioneel. |
+| 🟡 | T.10 | **`.env.example`** (placeholders). *Geen secrets in repo.* | Alleen voor developers. |
 | ⬜ | T.11 | **Analytics** alleen als afgesproken: privacy-friendly + verwerkers in privacytekst. | Kruis met **10.x**. |
 | ⬜ | T.12 | **Error monitoring** (optioneel, bv. Sentry) op productie. | Developers. |
 | ⬜ | T.13 | **Lighthouse / Core Web Vitals** baseline vóór launch (mobile + desktop). | KPI. |
-| ⬜ | T.14 | **Toegankelijkheid**-audit: contrast, focus, formulierlabels, heading-hiërarchie, skip-link optioneel. | Kwaliteit. |
+| 🟡 | T.14 | **Skip link** (`SkipLink` → `#main`). *Nog:* volledige audit. | Kwaliteit. |
 | 🟡 | T.15 | **`metadata`/`opengraph`**: `metadataBase`, OG + Twitter images (placeholder logo). *Nog:* **dedicated OG asset 1200×630**. |
 | ⬜ | T.16 | **Dependencies**: periodiek `npm audit` / Dependabot; major upgrades gepland. | Onderhoud. |
 | ⬜ | T.17 | **E-mail vanaf domein** (SPF, DKIM, DMARC) als je later mail vanaf @rootsconnect.be stuurt. | DNS. |
@@ -216,6 +216,11 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/app/sitemap.ts` | Sitemap voor `/` en `/privacy` |
 | `src/app/robots.ts` | `robots.txt` + sitemap-URL |
 | `src/app/not-found.tsx` | 404-pagina |
+| `src/app/icon.jpg` / `apple-icon.jpg` | Favicon (placeholder: logo) |
+| `src/components/json-ld.tsx` | Schema.org Organization + WebSite |
+| `src/components/skip-link.tsx` | Skip naar `#main` |
+| `.github/workflows/ci.yml` | Lint + build op push/PR |
+| `.env.example` | Placeholder env-documentatie |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
 | `src/config/site.ts` | `SITE_URL`, e-mail, KBO, social URLs, footer-credit |
 | `src/data/partners.ts` | Partnerkaarten (placeholders + optioneel `logoSrc`) |
@@ -236,4 +241,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** §7/§8 placeholders, echte LinkedIn/IG-URL’s, OG/Twitter image (logo); `partners.ts`, `events.ts`. *Build:* `npm run build` slaagt (CI nog **T.1**).
+- **Laatste update:** CI (`github/workflows`), favicon/apple-icon, JSON-LD, `.env.example`, skip-link. *Build:* `npm run build` slaagt.

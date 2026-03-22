@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-rc-beige text-rc-blue min-h-screen">
+    <main id="main" tabIndex={-1} className="bg-rc-beige text-rc-blue min-h-screen">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         <p className="text-rc-brown mb-2 text-sm font-medium">
           <Link href="/" className="hover:text-rc-blue underline-offset-2 hover:underline">

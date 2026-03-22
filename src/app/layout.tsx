@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { JsonLd } from "@/components/json-ld";
+import { SkipLink } from "@/components/skip-link";
 import { SiteHeader } from "@/components/site-header";
 import { SITE_URL } from "@/config/site";
 import "./globals.css";
@@ -59,6 +61,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <JsonLd />
+        <SkipLink />
         <SiteHeader />
         {children}
       </body>

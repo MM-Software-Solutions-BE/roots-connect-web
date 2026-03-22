@@ -1,0 +1,10 @@
+export { AboutSection } from "./about-section";
+export { ApproachSection } from "./approach-section";
+export { ContactSection } from "./contact-section";
+export { EventsSection } from "./events-section";
+export { HomeSection } from "./home-section";
+export { ImpactSection } from "./impact-section";
+export { PartnersSection } from "./partners-section";
+export { SectionShell } from "./section-shell";
+export { SiteFooter } from "./site-footer";
+export { TeamSection } from "./team-section";

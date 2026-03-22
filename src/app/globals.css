@@ -5,6 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Brand (Colors.txt) — use: bg-rc-beige, text-rc-blue, border-rc-brown, etc. */
+  --color-rc-beige: #f3f3e7;
+  --color-rc-blue: #0e293e;
+  --color-rc-brown: #a28772;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -49,20 +54,21 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Semantic mapping: beige canvas, blue text/primary, brown accents */
+  --background: #f3f3e7;
+  --foreground: #0e293e;
+  --card: #f3f3e7;
+  --card-foreground: #0e293e;
+  --popover: #f3f3e7;
+  --popover-foreground: #0e293e;
+  --primary: #0e293e;
+  --primary-foreground: #f3f3e7;
+  --secondary: color-mix(in oklab, #a28772 18%, #f3f3e7);
+  --secondary-foreground: #0e293e;
+  --muted: color-mix(in oklab, #0e293e 8%, #f3f3e7);
+  --muted-foreground: color-mix(in oklab, #0e293e 72%, white);
+  --accent: color-mix(in oklab, #a28772 22%, #f3f3e7);
+  --accent-foreground: #0e293e;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);

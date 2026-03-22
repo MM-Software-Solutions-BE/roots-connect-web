@@ -59,9 +59,12 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-rc-blue mb-2 text-lg font-semibold">4. Cookies</h2>
             <p>
-              This site may use essential cookies required for basic functionality. If analytics or
-              marketing cookies are added later, we will update this policy and, where required,
-              ask for your consent.
+              When you first visit, a cookie banner lets you choose <strong>essential only</strong>{" "}
+              or <strong>accept all</strong>. Essential cookies are needed for basic site operation.
+              Optional analytics (for example Google Analytics, when enabled) will only run if you
+              accept all — we do not load those scripts before you consent. You can change your mind
+              later by clearing site data for this domain; a future update may add a “manage
+              cookies” control.
             </p>
           </section>
           <section>

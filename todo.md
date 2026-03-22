@@ -155,7 +155,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
 | 🟡 | 10.1 | Pagina **`/privacy`** — startertekst (EN); juridisch laten nakijken voor BE/GDPR. | PDF |
-| ⬜ | 10.2 | Cookiebanner indien tracking/analytics (afhankelijk van keuzes). | GDPR |
+| 🟡 | 10.2 | **Cookiebanner** (`CookieBanner`) + `localStorage`; keuze essential / all. GA later: alleen laden bij `consentAllowsAnalytics()` in `cookie-consent.ts`. | GDPR |
 
 ---
 
@@ -221,6 +221,8 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/components/skip-link.tsx` | Skip naar `#main` |
 | `.github/workflows/ci.yml` | Lint + build op push/PR |
 | `.env.example` | Placeholder env-documentatie |
+| `src/components/cookie-banner.tsx` | Onderste balk, huisstijl |
+| `src/lib/cookie-consent.ts` | Opslag + `consentAllowsAnalytics()` voor latere GA |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
 | `src/config/site.ts` | `SITE_URL`, e-mail, KBO, social URLs, footer-credit |
 | `src/data/partners.ts` | Partnerkaarten (placeholders + optioneel `logoSrc`) |
@@ -241,4 +243,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** CI (`github/workflows`), favicon/apple-icon, JSON-LD, `.env.example`, skip-link. *Build:* `npm run build` slaagt.
+- **Laatste update:** cookiebanner + privacy §4; `consentAllowsAnalytics()` voor toekomstige GA. *Build:* `npm run build` slaagt.

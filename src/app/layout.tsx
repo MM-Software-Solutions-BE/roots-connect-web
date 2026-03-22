@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { CookieBanner } from "@/components/cookie-banner";
 import { JsonLd } from "@/components/json-ld";
 import { SkipLink } from "@/components/skip-link";
 import { SiteHeader } from "@/components/site-header";
@@ -65,6 +66,7 @@ export default function RootLayout({
         <SkipLink />
         <SiteHeader />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

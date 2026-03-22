@@ -65,7 +65,8 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | Ref | Subtaak | Status |
 |-----|---------|--------|
 | 2.a | Tweede alinea of highlight als klant meer copy wil | ⬜ |
-| 2.b | Achtergrond / decoratief element (patroon, foto) — alleen als gewenst | ⬜ |
+| 2.b | Hero **split layout** (tekst \| foto op `lg+`), eventfoto `public/images/home/hero-event-anass-redouan.jpeg` | ✅ |
+| 2.c | Extra beelden: About / Approach / Events — voeg bestanden toe + `next/image` waar passend | ⬜ |
 
 ---
 
@@ -225,6 +226,8 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/lib/cookie-consent.ts` | Opslag + `consentAllowsAnalytics()` voor latere GA |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
 | `src/config/site.ts` | `SITE_URL`, e-mail, KBO, social URLs, footer-credit |
+| `src/data/home-media.ts` | Hero-afbeelding pad + alt |
+| `public/images/home/` | Event/community foto’s voor home (o.a. hero) |
 | `src/data/partners.ts` | Partnerkaarten (placeholders + optioneel `logoSrc`) |
 | `src/data/events.ts` | Eventvoorbeelden voor §Events |
 | `src/app/privacy/page.tsx` | Privacy Policy (starter) |

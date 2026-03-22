@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import {
   AboutSection,
   ApproachSection,
@@ -9,6 +11,12 @@ import {
   SiteFooter,
   TeamSection,
 } from "@/components/sections";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

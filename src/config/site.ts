@@ -2,6 +2,8 @@
  * Central place for contact, legal, and social URLs.
  * Replace social URLs when official Roots Connect profiles are confirmed.
  */
+export const SITE_URL = "https://rootsconnect.be" as const;
+
 export const SITE = {
   name: "Roots Connect",
   email: "info@rootsconnect.be",

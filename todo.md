@@ -4,7 +4,7 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
-**Volgende focus:** partners-sectie / contact uitbreiden / SEO (`metadataBase`, OG) — zie **T.15**; cookiebanner alleen bij analytics (**10.2**).
+**Volgende focus:** §7 Partners (content) · §8 Contact/events afronden · **`openGraph.images`** wanneer beeld 1200×630 klaar is (**0.5b**).
 
 ---
 
@@ -16,9 +16,9 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | 0.4b | 0.4 | Header: `SiteLogo` + `next/image`, `alt="Roots Connect"` | ✅ |
 | 0.4c | 0.4 | Footer: zelfde logo in lichte box op donkere footer | ✅ |
 | 0.4d | 0.4 | Optioneel: witte/monochrome variant voor footer zonder box | ⬜ |
-| 0.5a | 0.5 / T.15 | `metadataBase` + canonical `https://rootsconnect.be` (pas invullen als domein live) | ⬜ |
+| 0.5a | 0.5 / T.15 | `metadataBase` (`SITE_URL`), canonical `/` + `/privacy`, OG + Twitter summary | ✅ |
 | 0.5b | 0.5 | `openGraph.images` (1200×630 of vergelijkbaar) — ontwerp nog te leveren | ⬜ |
-| 0.5c | 0.5 | `twitter:card` + optioneel `site` | ⬜ |
+| 0.5c | 0.5 | `twitter:card` summary (zonder groot beeld tot **0.5b**) | ✅ |
 | 3.x | §3 | Copy finetunen na goedkeuring klant (tone, lengte) | ⬜ |
 | 5.x | §5.2 | Afstemmen: booklet zegt **4** collaboraties, PDF zegt “Multiple” — één wording kiezen | ⬜ |
 | 6.x | §6 | Foto’s: Redouan + Anass in `team/*.png`; Houda, Mina, Yuan nog toevoegen → `src/data/team.ts` | 🟡 |
@@ -36,7 +36,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | ✅ | 0.2 | Design tokens / thema: kleuren uit **Colors.txt** in Tailwind/shadcn (`#f3f3e7` beige, `#0e293e` blauw, `#A28772` bruin). Zie `globals.css` (`rc-*` + semantische vars). | Colors.txt |
 | ✅ | 0.3 | Typografie en basislayout (max-width, sectie-rhythm). `SectionShell` + Geist als `--font-sans`. | Algemeen |
 | ✅ | 0.4 | **Logo** header + footer (`SiteLogo`, `public/images/brand/roots-connect-logo.jpeg`). | PDF landingspagina |
-| 🟡 | 0.5 | Metadata SEO: titel, beschrijving, Open Graph; taal **EN**. *Nu:* `title` + `description` in `layout.tsx`. *Nog:* `og:image`, canonical, `twitter:*` (zie ook **T.15**). | PDF + booklet |
+| 🟡 | 0.5 | Metadata SEO: *Nu:* `metadataBase`, OG, Twitter, canonicals, `SITE_URL`. *Nog:* **`og:image`** (zie **0.5b**). | PDF + booklet |
 
 ---
 
@@ -188,19 +188,19 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | :---: |----|------|-----------|
 | ⬜ | T.1 | **CI** (bv. GitHub Actions): `lint` + `build` op push/PR. | Voorkomt kapotte deploys. |
 | ⬜ | T.2 | **Hosting** kiezen en **build output** valideren (Vercel/Netlify/Cloudflare Pages + Next.js). | Hoort bij 0.1 maar incl. preview-URLs. |
-| ⬜ | T.3 | **`robots.txt`** + **`sitemap.xml`** (of `app/sitemap.ts` / `app/robots.ts` in Next.js). | Crawlers; geen UI. |
+| ✅ | T.3 | **`robots.ts`** + **`sitemap.ts`** → `/robots.txt`, `/sitemap.xml` (`SITE_URL`). | Crawlers; geen UI. |
 | ⬜ | T.4 | **`favicon.ico`**, **apple-touch-icon**, eventueel `manifest.webmanifest` (PWA-lite). | Tab/bladwijzer; geen sectie op de pagina. |
 | ⬜ | T.5 | **Structured data** (JSON-LD `Organization` / `WebSite`) voor zoekmachines. | Rich results mogelijk. |
 | ⬜ | T.6 | **Security headers** in `next.config` (o.a. HSTS via platform, `X-Frame-Options`, CSP indien haalbaar). | Geen zichtbare feature. |
 | ⬜ | T.7 | **Images**: `next/image`, formaten en sizes; lazy loading waar passend. | Sneller laden. |
 | ⬜ | T.8 | **Fonts**: subset/limit FOIT; geen onnodige font-weights. | Performance. |
-| ⬜ | T.9 | **404**-pagina + optioneel **500**; nette fout bij kapotte links. | Professioneel. |
+| 🟡 | T.9 | **`not-found.tsx`** (404). *500:* platform/hosting. | Professioneel. |
 | ⬜ | T.10 | **`.env.example`** documenteren (alleen keys, geen secrets); echte secrets in hosting. | Alleen voor developers. |
 | ⬜ | T.11 | **Analytics** alleen als afgesproken: privacy-friendly + verwerkers in privacytekst. | Kruis met **10.x**. |
 | ⬜ | T.12 | **Error monitoring** (optioneel, bv. Sentry) op productie. | Developers. |
 | ⬜ | T.13 | **Lighthouse / Core Web Vitals** baseline vóór launch (mobile + desktop). | KPI. |
 | ⬜ | T.14 | **Toegankelijkheid**-audit: contrast, focus, formulierlabels, heading-hiërarchie, skip-link optioneel. | Kwaliteit. |
-| 🟡 | T.15 | **`metadata`/`opengraph`**: `og:image`, `twitter:card`, canonical **rootsconnect.be**. | *Nu:* basis `metadata`; *nog:* image + canonical + Twitter. |
+| 🟡 | T.15 | **`metadata`/`opengraph`**: `metadataBase`, OG, Twitter summary, per-pagina canonical. *Nog:* **`og:image`**. |
 | ⬜ | T.16 | **Dependencies**: periodiek `npm audit` / Dependabot; major upgrades gepland. | Onderhoud. |
 | ⬜ | T.17 | **E-mail vanaf domein** (SPF, DKIM, DMARC) als je later mail vanaf @rootsconnect.be stuurt. | DNS. |
 
@@ -210,11 +210,14 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 | Pad | Inhoud |
 |-----|--------|
-| `src/app/page.tsx` | Homepagina: alleen import + volgorde secties |
+| `src/app/page.tsx` | Home + `metadata.canonical` `/` |
 | `src/app/globals.css` | Brand tokens `rc-*`, shadcn-variabelen |
-| `src/app/layout.tsx` | Metadata, fonts |
+| `src/app/layout.tsx` | `metadataBase`, OG, Twitter, fonts |
+| `src/app/sitemap.ts` | Sitemap voor `/` en `/privacy` |
+| `src/app/robots.ts` | `robots.txt` + sitemap-URL |
+| `src/app/not-found.tsx` | 404-pagina |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
-| `src/config/site.ts` | E-mail, KBO, social URLs, footer-credit |
+| `src/config/site.ts` | `SITE_URL`, e-mail, KBO, social URLs, footer-credit |
 | `src/app/privacy/page.tsx` | Privacy Policy (starter) |
 | `src/components/site-header.tsx` | Sticky nav, desktop links, ⋮-dropdown, mobiel Sheet |
 | `src/components/site-logo.tsx` | `next/image` logo (`/images/brand/roots-connect-logo.jpeg`) |
@@ -231,4 +234,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** footer (social, contact, KBO, privacy-link, ©) + `/privacy` starter; `src/config/site.ts`. *Build:* `npm run build` slaagt (CI nog **T.1**).
+- **Laatste update:** SEO (`SITE_URL`, `metadataBase`, OG, Twitter, canonicals), `sitemap`/`robots`, `not-found`. *Build:* `npm run build` slaagt (CI nog **T.1**).

@@ -1,25 +1,41 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  Eye,
+  GraduationCap,
+  MessagesSquare,
+  UsersRound,
+} from "lucide-react";
+
 import { SectionShell } from "@/components/sections/section-shell";
 
-const tiles = [
+const tiles: {
+  stat: string;
+  label: string;
+  Icon: LucideIcon;
+}[] = [
   {
     stat: "Multiple",
     label: "collaborations with student associations",
+    Icon: GraduationCap,
   },
   {
     stat: "10,000+",
     label: "monthly views on our social media",
+    Icon: Eye,
   },
   {
     stat: "170+",
     label:
       "members (young professionals active in the legal sector) in our Roots Connect community",
+    Icon: UsersRound,
   },
   {
     stat: "Support",
     label:
       "Ad hoc — we are regularly contacted by law students with practical questions about the legal profession.",
+    Icon: MessagesSquare,
   },
-] as const;
+];
 
 export function ImpactSection() {
   return (
@@ -35,15 +51,25 @@ export function ImpactSection() {
         Our impact
       </h2>
       <div className="grid gap-6 sm:grid-cols-2">
-        {tiles.map((tile) => (
+        {tiles.map(({ stat, label, Icon }) => (
           <article
-            key={tile.label}
-            className="border-rc-blue/15 bg-white/50 rounded-xl border p-6 shadow-sm"
+            key={label}
+            className="border-rc-blue/15 from-rc-beige/40 bg-linear-to-br to-white/80 rounded-xl border p-6 shadow-sm ring-1 ring-rc-blue/5"
           >
-            <p className="text-rc-brown mb-2 text-3xl font-semibold tabular-nums tracking-tight sm:text-4xl">
-              {tile.stat}
+            <div className="mb-5 flex items-center gap-4">
+              <div
+                className="bg-rc-blue/8 text-rc-brown flex size-14 shrink-0 items-center justify-center rounded-2xl shadow-inner ring-1 ring-rc-blue/10"
+                aria-hidden
+              >
+                <Icon className="size-7" strokeWidth={1.6} />
+              </div>
+              <p className="text-rc-brown min-w-0 flex-1 text-3xl font-semibold tabular-nums tracking-tight sm:text-4xl">
+                {stat}
+              </p>
+            </div>
+            <p className="text-rc-blue/85 border-rc-blue/10 border-t pt-4 text-pretty leading-relaxed">
+              {label}
             </p>
-            <p className="text-rc-blue/85 text-pretty leading-relaxed">{tile.label}</p>
           </article>
         ))}
       </div>

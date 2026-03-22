@@ -1,13 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { defaultOgImages, OG_IMAGE_ABSOLUTE_URL } from "@/config/og";
 import { SITE } from "@/config/site";
 
+const privacyTitle = "Privacy Policy";
+const privacyDescription = `Privacy policy for ${SITE.name}.`;
+
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `Privacy policy for ${SITE.name}.`,
+  title: privacyTitle,
+  description: privacyDescription,
   alternates: {
     canonical: "/privacy",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_BE",
+    url: "/privacy",
+    siteName: SITE.name,
+    title: privacyTitle,
+    description: privacyDescription,
+    images: defaultOgImages,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: privacyTitle,
+    description: privacyDescription,
+    images: [OG_IMAGE_ABSOLUTE_URL],
   },
 };
 

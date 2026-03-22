@@ -5,6 +5,7 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { JsonLd } from "@/components/json-ld";
 import { SkipLink } from "@/components/skip-link";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOgImages, defaultTwitterMetadata } from "@/config/og";
 import { SITE_DESCRIPTION, SITE_URL } from "@/config/site";
 import "./globals.css";
 
@@ -36,20 +37,9 @@ export const metadata: Metadata = {
     siteName: "Roots Connect",
     title: "Roots Connect",
     description: SITE_DESCRIPTION,
-    /** Placeholder — replace with a 1200×630 branded image when available */
-    images: [
-      {
-        url: "/images/brand/roots-connect-logo.jpeg",
-        alt: "Roots Connect",
-      },
-    ],
+    images: defaultOgImages,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Roots Connect",
-    description: SITE_DESCRIPTION,
-    images: ["/images/brand/roots-connect-logo.jpeg"],
-  },
+  twitter: defaultTwitterMetadata(),
 };
 
 export default function RootLayout({

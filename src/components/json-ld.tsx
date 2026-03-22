@@ -1,6 +1,5 @@
+import { OG_IMAGE_ABSOLUTE_URL } from "@/config/og";
 import { SITE, SITE_URL } from "@/config/site";
-
-const logoUrl = `${SITE_URL}/images/brand/roots-connect-logo.jpeg`;
 
 export function JsonLd() {
   const organization = {
@@ -8,7 +7,7 @@ export function JsonLd() {
     "@type": "Organization",
     name: SITE.name,
     url: SITE_URL,
-    logo: logoUrl,
+    logo: OG_IMAGE_ABSOLUTE_URL,
     email: SITE.email,
     identifier: SITE.companyNumber,
     sameAs: [SITE.social.linkedin, SITE.social.instagram],

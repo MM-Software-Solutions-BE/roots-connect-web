@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { defaultOgImages } from "@/config/og";
+import { SITE_DESCRIPTION } from "@/config/site";
 import {
   AboutSection,
   ApproachSection,
@@ -15,6 +17,12 @@ import {
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    url: "/",
+    title: "Roots Connect",
+    description: SITE_DESCRIPTION,
+    images: defaultOgImages,
   },
 };
 

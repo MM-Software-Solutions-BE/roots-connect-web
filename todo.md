@@ -4,7 +4,7 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
-**Volgende focus:** §9 Footer (links, KBO, ©) → §10 Privacy; optioneel extra teamfoto’s in `public/images/team/`.
+**Volgende focus:** partners-sectie / contact uitbreiden / SEO (`metadataBase`, OG) — zie **T.15**; cookiebanner alleen bij analytics (**10.2**).
 
 ---
 
@@ -23,7 +23,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | 5.x | §5.2 | Afstemmen: booklet zegt **4** collaboraties, PDF zegt “Multiple” — één wording kiezen | ⬜ |
 | 6.x | §6 | Foto’s: Redouan + Anass in `team/*.png`; Houda, Mina, Yuan nog toevoegen → `src/data/team.ts` | 🟡 |
 | 8.x | §8.2 | Kiezen: alleen `mailto:` vs. formulier (Netlify/Vercel/Resend) + spamstrategie | ⬜ |
-| 9.x | §9 | Exacte URL’s LinkedIn + Instagram + naam developer in footer | ⬜ |
+| 9.x | §9 | Social-URL’s verifiëren in `src/config/site.ts` (nu placeholders) | 🟡 |
 | 10.x | §10 | Privacytekst door klant of template BE | ⬜ |
 
 ---
@@ -140,13 +140,13 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| ⬜ | 9.1 | Quicklinks: **LinkedIn**, **Instagram** (juiste URLs Roots Connect). | PDF |
-| ⬜ | 9.2 | Contact: e-mail **info@rootsconnect.be**; telefoon/adres indien beschikbaar. | PDF |
-| ⬜ | 9.3 | **Ondernemingsnummer:** BE1026.631.469. | PDF |
-| ⬜ | 9.4 | Juridisch: link naar **Privacy Policy**-pagina. | PDF |
-| ⬜ | 9.5 | Onderaan: **© Roots Connect 2026** + **naam webdeveloper** (zoals briefing). | PDF |
-| ⬜ | 9.6 | Logo onderaan (herhaling van 0.4 indien apart ontwerp). | PDF |
-| 🟡 | — | *Nu:* `site-footer.tsx` met placeholderregel; uitbreiden met bovenstaande. | — |
+| 🟡 | 9.1 | Quicklinks **LinkedIn**, **Instagram** — URLs in `src/config/site.ts` (controleren op live). | PDF |
+| 🟡 | 9.2 | Contact: e-mail **info@rootsconnect.be**; telefoon/adres indien beschikbaar. | PDF |
+| ✅ | 9.3 | **Ondernemingsnummer:** BE1026.631.469. | PDF |
+| ✅ | 9.4 | Link naar **Privacy Policy** → `/privacy`. | PDF |
+| ✅ | 9.5 | Onderaan **©** + jaartal + **Website:** credit (`SITE.webCredit` in `site.ts`). | PDF |
+| ✅ | 9.6 | Logo onderaan (in footer). | PDF |
+| ✅ | — | `site-footer.tsx`: grid Follow / Contact / Legal. | — |
 
 ---
 
@@ -154,7 +154,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| ⬜ | 10.1 | Pagina **Privacy Policy** (tekst door klant of juridisch template BE). | PDF |
+| 🟡 | 10.1 | Pagina **`/privacy`** — startertekst (EN); juridisch laten nakijken voor BE/GDPR. | PDF |
 | ⬜ | 10.2 | Cookiebanner indien tracking/analytics (afhankelijk van keuzes). | GDPR |
 
 ---
@@ -214,6 +214,8 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | `src/app/globals.css` | Brand tokens `rc-*`, shadcn-variabelen |
 | `src/app/layout.tsx` | Metadata, fonts |
 | `src/config/navigation.ts` | `PRIMARY_NAV`, `SECONDARY_NAV`, ankers |
+| `src/config/site.ts` | E-mail, KBO, social URLs, footer-credit |
+| `src/app/privacy/page.tsx` | Privacy Policy (starter) |
 | `src/components/site-header.tsx` | Sticky nav, desktop links, ⋮-dropdown, mobiel Sheet |
 | `src/components/site-logo.tsx` | `next/image` logo (`/images/brand/roots-connect-logo.jpeg`) |
 | `src/data/team.ts` | Teamleden + image-paden |
@@ -229,4 +231,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** logo + teamfoto’s (Redouan, Anass) in `public/images/`; `SiteLogo`, `team.ts`. *Build:* `npm run build` slaagt (CI nog **T.1**).
+- **Laatste update:** footer (social, contact, KBO, privacy-link, ©) + `/privacy` starter; `src/config/site.ts`. *Build:* `npm run build` slaagt (CI nog **T.1**).

@@ -32,24 +32,22 @@ export function ImpactSection() {
       >
         {t("impact.title")}
       </h2>
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {tileKeys.map(({ statKey, labelKey, Icon }) => (
           <article
             key={labelKey}
-            className="border-rc-blue/15 from-rc-beige/40 bg-linear-to-br to-white/80 rc-card-hover rounded-xl border p-6 shadow-sm ring-1 ring-rc-blue/5"
+            className="border-rc-blue/15 bg-white/50 rc-card-hover flex flex-col rounded-xl border p-6 shadow-sm"
           >
-            <div className="mb-5 flex items-center gap-4">
-              <div
-                className="bg-rc-blue/8 text-rc-brown flex size-14 shrink-0 items-center justify-center rounded-2xl shadow-inner ring-1 ring-rc-blue/10"
-                aria-hidden
-              >
-                <Icon className="size-7" strokeWidth={1.6} />
-              </div>
-              <p className="text-rc-brown min-w-0 flex-1 text-3xl font-semibold tabular-nums tracking-tight sm:text-4xl">
-                {t(statKey)}
-              </p>
+            <div
+              className="bg-rc-beige/12 text-rc-beige mb-4 flex size-12 shrink-0 items-center justify-center rounded-xl"
+              aria-hidden
+            >
+              <Icon className="size-6" strokeWidth={1.5} />
             </div>
-            <p className="text-rc-blue/85 border-rc-blue/10 border-t pt-4 text-pretty leading-relaxed">
+            <p className="text-rc-beige mb-2 text-2xl font-semibold tabular-nums tracking-tight sm:text-3xl">
+              {t(statKey)}
+            </p>
+            <p className="text-rc-beige/85 text-pretty text-sm leading-relaxed">
               {t(labelKey)}
             </p>
           </article>

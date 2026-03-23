@@ -14,7 +14,7 @@ export function HomeSection() {
   return (
     <SectionShell
       id="home"
-      containerClassName="max-w-5xl py-0 pt-4 pb-16 sm:pt-8 sm:pb-20 lg:py-28"
+      containerClassName="max-w-[1920px] py-0 pt-4 pb-16 sm:pt-8 sm:pb-20 lg:py-28"
       className="bg-rc-beige border-b border-rc-blue/20"
     >
       <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">
@@ -33,16 +33,16 @@ export function HomeSection() {
           </p>
           <div className="flex flex-wrap gap-3">
             <PrimaryCtaLink
-              href={SITE.googleFormEventUpdates ?? "#contact"}
+              href="/peers"
               className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90"
             >
-              {t("home.cta.events")}
+              {t("home.cta.peers")}
             </PrimaryCtaLink>
             <Link
-              href="/peers"
+              href={SITE.googleFormEventUpdates ?? "#contact"}
               className="inline-flex h-10 min-w-0 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
             >
-              {t("home.cta.peers")}
+              {t("home.cta.events")}
             </Link>
             <a
               href="#contact"

@@ -51,7 +51,7 @@ export function SiteHeader() {
   const { t } = useTranslations();
   return (
     <header className="bg-rc-beige/95 supports-backdrop-filter:bg-rc-beige/90 sticky top-0 z-50 border-b border-rc-blue/10 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-[1920px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href="/"
           className="text-rc-blue/90 hover:text-rc-blue shrink-0 rounded-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
@@ -63,9 +63,13 @@ export function SiteHeader() {
           className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:gap-8"
           aria-label="Main"
         >
-          {PRIMARY_NAV.map(({ id, label }) => (
-            <a key={id} href={homeSectionHref(id)} className={navLinkClass}>
-              {getNavLabel({ id, label }, t)}
+          {PRIMARY_NAV.map((item) => (
+            <a
+              key={"href" in item ? item.href : item.id}
+              href={"href" in item ? item.href : homeSectionHref(item.id)}
+              className={navLinkClass}
+            >
+              {getNavLabel(item, t)}
             </a>
           ))}
         </nav>
@@ -137,18 +141,18 @@ export function SiteHeader() {
                 <p className="text-rc-blue/75 mb-2 text-xs font-medium tracking-wide uppercase">
                   {t("nav.navigate")}
                 </p>
-                {PRIMARY_NAV.map(({ id, label }) => (
+                {PRIMARY_NAV.map((item) => (
                   <SheetClose
-                    key={id}
+                    key={"href" in item ? item.href : item.id}
                     nativeButton={false}
                     render={
                       <a
-                        href={homeSectionHref(id)}
+                        href={"href" in item ? item.href : homeSectionHref(item.id)}
                         className={cn(navLinkClass, "block py-2")}
                       />
                     }
                   >
-                    {getNavLabel({ id, label }, t)}
+                    {getNavLabel(item, t)}
                   </SheetClose>
                 ))}
                 <p className="text-rc-blue/75 mt-6 mb-2 text-xs font-medium tracking-wide uppercase">

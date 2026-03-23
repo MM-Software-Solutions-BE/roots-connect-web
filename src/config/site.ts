@@ -29,5 +29,5 @@ export const SITE = {
    * Maak een form op https://formspree.io, stel ontvanger in op info@rootsconnect.be,
    * en plak hier het form-ID (bv. "mabcxyzw" uit https://formspree.io/f/mabcxyzw).
    */
-  formspreeFormId: null as string | null,
+  formspreeFormId: "maqprqwj" as string | null,
 } as const;

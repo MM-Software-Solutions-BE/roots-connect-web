@@ -2,55 +2,57 @@
 
 import * as React from "react";
 
-import { SITE } from "@/config/site";
+import { SITE, SITE_URL } from "@/config/site";
 import { useTranslations } from "@/lib/translations";
 
-type Status = "idle" | "submitting" | "success" | "error";
+const FORM_ACTION = SITE.formspreeFormId
+  ? `https://formspree.io/f/${SITE.formspreeFormId}`
+  : undefined;
+const CAN_SUBMIT = !!SITE.formspreeFormId;
+const NEXT_URL = `${SITE_URL}/?submitted=1#contact`;
 
 export function ContactForm() {
   const { t } = useTranslations();
-  const [status, setStatus] = React.useState<Status>("idle");
+  const [mounted, setMounted] = React.useState(false);
+  const [showSuccess, setShowSuccess] = React.useState(false);
 
-  const formAction = SITE.formspreeFormId
-    ? `https://formspree.io/f/${SITE.formspreeFormId}`
-    : null;
-  const canSubmit = !!SITE.formspreeFormId;
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!canSubmit) return;
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    setStatus("submitting");
-
-    try {
-      const res = await fetch(formAction!, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
+  React.useEffect(() => {
+    if (!mounted || typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("submitted") === "1") {
+      setShowSuccess(true);
+      window.history.replaceState({}, "", window.location.pathname + "#contact");
     }
+  }, [mounted]);
+
+  if (!mounted) {
+    return (
+      <div
+        className="border-rc-blue/15 bg-white/50 max-w-xl animate-pulse space-y-4 rounded-xl border p-6"
+        aria-hidden="true"
+      >
+        <div className="h-10 rounded-lg bg-rc-blue/10" />
+        <div className="h-10 rounded-lg bg-rc-blue/10" />
+        <div className="h-24 rounded-lg bg-rc-blue/10" />
+        <div className="h-10 w-24 rounded-lg bg-rc-blue/10" />
+      </div>
+    );
   }
 
   return (
     <form
-      action={formAction ?? undefined}
+      action={FORM_ACTION}
       method="POST"
-      onSubmit={onSubmit}
+      autoComplete="off"
       className="border-rc-blue/15 bg-white/50 max-w-xl space-y-4 rounded-xl border p-6 shadow-sm"
     >
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <input type="hidden" name="_subject" value="Contact — Roots Connect website" />
+      <input type="hidden" name="_next" value={NEXT_URL} />
 
       <div>
         <label htmlFor="contact-name" className="text-rc-beige mb-1 block text-sm font-medium">
@@ -61,7 +63,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          disabled={status === "submitting"}
+          autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
           placeholder={t("contact.form.namePlaceholder")}
         />
@@ -76,7 +78,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          disabled={status === "submitting"}
+          autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
           placeholder={t("contact.form.emailPlaceholder")}
         />
@@ -91,26 +93,17 @@ export function ContactForm() {
           name="message"
           required
           rows={4}
-          disabled={status === "submitting"}
+          autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full resize-y rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
           placeholder={t("contact.form.messagePlaceholder")}
         />
       </div>
 
-      {status === "success" && (
+      {showSuccess && (
         <p className="text-rc-beige/90 text-sm">{t("contact.form.success")}</p>
       )}
-      {status === "error" && (
-        <p className="text-sm text-red-400">
-          {t("contact.form.error")}{" "}
-          <a href={`mailto:${SITE.email}`} className="underline">
-            {SITE.email}
-          </a>
-          .
-        </p>
-      )}
 
-      {!canSubmit && (
+      {!CAN_SUBMIT && (
         <p className="text-rc-beige/60 text-xs">
           {t("contact.form.noFormId")}{" "}
           <a href={`mailto:${SITE.email}`} className="underline hover:text-rc-beige/80">
@@ -121,10 +114,10 @@ export function ContactForm() {
       )}
       <button
         type="submit"
-        disabled={status === "submitting" || !canSubmit}
+        disabled={!CAN_SUBMIT}
         className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 disabled:opacity-60 inline-flex h-10 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
       >
-        {status === "submitting" ? t("contact.form.submitting") : t("contact.form.submit")}
+        {t("contact.form.submit")}
       </button>
     </form>
   );

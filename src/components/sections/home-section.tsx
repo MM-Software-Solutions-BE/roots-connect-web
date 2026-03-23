@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -5,11 +7,10 @@ import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { SectionShell } from "@/components/sections/section-shell";
 import { SITE } from "@/config/site";
 import { HOME_HERO_IMAGE } from "@/data/home-media";
-
-const INTRO_COPY =
-  "Roots Connect is the first Belgian network of lawyers and (young) legal professionals committed to empowering students and young professionals from underrepresented backgrounds, in particular those with bicultural roots and first-generation academic trajectories.";
+import { useTranslations } from "@/lib/translations";
 
 export function HomeSection() {
+  const { t } = useTranslations();
   return (
     <SectionShell
       id="home"
@@ -19,29 +20,29 @@ export function HomeSection() {
       <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="order-2 min-w-0 lg:order-1">
           <p className="text-rc-blue/85 mb-3 text-sm font-medium uppercase tracking-wide">
-            Roots Connect
+            {t("home.brand")}
           </p>
           <h1 className="text-rc-blue mb-4 max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[2.75rem] lg:leading-[1.1]">
-            Connecting roots through law
+            {t("home.title")}
           </h1>
           <p className="text-rc-blue/90 mb-6 max-w-xl text-lg sm:text-xl">
-            Empowering the next generation of legal talent
+            {t("home.subtitle")}
           </p>
           <p className="text-rc-blue/80 mb-10 max-w-xl leading-relaxed">
-            {INTRO_COPY}
+            {t("home.intro")}
           </p>
           <div className="flex flex-wrap gap-3">
             <PrimaryCtaLink
               href={SITE.googleFormEventUpdates ?? "#contact"}
               className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90"
             >
-              Stay informed about our upcoming events
+              {t("home.cta.events")}
             </PrimaryCtaLink>
             <Link
               href="/peers"
               className="inline-flex h-10 min-w-0 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
             >
-              Vind een peer in ons netwerk
+              {t("home.cta.peers")}
             </Link>
           </div>
         </div>

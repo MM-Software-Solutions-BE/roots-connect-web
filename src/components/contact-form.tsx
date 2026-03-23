@@ -3,10 +3,12 @@
 import * as React from "react";
 
 import { SITE } from "@/config/site";
+import { useTranslations } from "@/lib/translations";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
+  const { t } = useTranslations();
   const [status, setStatus] = React.useState<Status>("idle");
 
   const formAction = SITE.formspreeFormId
@@ -52,7 +54,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="contact-name" className="text-rc-beige mb-1 block text-sm font-medium">
-          Naam
+          {t("contact.form.name")}
         </label>
         <input
           id="contact-name"
@@ -61,13 +63,13 @@ export function ContactForm() {
           required
           disabled={status === "submitting"}
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
-          placeholder="Uw naam"
+          placeholder={t("contact.form.namePlaceholder")}
         />
       </div>
 
       <div>
         <label htmlFor="contact-email" className="text-rc-beige mb-1 block text-sm font-medium">
-          E-mail
+          {t("contact.form.email")}
         </label>
         <input
           id="contact-email"
@@ -76,13 +78,13 @@ export function ContactForm() {
           required
           disabled={status === "submitting"}
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
-          placeholder="uw@email.be"
+          placeholder={t("contact.form.emailPlaceholder")}
         />
       </div>
 
       <div>
         <label htmlFor="contact-message" className="text-rc-beige mb-1 block text-sm font-medium">
-          Bericht
+          {t("contact.form.message")}
         </label>
         <textarea
           id="contact-message"
@@ -91,16 +93,16 @@ export function ContactForm() {
           rows={4}
           disabled={status === "submitting"}
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full resize-y rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
-          placeholder="Uw bericht..."
+          placeholder={t("contact.form.messagePlaceholder")}
         />
       </div>
 
       {status === "success" && (
-        <p className="text-rc-beige/90 text-sm">Bedankt! We nemen zo snel mogelijk contact op.</p>
+        <p className="text-rc-beige/90 text-sm">{t("contact.form.success")}</p>
       )}
       {status === "error" && (
         <p className="text-sm text-red-400">
-          Er ging iets mis. Probeer opnieuw of mail direct naar{" "}
+          {t("contact.form.error")}{" "}
           <a href={`mailto:${SITE.email}`} className="underline">
             {SITE.email}
           </a>
@@ -110,7 +112,7 @@ export function ContactForm() {
 
       {!canSubmit && (
         <p className="text-rc-beige/60 text-xs">
-          Formspree-ID nog niet ingesteld. Mail intussen naar{" "}
+          {t("contact.form.noFormId")}{" "}
           <a href={`mailto:${SITE.email}`} className="underline hover:text-rc-beige/80">
             {SITE.email}
           </a>
@@ -122,7 +124,7 @@ export function ContactForm() {
         disabled={status === "submitting" || !canSubmit}
         className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 disabled:opacity-60 inline-flex h-10 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
       >
-        {status === "submitting" ? "Verzenden..." : "Verstuur"}
+        {status === "submitting" ? t("contact.form.submitting") : t("contact.form.submit")}
       </button>
     </form>
   );

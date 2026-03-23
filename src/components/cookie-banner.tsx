@@ -4,10 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "@/lib/translations";
 import { type CookieConsentValue, getStoredConsent, setStoredConsent } from "@/lib/cookie-consent";
 import { cn } from "@/lib/utils";
 
 export function CookieBanner() {
+  const { t } = useTranslations();
   const [visible, setVisible] = React.useState(false);
 
   React.useEffect(() => {
@@ -39,24 +41,24 @@ export function CookieBanner() {
             id="cookie-banner-title"
             className="text-rc-blue mb-2 text-sm font-semibold tracking-tight"
           >
-            Cookies &amp; privacy
+            {t("cookie.title")}
           </h2>
           <p
             id="cookie-banner-desc"
             className="text-rc-blue/85 text-pretty text-sm leading-relaxed"
           >
-            We use essential cookies so this site works securely. With your permission we may later
-            add optional tools such as <strong className="text-rc-blue font-medium">Google Analytics</strong>{" "}
-            to understand how visitors use the site — those will{" "}
-            <strong className="text-rc-blue font-medium">only</strong> load if you choose{" "}
-            <em>Accept all</em>. Read more in our{" "}
+            {t("cookie.descPrefix")}
+            <strong className="text-rc-blue font-medium">{t("cookie.descAnalytics")}</strong>
+            {t("cookie.descMiddle")}
+            <em>{t("cookie.descAccept")}</em>
+            {t("cookie.descSuffix")}
             <Link
               href="/privacy"
               className="text-rc-blue font-medium underline decoration-rc-brown/50 underline-offset-2 hover:decoration-rc-brown"
             >
-              Privacy Policy
+              {t("cookie.privacyPolicy")}
             </Link>
-            .
+            {t("cookie.descEnd")}
           </p>
         </div>
         <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:items-center">
@@ -66,14 +68,14 @@ export function CookieBanner() {
             className="border-rc-blue/25 text-rc-blue hover:bg-rc-blue/5 w-full sm:w-auto"
             onClick={() => save("essential")}
           >
-            Essential only
+            {t("cookie.essentialOnly")}
           </Button>
           <Button
             type="button"
             className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 w-full border-0 sm:w-auto"
             onClick={() => save("all")}
           >
-            Accept all
+            {t("cookie.acceptAll")}
           </Button>
         </div>
       </div>

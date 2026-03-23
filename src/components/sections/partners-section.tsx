@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 
 import { PARTNERS } from "@/data/partners";
 import { SectionShell } from "@/components/sections/section-shell";
+import { useTranslations } from "@/lib/translations";
 
 export function PartnersSection() {
+  const { t, raw } = useTranslations();
   return (
     <SectionShell
       id="our-partners"
@@ -14,11 +18,10 @@ export function PartnersSection() {
         id="partners-heading"
         className="text-rc-blue mb-3 text-3xl font-semibold tracking-tight"
       >
-        Our partners
+        {t("partners.title")}
       </h2>
       <p className="text-rc-blue/75 mb-2 max-w-2xl text-sm leading-relaxed">
-        We work with long-term partners and sponsors who share our mission and help us create
-        meaningful opportunities for students and young professionals.
+        {t("partners.intro")}
       </p>
       <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {PARTNERS.map((p) => (
@@ -36,14 +39,14 @@ export function PartnersSection() {
                 ) : null}
               </div>
               <h3 className="text-rc-beige text-base font-semibold">{p.name}</h3>
-              {p.tagline ? (
+              {(raw(`partner.${p.id}.tagline`) ?? p.tagline) ? (
                 <p className="text-rc-beige/60 mt-1 text-xs font-medium uppercase tracking-wide">
-                  {p.tagline}
+                  {raw(`partner.${p.id}.tagline`) ?? p.tagline}
                 </p>
               ) : null}
-              {p.description ? (
+              {(raw(`partner.${p.id}.description`) ?? p.description) ? (
                 <p className="text-rc-beige/80 mt-3 text-sm leading-relaxed">
-                  {p.description}
+                  {raw(`partner.${p.id}.description`) ?? p.description}
                 </p>
               ) : null}
               {(p.websiteUrl || p.linkedInUrl) && (
@@ -55,7 +58,7 @@ export function PartnersSection() {
                       rel="noopener noreferrer"
                       className="underline hover:text-rc-beige"
                     >
-                      Website
+                      {t("partners.website")}
                     </a>
                   )}
                   {p.linkedInUrl && (
@@ -65,7 +68,7 @@ export function PartnersSection() {
                       rel="noopener noreferrer"
                       className="underline hover:text-rc-beige"
                     >
-                      LinkedIn
+                      {t("partners.linkedIn")}
                     </a>
                   )}
                 </p>

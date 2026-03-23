@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 
 import { TEAM_MEMBERS } from "@/data/team";
 import { SectionShell } from "@/components/sections/section-shell";
+import { useTranslations } from "@/lib/translations";
 
 export function TeamSection() {
+  const { t } = useTranslations();
   return (
     <SectionShell
       id="our-team"
@@ -14,7 +18,7 @@ export function TeamSection() {
         id="team-heading"
         className="text-rc-blue mb-10 text-3xl font-semibold tracking-tight"
       >
-        Our team
+        {t("team.title")}
       </h2>
       <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {TEAM_MEMBERS.map((member) => (
@@ -31,13 +35,13 @@ export function TeamSection() {
                   />
                 ) : (
                   <div className="text-rc-blue/45 flex h-full items-center justify-center p-4 text-center text-sm">
-                    Photo coming soon
+                    {t("team.photoComingSoon")}
                   </div>
                 )}
               </div>
               <h3 className="text-rc-blue text-lg font-semibold">{member.name}</h3>
               <p className="text-rc-brown text-sm font-medium">{member.role}</p>
-              <p className="text-rc-blue/80 text-sm">Lawyer, {member.practice}</p>
+              <p className="text-rc-blue/80 text-sm">{t("team.lawyerPrefix")}, {member.practice}</p>
             </article>
           </li>
         ))}

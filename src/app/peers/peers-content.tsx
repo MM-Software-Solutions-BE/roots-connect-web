@@ -1,8 +1,9 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { LinkedinIcon, MailIcon } from "lucide-react";
+import { LinkedinIcon, MailIcon, SearchIcon } from "lucide-react";
 
 import { buildMailto } from "@/lib/mailto";
 import { SITE } from "@/config/site";
@@ -24,8 +25,26 @@ Kind regards,
   });
 }
 
+function matchesSearch(member: (typeof PEERS)[number], query: string): boolean {
+  if (!query.trim()) return true;
+  const q = query.toLowerCase().trim();
+  return (
+    member.name.toLowerCase().includes(q) ||
+    member.practice.toLowerCase().includes(q) ||
+    member.role.toLowerCase().includes(q)
+  );
+}
+
 export function PeersContent() {
   const { t } = useTranslations();
+  const [query, setQuery] = React.useState("");
+  const filteredPeers = React.useMemo(
+    () => PEERS.filter((m) => matchesSearch(m, query)),
+    [query]
+  );
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main
       id="main"
@@ -77,12 +96,32 @@ export function PeersContent() {
           </div>
         </div>
 
-        <h2 className="text-rc-blue mb-8 text-xl font-semibold tracking-tight">
+        <h2 className="text-rc-blue mb-4 text-xl font-semibold tracking-tight">
           {t("peers.ourPeers")}
         </h2>
 
+        <div className="relative mb-8">
+          <SearchIcon
+            className="text-rc-blue/50 pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2"
+            aria-hidden
+          />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={t("peers.searchPlaceholder")}
+            aria-label={t("peers.searchPlaceholder")}
+            className="border-rc-blue/20 text-rc-blue placeholder:text-rc-blue/50 w-full rounded-lg border bg-white/10 py-2.5 pl-10 pr-4 text-sm outline-none focus:ring-2 focus:ring-rc-blue/40"
+          />
+        </div>
+
+        {filteredPeers.length === 0 ? (
+          <p className="text-rc-blue/80 py-12 text-center">
+            {t("peers.noResults")}
+          </p>
+        ) : (
         <ul className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          {PEERS.map((member) => (
+          {filteredPeers.map((member) => (
             <li key={member.name}>
               <article className="rc-card-hover flex flex-col rounded-xl border border-rc-blue/10 bg-white/5 p-6 shadow-sm">
                 <div className="border-rc-blue/15 relative mb-5 aspect-[4/5] w-full overflow-hidden rounded-lg border bg-rc-blue/5 shadow-sm">
@@ -143,6 +182,7 @@ export function PeersContent() {
             </li>
           ))}
         </ul>
+        )}
       </div>
     </main>
   );

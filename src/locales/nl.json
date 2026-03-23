@@ -114,6 +114,8 @@
   "peers.meetAtEvents": "Je kunt peers ook live ontmoeten op onze events.",
   "peers.viewEvents": "Bekijk onze events",
   "peers.ourPeers": "Onze peers",
+  "peers.searchPlaceholder": "Zoek op naam of rechtsgebied...",
+  "peers.noResults": "Geen peers gevonden voor je zoekopdracht.",
   "peers.photoComingSoon": "Foto volgt",
   "peers.lawyerPrefix": "Advocaat",
   "peers.email": "E-mail",

@@ -114,6 +114,8 @@
   "peers.meetAtEvents": "You can also meet peers in person at our events.",
   "peers.viewEvents": "View upcoming events",
   "peers.ourPeers": "Our peers",
+  "peers.searchPlaceholder": "Search by name or practice area...",
+  "peers.noResults": "No peers match your search.",
   "peers.photoComingSoon": "Photo coming soon",
   "peers.lawyerPrefix": "Lawyer",
   "peers.email": "Email",

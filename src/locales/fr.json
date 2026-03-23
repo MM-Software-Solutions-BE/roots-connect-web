@@ -114,6 +114,8 @@
   "peers.meetAtEvents": "Vous pouvez aussi rencontrer nos pairs en personne lors de nos événements.",
   "peers.viewEvents": "Voir nos événements",
   "peers.ourPeers": "Nos pairs",
+  "peers.searchPlaceholder": "Rechercher par nom ou domaine du droit...",
+  "peers.noResults": "Aucun pair ne correspond à votre recherche.",
   "peers.photoComingSoon": "Photo à venir",
   "peers.lawyerPrefix": "Avocat",
   "peers.email": "E-mail",

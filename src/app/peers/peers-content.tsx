@@ -120,17 +120,17 @@ export function PeersContent() {
             {t("peers.noResults")}
           </p>
         ) : (
-        <ul className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-6 sm:gap-12 lg:grid-cols-3">
           {filteredPeers.map((member) => (
             <li key={member.name}>
-              <article className="rc-card-hover flex flex-col rounded-xl border border-rc-blue/10 bg-white/5 p-6 shadow-sm">
-                <div className="border-rc-blue/15 relative mb-5 aspect-[4/5] w-full overflow-hidden rounded-lg border bg-rc-blue/5 shadow-sm">
+              <article className="rc-card-hover flex flex-col rounded-xl border border-rc-blue/10 bg-white/5 p-4 shadow-sm sm:p-6">
+                <div className="border-rc-blue/15 relative mb-3 aspect-[4/5] w-full overflow-hidden rounded-lg border bg-rc-blue/5 shadow-sm sm:mb-5">
                   {member.imageSrc ? (
                     <Image
                       src={member.imageSrc}
                       alt={member.name}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 1024px) 50vw, 33vw"
                       className="object-cover object-top"
                     />
                   ) : (
@@ -139,19 +139,19 @@ export function PeersContent() {
                     </div>
                   )}
                 </div>
-                <h2 className="text-rc-blue mb-1 text-xl font-semibold">
+                <h2 className="text-rc-blue mb-1 text-base font-semibold sm:text-xl">
                   {member.name}
                 </h2>
                 <p className="text-rc-brown mb-1 text-sm font-medium">
                   {member.role}
                 </p>
-                <p className="text-rc-blue/80 mb-6 text-sm">
+                <p className="text-rc-blue/80 mb-4 text-xs sm:mb-6 sm:text-sm">
                   {t("peers.lawyerPrefix")}, {member.practice}
                 </p>
-                <div className="mt-auto flex flex-wrap gap-3">
+                <div className="mt-auto flex flex-wrap gap-2 sm:gap-3">
                   <a
                     href={getMailtoHref(member)}
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center gap-2 rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center gap-1.5 rounded-lg border border-transparent px-3 text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:gap-2 sm:px-4 sm:text-sm"
                   >
                     <MailIcon className="size-4" aria-hidden />
                     {t("peers.email")}
@@ -161,7 +161,7 @@ export function PeersContent() {
                       href={member.linkedIn}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center gap-2 rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center gap-1.5 rounded-lg border border-transparent px-3 text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:gap-2 sm:px-4 sm:text-sm"
                     >
                       <LinkedinIcon className="size-4" aria-hidden />
                       {t("peers.linkedIn")}
@@ -171,7 +171,7 @@ export function PeersContent() {
                       href={SITE.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center gap-2 rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center gap-1.5 rounded-lg border border-transparent px-3 text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:gap-2 sm:px-4 sm:text-sm"
                     >
                       <LinkedinIcon className="size-4" aria-hidden />
                       {t("peers.linkedIn")}

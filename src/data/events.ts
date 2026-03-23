@@ -1,27 +1,39 @@
 /**
- * Example upcoming / past highlights — replace with real events or CMS later.
+ * Upcoming / recent highlights.
  */
 export type EventHighlight = {
   id: string;
   title: string;
   /** Free text, e.g. "March 2026 · Brussels" */
   whenWhere: string;
+  /** `/images/...` path under `public/` */
+  imageSrc: string;
   blurb: string;
 };
 
 export const EVENT_HIGHLIGHTS: EventHighlight[] = [
   {
-    id: "ex-1",
-    title: "Networking evening with legal professionals (example)",
-    whenWhere: "Date & location TBC",
+    id: "evt-1",
+    title: "From Roots to Succes x BLS Consultancy",
+    whenWhere: "Upcoming · Date & location TBC",
+    imageSrc: "/images/home/hero-event-anass-redouan.jpeg",
     blurb:
-      "Placeholder copy: interactive evening where students meet lawyers and discuss career paths. Replace with your next confirmed event.",
+      "Event focused on practical career insights, networking, and open dialogue with legal professionals.",
   },
   {
-    id: "ex-2",
-    title: "Workshop: first steps toward the Bar (example)",
-    whenWhere: "Academic year 2025–26",
+    id: "evt-2",
+    title: "Roots Connect x Hidaya Hasselt",
+    whenWhere: "Upcoming · Date & location TBC",
+    imageSrc: "/images/home/hero-event-anass-redouan.jpeg",
     blurb:
-      "Placeholder: practical session on applications, traineeships, and expectations. Update when an event is published.",
+      "Community collaboration event connecting students with role models and legal sector perspectives.",
+  },
+  {
+    id: "evt-3",
+    title: "Roots Connect x Diversity For Law Students",
+    whenWhere: "Upcoming · Date & location TBC",
+    imageSrc: "/images/home/hero-event-anass-redouan.jpeg",
+    blurb:
+      "Conversation-driven event around inclusion, representation, and sustainable access to legal careers.",
   },
 ];

@@ -47,6 +47,9 @@ export function SiteFooter() {
               Contact
             </h2>
             <ul className="text-rc-beige/85 space-y-2 text-sm">
+              <li>{SITE.legalName}</li>
+              <li>{SITE.address[0]}</li>
+              <li>{SITE.address[1]}</li>
               <li>
                 <a href={`mailto:${SITE.email}`} className={linkClass}>
                   {SITE.email}
@@ -54,6 +57,9 @@ export function SiteFooter() {
               </li>
               <li>
                 <span className="text-rc-beige/70">Company no. {SITE.companyNumber}</span>
+              </li>
+              <li>
+                <span className="text-rc-beige/70">Bank: {SITE.bankAccount}</span>
               </li>
             </ul>
           </div>

@@ -15,9 +15,12 @@ Statuslegende: ⬜ nog te doen · 🟡 bezig · ✅ klaar · ❓ onduidelijk / t
 
 ## 2) Copy & content fixes
 
-- ⬜ **Typo fix**: spatie/naamcheck bij “Anass Arbage (VP Director)”.
-- ⬜ **Events updaten** met opgegeven eventnamen (start met `EVENT 1: "From Roots t..."` zodra volledige titel bevestigd is).
-- ⬜ **Sponsor toevoegen**: “Levl” in partners/sponsors-sectie.
+- ✅ **Typo fix**: naamregel “Anass Arbage (VP Director, …)” nagekeken en spacing/copy is correct in huidige tekst.
+- ✅ **Events updaten** met 3 opgegeven eventnamen:
+  - `From Roots to Succes x BLS Consultancy`
+  - `Roots Connect x Hidaya Hasselt`
+  - `Roots Connect x Diversity For Law Students`
+- ✅ **Sponsor toevoegen**: “Levl” toegevoegd in partners/sponsors-sectie.
 
 ## 3) CTA en contactflow
 

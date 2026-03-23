@@ -1,6 +1,6 @@
 /**
- * Replace with real partner names + logo paths when available.
- * Logos: add files under `public/images/partners/` and set `logoSrc`.
+ * Partners and sponsors.
+ * Logos can be added under `public/images/partners/` and linked via `logoSrc`.
  */
 export type PartnerEntry = {
   id: string;
@@ -13,21 +13,9 @@ export type PartnerEntry = {
 
 export const PARTNERS: PartnerEntry[] = [
   {
-    id: "placeholder-1",
-    name: "University law society (example)",
-    tagline: "Placeholder — student association collaboration",
-    logoSrc: null,
-  },
-  {
-    id: "placeholder-2",
-    name: "Law firm partner (example)",
-    tagline: "Placeholder — strategic partnership",
-    logoSrc: null,
-  },
-  {
-    id: "placeholder-3",
-    name: "NGO / network (example)",
-    tagline: "Placeholder — diversity & inclusion",
-    logoSrc: null,
+    id: "levl",
+    name: "Levl",
+    tagline: "Sponsor",
+    logoSrc: "/images/partners/levl-logo.jpeg",
   },
 ];

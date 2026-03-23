@@ -30,9 +30,13 @@ export function ContactSection() {
             {SITE.email}
           </a>
         </p>
-        <p className="text-rc-blue/60 mb-6 text-sm">
-          Phone or postal address can be added here when available (placeholder).
-        </p>
+        <div className="text-rc-blue/70 mb-6 space-y-1 text-sm leading-relaxed">
+          <p>{SITE.legalName}</p>
+          <p>{SITE.address[0]}</p>
+          <p>{SITE.address[1]}</p>
+          <p>Enterprise no. {SITE.companyNumber}</p>
+          <p>Bank account: {SITE.bankAccount}</p>
+        </div>
         <div className="border-rc-blue/10 flex flex-wrap gap-4 border-t pt-4 text-sm">
           <a
             href={SITE.social.linkedin}

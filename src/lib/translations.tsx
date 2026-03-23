@@ -7,26 +7,20 @@ import {
   LOCALE_STORAGE_KEY,
 } from "@/config/locales";
 import type { LocaleCode } from "@/config/locales";
-import DEFAULT_TRANSLATIONS from "@/locales/en.json";
+import en from "@/locales/en.json";
+import nl from "@/locales/nl.json";
+import fr from "@/locales/fr.json";
 
 export type Translations = Record<string, string>;
 
-let cachedTranslations: Partial<Record<LocaleCode, Translations>> = {};
+const LOCALE_TRANSLATIONS: Record<LocaleCode, Translations> = {
+  en: en as Translations,
+  nl: nl as Translations,
+  fr: fr as Translations,
+};
 
-export async function loadTranslations(
-  locale: LocaleCode
-): Promise<Translations> {
-  if (cachedTranslations[locale]) {
-    return cachedTranslations[locale]!;
-  }
-  if (locale === "en") {
-    cachedTranslations.en = DEFAULT_TRANSLATIONS as Translations;
-    return Promise.resolve(cachedTranslations.en);
-  }
-  const mod = await import(`@/locales/${locale}.json`);
-  const translations = mod.default as Translations;
-  cachedTranslations[locale] = translations;
-  return translations;
+export function getTranslations(locale: LocaleCode): Translations {
+  return LOCALE_TRANSLATIONS[locale] ?? LOCALE_TRANSLATIONS.en;
 }
 
 type TranslationParams = Record<string, string | number>;
@@ -64,38 +58,19 @@ export function TranslationsProvider({
   children: React.ReactNode;
 }) {
   const [locale, setLocaleState] = React.useState<LocaleCode>(DEFAULT_LOCALE);
-  const [translations, setTranslations] = React.useState<Translations | null>(
-    () => DEFAULT_TRANSLATIONS as Translations
+  const translations = React.useMemo(
+    () => getTranslations(locale),
+    [locale]
   );
-  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
-    let raw: string | null = null;
-    if (typeof window !== "undefined") {
-      raw = localStorage.getItem(LOCALE_STORAGE_KEY);
-    }
-    const initial = (raw && isLocaleCode(raw) ? raw : null) ?? DEFAULT_LOCALE;
-    setLocaleState(initial);
+    const raw = localStorage.getItem(LOCALE_STORAGE_KEY);
+    const stored = (raw && isLocaleCode(raw) ? raw : null) ?? DEFAULT_LOCALE;
+    setLocaleState(stored);
   }, []);
 
   React.useEffect(() => {
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = locale;
-    }
-  }, [locale]);
-
-  React.useEffect(() => {
-    let cancelled = false;
-    setIsLoading(true);
-    loadTranslations(locale).then((t) => {
-      if (!cancelled) {
-        setTranslations(t);
-        setIsLoading(false);
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
+    document.documentElement.lang = locale;
   }, [locale]);
 
   const setLocale = React.useCallback((newLocale: LocaleCode) => {
@@ -123,8 +98,8 @@ export function TranslationsProvider({
   );
 
   const value = React.useMemo<TranslationsContextValue>(
-    () => ({ t, raw, locale, setLocale, isLoading }),
-    [t, raw, locale, setLocale, isLoading]
+    () => ({ t, raw, locale, setLocale, isLoading: false }),
+    [t, raw, locale, setLocale]
   );
 
   return (

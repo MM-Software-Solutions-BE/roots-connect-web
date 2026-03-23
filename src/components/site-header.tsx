@@ -51,7 +51,7 @@ export function SiteHeader() {
   const { t } = useTranslations();
   return (
     <header className="bg-rc-beige/95 supports-backdrop-filter:bg-rc-beige/90 sticky top-0 z-50 border-b border-rc-blue/10 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href="/"
           className="text-rc-blue/90 hover:text-rc-blue shrink-0 rounded-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"

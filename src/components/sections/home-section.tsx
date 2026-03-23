@@ -14,7 +14,7 @@ export function HomeSection() {
   return (
     <SectionShell
       id="home"
-      containerClassName="max-w-5xl py-0 pt-4 pb-16 sm:pt-8 sm:pb-20 lg:py-28"
+      containerClassName="max-w-7xl py-0 pt-4 pb-16 sm:pt-8 sm:pb-20 lg:py-28"
       className="bg-rc-beige border-b border-rc-blue/20"
     >
       <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">

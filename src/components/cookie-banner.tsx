@@ -35,7 +35,7 @@ export function CookieBanner() {
         "fixed right-0 bottom-0 left-0 z-[90] border-t shadow-[0_-8px_30px_rgba(14,41,62,0.12)] backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8 sm:px-6 lg:px-8">
         <div className="min-w-0 flex-1">
           <h2
             id="cookie-banner-title"

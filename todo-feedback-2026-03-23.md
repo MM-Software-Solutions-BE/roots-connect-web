@@ -34,7 +34,7 @@ Statuslegende: ⬜ nog te doen · 🟡 bezig · ✅ klaar · ❓ onduidelijk / t
   - overzicht met peers
   - foto + role/practice + email/LinkedIn-knoppen
   - schaalbaar voor veel profielen
-- ⬜ **Homepage CTA naar peers** toevoegen (aparte knop of aparte sectie met link).
+- ✅ **Homepage CTA naar peers** toegevoegd in hero (“Vind een peer in ons netwerk”).
 - ✅ **Data-structuur voor peers** opzetten in code (TEAM_LEADS, PEERS, TEAM_MEMBERS in `team.ts`).
 - ✅ **Navigatiebeslissing**: “Peer Network” onder “More” menu.
 
@@ -74,7 +74,7 @@ Statuslegende: ⬜ nog te doen · 🟡 bezig · ✅ klaar · ❓ onduidelijk / t
 - CTA-structuur klaarzetten met tijdelijke links.
 
 ### Fase B — Kernuitbreiding
-- ✅ `/peers` pagina; ⬜ homepage CTA naar peers.
+- ✅ `/peers` pagina + homepage CTA naar peers.
 - ✅ Data-driven peers-lijst (gemakkelijk uitbreidbaar).
 
 ### Fase C — Content finaliseren

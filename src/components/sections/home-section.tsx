@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { SectionShell } from "@/components/sections/section-shell";
@@ -28,12 +29,20 @@ export function HomeSection() {
           <p className="text-rc-blue/80 mb-10 max-w-xl leading-relaxed">
             {INTRO_COPY}
           </p>
-          <PrimaryCtaLink
-            href="#contact"
-            className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90"
-          >
-            Stay informed about our upcoming events
-          </PrimaryCtaLink>
+          <div className="flex flex-wrap gap-3">
+            <PrimaryCtaLink
+              href="#contact"
+              className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90"
+            >
+              Stay informed about our upcoming events
+            </PrimaryCtaLink>
+            <Link
+              href="/peers"
+              className="inline-flex h-10 min-w-0 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
+            >
+              Vind een peer in ons netwerk
+            </Link>
+          </div>
         </div>
 
         <div className="order-1 relative flex w-full justify-center lg:order-2 lg:justify-end">

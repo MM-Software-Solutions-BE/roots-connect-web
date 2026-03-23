@@ -22,4 +22,6 @@ export const SITE = {
     linkedin: "https://be.linkedin.com/company/roots-connectnetwork",
     instagram: "https://www.instagram.com/rootsconnectnetwork/",
   },
+  /** CTA 1: Google Form voor event-updates. Vul in zodra klant link levert. */
+  googleFormEventUpdates: null as string | null,
 } as const;

@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { SectionShell } from "@/components/sections/section-shell";
+import { SITE } from "@/config/site";
 import { HOME_HERO_IMAGE } from "@/data/home-media";
 
 const INTRO_COPY =
@@ -31,7 +32,7 @@ export function HomeSection() {
           </p>
           <div className="flex flex-wrap gap-3">
             <PrimaryCtaLink
-              href="#contact"
+              href={SITE.googleFormEventUpdates ?? "#contact"}
               className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90"
             >
               Stay informed about our upcoming events

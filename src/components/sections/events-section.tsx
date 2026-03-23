@@ -42,7 +42,9 @@ export function EventsSection() {
         ))}
       </ul>
       <div className="mt-8">
-        <PrimaryCtaLink href="#contact">Stay informed about our upcoming events</PrimaryCtaLink>
+        <PrimaryCtaLink href={SITE.googleFormEventUpdates ?? "#contact"}>
+          Stay informed about our upcoming events
+        </PrimaryCtaLink>
       </div>
     </SectionShell>
   );

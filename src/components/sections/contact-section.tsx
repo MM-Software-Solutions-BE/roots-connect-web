@@ -12,7 +12,7 @@ export function ContactSection() {
     <SectionShell id="contact" aria-labelledby="contact-heading">
       <h2
         id="contact-heading"
-        className="text-rc-blue mb-3 text-3xl font-semibold tracking-tight"
+        className="text-rc-blue mb-8 text-3xl font-semibold tracking-tight"
       >
         {t("contact.title")}
       </h2>

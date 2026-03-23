@@ -21,27 +21,27 @@ export function ApproachSection() {
         {t("approach.intro")}
       </p>
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <li className="border-rc-blue/15 bg-white/40 rc-card-hover rounded-xl border p-5">
-          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
+        <li className="border-rc-blue/15 bg-white/50 rc-card-hover rounded-xl border p-5">
+          <h3 className="text-rc-beige mb-2 text-lg font-semibold">
             {t("approach.pillar1.title")}
           </h3>
-          <p className="text-rc-blue/85 text-left leading-relaxed">
+          <p className="text-rc-beige/85 text-left leading-relaxed">
             {t("approach.pillar1.desc")}
           </p>
         </li>
-        <li className="border-rc-blue/15 bg-white/40 rc-card-hover rounded-xl border p-5">
-          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
+        <li className="border-rc-blue/15 bg-white/50 rc-card-hover rounded-xl border p-5">
+          <h3 className="text-rc-beige mb-2 text-lg font-semibold">
             {t("approach.pillar2.title")}
           </h3>
-          <p className="text-rc-blue/85 text-left leading-relaxed">
+          <p className="text-rc-beige/85 text-left leading-relaxed">
             {t("approach.pillar2.desc")}
           </p>
         </li>
-        <li className="border-rc-blue/15 bg-white/40 rc-card-hover rounded-xl border p-5">
-          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
+        <li className="border-rc-blue/15 bg-white/50 rc-card-hover rounded-xl border p-5">
+          <h3 className="text-rc-beige mb-2 text-lg font-semibold">
             {t("approach.pillar3.title")}
           </h3>
-          <p className="text-rc-blue/85 text-left leading-relaxed">
+          <p className="text-rc-beige/85 text-left leading-relaxed">
             {t("approach.pillar3.desc")}
           </p>
         </li>

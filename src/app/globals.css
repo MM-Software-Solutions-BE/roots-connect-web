@@ -5,7 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Brand (Colors.txt) — use: bg-rc-beige, text-rc-blue, border-rc-brown, etc. */
+  /* Brand palette — use consistently across the site:
+   * rc-beige #0e293e (dark navy): page bg, primary dark, card text on light cards
+   * rc-blue  #f3f3e7 (light cream): text on dark bg, card bg (footer/buttons)
+   * rc-brown #a28772 (accent): labels, underlines, secondary accents
+   * Light cards: bg-white/50, border-rc-blue/15, text-rc-beige
+   * Section divider: border-rc-blue/10
+   * Intro text opacity: text-rc-blue/85
+   */
   --color-rc-beige: #0e293e;
   --color-rc-blue: #f3f3e7;
   --color-rc-brown: #a28772;

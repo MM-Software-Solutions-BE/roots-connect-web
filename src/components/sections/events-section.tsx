@@ -18,11 +18,11 @@ export function EventsSection() {
     >
       <h2
         id="events-heading"
-        className="text-rc-blue mb-3 text-3xl font-semibold tracking-tight"
+        className="text-rc-blue mb-8 text-3xl font-semibold tracking-tight"
       >
         {t("events.title")}
       </h2>
-      <p className="text-rc-blue/75 mb-8 max-w-2xl text-sm leading-relaxed">
+      <p className="text-rc-blue/85 mb-8 max-w-2xl text-sm leading-relaxed">
         {t("events.introBefore")}
         <a
           href={SITE.social.linkedin}

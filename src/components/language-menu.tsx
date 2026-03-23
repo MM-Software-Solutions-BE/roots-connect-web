@@ -47,7 +47,7 @@ export function LanguageMenu() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-44">
         <DropdownMenuGroup>
-          <DropdownMenuLabel className="text-xs font-normal text-muted-foreground">
+          <DropdownMenuLabel className="text-rc-blue/75 text-xs font-normal">
             {t("language.label")}
           </DropdownMenuLabel>
         </DropdownMenuGroup>
@@ -61,7 +61,7 @@ export function LanguageMenu() {
               closeOnClick
             >
               <span className="font-medium tabular-nums">{l.short}</span>
-              <span className="text-muted-foreground ml-2">{l.name}</span>
+              <span className="text-rc-blue/80 ml-2">{l.name}</span>
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

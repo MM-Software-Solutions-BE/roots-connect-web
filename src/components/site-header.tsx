@@ -87,7 +87,7 @@ export function SiteHeader() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="min-w-44">
               <DropdownMenuGroup>
-                <DropdownMenuLabel className="text-xs font-normal text-muted-foreground">
+                <DropdownMenuLabel className="text-rc-blue/75 text-xs font-normal">
                   {t("nav.more")}
                 </DropdownMenuLabel>
               </DropdownMenuGroup>
@@ -130,11 +130,11 @@ export function SiteHeader() {
               <MenuIcon className="size-5" aria-hidden />
             </SheetTrigger>
             <SheetContent side="right" className="w-[min(100%,20rem)] gap-0">
-              <SheetHeader className="border-b border-border pb-4 text-left">
+              <SheetHeader className="border-b border-rc-blue/10 pb-4 text-left">
                 <SheetTitle className="text-rc-blue">{t("nav.menu")}</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-1 p-4" aria-label="Mobile">
-                <p className="text-muted-foreground mb-2 text-xs font-medium tracking-wide uppercase">
+                <p className="text-rc-blue/75 mb-2 text-xs font-medium tracking-wide uppercase">
                   {t("nav.navigate")}
                 </p>
                 {PRIMARY_NAV.map(({ id, label }) => (
@@ -151,7 +151,7 @@ export function SiteHeader() {
                     {getNavLabel({ id, label }, t)}
                   </SheetClose>
                 ))}
-                <p className="text-muted-foreground mt-6 mb-2 text-xs font-medium tracking-wide uppercase">
+                <p className="text-rc-blue/75 mt-6 mb-2 text-xs font-medium tracking-wide uppercase">
                   {t("nav.more")}
                 </p>
                 {SECONDARY_NAV.map((item) =>

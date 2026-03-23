@@ -16,11 +16,11 @@ export function PartnersSection() {
     >
       <h2
         id="partners-heading"
-        className="text-rc-blue mb-3 text-3xl font-semibold tracking-tight"
+        className="text-rc-blue mb-8 text-3xl font-semibold tracking-tight"
       >
         {t("partners.title")}
       </h2>
-      <p className="text-rc-blue/75 mb-2 max-w-2xl text-sm leading-relaxed">
+      <p className="text-rc-blue/85 mb-8 max-w-2xl text-sm leading-relaxed">
         {t("partners.intro")}
       </p>
       <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

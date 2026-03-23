@@ -63,9 +63,13 @@ export function SiteHeader() {
           className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:gap-8"
           aria-label="Main"
         >
-          {PRIMARY_NAV.map(({ id, label }) => (
-            <a key={id} href={homeSectionHref(id)} className={navLinkClass}>
-              {getNavLabel({ id, label }, t)}
+          {PRIMARY_NAV.map((item) => (
+            <a
+              key={"href" in item ? item.href : item.id}
+              href={"href" in item ? item.href : homeSectionHref(item.id)}
+              className={navLinkClass}
+            >
+              {getNavLabel(item, t)}
             </a>
           ))}
         </nav>
@@ -137,18 +141,18 @@ export function SiteHeader() {
                 <p className="text-rc-blue/75 mb-2 text-xs font-medium tracking-wide uppercase">
                   {t("nav.navigate")}
                 </p>
-                {PRIMARY_NAV.map(({ id, label }) => (
+                {PRIMARY_NAV.map((item) => (
                   <SheetClose
-                    key={id}
+                    key={"href" in item ? item.href : item.id}
                     nativeButton={false}
                     render={
                       <a
-                        href={homeSectionHref(id)}
+                        href={"href" in item ? item.href : homeSectionHref(item.id)}
                         className={cn(navLinkClass, "block py-2")}
                       />
                     }
                   >
-                    {getNavLabel({ id, label }, t)}
+                    {getNavLabel(item, t)}
                   </SheetClose>
                 ))}
                 <p className="text-rc-blue/75 mt-6 mb-2 text-xs font-medium tracking-wide uppercase">

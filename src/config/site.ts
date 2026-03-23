@@ -24,4 +24,10 @@ export const SITE = {
   },
   /** CTA 1: Google Form voor event-updates. Vul in zodra klant link levert. */
   googleFormEventUpdates: null as string | null,
+  /**
+   * CTA 2: Contactformulier → emails naar info@rootsconnect.be.
+   * Maak een form op https://formspree.io, stel ontvanger in op info@rootsconnect.be,
+   * en plak hier het form-ID (bv. "mabcxyzw" uit https://formspree.io/f/mabcxyzw).
+   */
+  formspreeFormId: null as string | null,
 } as const;

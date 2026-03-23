@@ -14,8 +14,8 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant · ✅ klaar
 
 | Item | Status | Locatie / actie |
 |------|--------|-----------------|
-| **CTA 1** Google Form koppelen | 🟡 | `site.ts` → `googleFormEventUpdates: "URL"` invullen zodra klant link bezorgt |
-| **CTA 2** mailto info@ | ✅ | `contact-section.tsx` + `mailto-links.ts` |
+| **CTA 1** Google Form koppelen | 🟡 | `site.ts` → `googleFormEventUpdates: "URL"` invullen |
+| **CTA 2** Contactformulier → info@ | ✅ | Formspree: zie instructie hieronder |
 | **Tekstuitlijning** rest secties | ⬜ | About, Impact, Events, Contact nalopen |
 | **Handleiding** zelf wijzigen | ⬜ | Korte README: team, events, peers bewerken |
 | **Hostingadvies** | ⬜ | Vercel gratis tier / abonnementen uitleggen |
@@ -52,9 +52,20 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant · ✅ klaar
 - ✅ **Hero CTA** "Vind een peer in ons netwerk" (`home-section.tsx`)
 
 ### CTA-structuur
-- ✅ **Config** `googleFormEventUpdates` in `site.ts` — invullen = "Stay informed" wijst naar formulier
-- ✅ **Hero + Events** "Stay informed" gebruiken deze config (fallback: #contact)
-- ✅ **Contact-sectie** mailto naar info@ voor algemeen + event-updates
+- ✅ **CTA 1** Google Form: `googleFormEventUpdates` in `site.ts` — invullen = event-CTA’s wijzen naar form
+- ✅ **CTA 2** Contactformulier: verstuurt naar info@rootsconnect.be via Formspree
+
+---
+
+## Formspree koppelen (contactformulier → info@rootsconnect.be)
+
+1. Ga naar [formspree.io](https://formspree.io) en maak een gratis account
+2. Klik op **New form**
+3. Stel **Email** in op `info@rootsconnect.be`
+4. Kopieer het **form ID** uit de URL (bv. `xyzabcde` uit `formspree.io/f/xyzabcde`)
+5. In `src/config/site.ts`: vul in `formspreeFormId: "xyzabcde"`
+
+Daarna werkt het contactformulier en ontvangt Roots Connect alle berichten op info@rootsconnect.be.
 
 ---
 

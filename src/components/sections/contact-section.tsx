@@ -3,6 +3,7 @@
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { ContactForm } from "@/components/contact-form";
 import { SectionShell } from "@/components/sections/section-shell";
+import { homeSectionHref } from "@/config/navigation";
 import { SITE } from "@/config/site";
 import { useTranslations } from "@/lib/translations";
 
@@ -35,7 +36,7 @@ export function ContactSection() {
             {t("contact.stayInformedDesc")}
           </p>
           <PrimaryCtaLink
-            href={SITE.googleFormEventUpdates ?? "#contact"}
+            href={SITE.googleFormEventUpdates ?? homeSectionHref("contact")}
             className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90"
           >
             {t("contact.signUpEvents")}

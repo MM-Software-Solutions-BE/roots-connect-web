@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { SectionShell } from "@/components/sections/section-shell";
+import { homeSectionHref } from "@/config/navigation";
 import { SITE } from "@/config/site";
 import { EVENT_HIGHLIGHTS } from "@/data/events";
 import { useTranslations } from "@/lib/translations";
@@ -59,7 +60,7 @@ export function EventsSection() {
         ))}
       </ul>
       <div className="mt-8">
-        <PrimaryCtaLink href={SITE.googleFormEventUpdates ?? "#contact"}>
+        <PrimaryCtaLink href={SITE.googleFormEventUpdates ?? homeSectionHref("contact")}>
           {t("events.cta")}
         </PrimaryCtaLink>
       </div>

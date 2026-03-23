@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { SectionShell } from "@/components/sections/section-shell";
+import { homeSectionHref } from "@/config/navigation";
 import { SITE } from "@/config/site";
 import { HOME_HERO_IMAGE } from "@/data/home-media";
 import { useTranslations } from "@/lib/translations";
@@ -39,13 +40,13 @@ export function HomeSection() {
               {t("home.cta.peers")}
             </PrimaryCtaLink>
             <Link
-              href={SITE.googleFormEventUpdates ?? "#contact"}
+              href={SITE.googleFormEventUpdates ?? homeSectionHref("contact")}
               className="inline-flex h-10 min-w-0 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
             >
               {t("home.cta.events")}
             </Link>
             <a
-              href="#contact"
+              href={homeSectionHref("contact")}
               className="inline-flex h-10 min-w-0 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
             >
               {t("home.cta.partner")}

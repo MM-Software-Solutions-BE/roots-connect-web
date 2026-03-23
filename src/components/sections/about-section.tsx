@@ -1,6 +1,7 @@
 "use client";
 
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
+import { homeSectionHref } from "@/config/navigation";
 import { SectionShell } from "@/components/sections/section-shell";
 import { useTranslations } from "@/lib/translations";
 
@@ -33,7 +34,7 @@ export function AboutSection() {
         </div>
 
         <div className="pt-4">
-          <PrimaryCtaLink href="#contact">{t("about.cta")}</PrimaryCtaLink>
+          <PrimaryCtaLink href={homeSectionHref("contact")}>{t("about.cta")}</PrimaryCtaLink>
         </div>
       </div>
     </SectionShell>

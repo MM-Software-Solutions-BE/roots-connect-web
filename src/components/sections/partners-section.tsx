@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { PARTNERS } from "@/data/partners";
 import { SectionShell } from "@/components/sections/section-shell";
+import { homeSectionHref } from "@/config/navigation";
 import { useTranslations } from "@/lib/translations";
 
 export function PartnersSection() {
@@ -28,7 +29,7 @@ export function PartnersSection() {
           <li key={p.id} className="flex">
             {p.id === "join" ? (
               <a
-                href="#contact"
+                href={homeSectionHref("contact")}
                 className="border-rc-blue/15 bg-white/50 rc-card-hover flex min-h-full flex-1 flex-col rounded-xl border p-4 shadow-sm sm:p-5"
               >
                 <div className="flex min-h-[100px] flex-1 flex-col items-center justify-center rounded-lg border border-dashed border-rc-blue/30 bg-rc-blue/5 py-8 text-center sm:min-h-[120px]">
@@ -102,7 +103,7 @@ export function PartnersSection() {
           {t("partners.interested")}
         </p>
         <a
-          href="#contact"
+          href={homeSectionHref("contact")}
           className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 inline-flex h-10 shrink-0 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
         >
           {t("about.cta")}

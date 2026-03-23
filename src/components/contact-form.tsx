@@ -5,35 +5,54 @@ import * as React from "react";
 import { SITE, SITE_URL } from "@/config/site";
 import { useTranslations } from "@/lib/translations";
 
+const FORM_ACTION = SITE.formspreeFormId
+  ? `https://formspree.io/f/${SITE.formspreeFormId}`
+  : undefined;
+const CAN_SUBMIT = !!SITE.formspreeFormId;
+const NEXT_URL = `${SITE_URL}/?submitted=1#contact`;
+
 export function ContactForm() {
   const { t } = useTranslations();
+  const [mounted, setMounted] = React.useState(false);
   const [showSuccess, setShowSuccess] = React.useState(false);
 
-  const formAction = SITE.formspreeFormId
-    ? `https://formspree.io/f/${SITE.formspreeFormId}`
-    : undefined;
-  const canSubmit = !!SITE.formspreeFormId;
-
-  const nextUrl = `${SITE_URL}/?submitted=1#contact`;
   React.useEffect(() => {
-    if (typeof window === "undefined") return;
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (!mounted || typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     if (params.get("submitted") === "1") {
       setShowSuccess(true);
       window.history.replaceState({}, "", window.location.pathname + "#contact");
     }
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) {
+    return (
+      <div
+        className="border-rc-blue/15 bg-white/50 max-w-xl animate-pulse space-y-4 rounded-xl border p-6"
+        aria-hidden="true"
+      >
+        <div className="h-10 rounded-lg bg-rc-blue/10" />
+        <div className="h-10 rounded-lg bg-rc-blue/10" />
+        <div className="h-24 rounded-lg bg-rc-blue/10" />
+        <div className="h-10 w-24 rounded-lg bg-rc-blue/10" />
+      </div>
+    );
+  }
 
   return (
     <form
-      action={formAction}
+      action={FORM_ACTION}
       method="POST"
       autoComplete="off"
       className="border-rc-blue/15 bg-white/50 max-w-xl space-y-4 rounded-xl border p-6 shadow-sm"
     >
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <input type="hidden" name="_subject" value="Contact — Roots Connect website" />
-      <input type="hidden" name="_next" value={nextUrl} />
+      <input type="hidden" name="_next" value={NEXT_URL} />
 
       <div>
         <label htmlFor="contact-name" className="text-rc-beige mb-1 block text-sm font-medium">
@@ -84,7 +103,7 @@ export function ContactForm() {
         <p className="text-rc-beige/90 text-sm">{t("contact.form.success")}</p>
       )}
 
-      {!canSubmit && (
+      {!CAN_SUBMIT && (
         <p className="text-rc-beige/60 text-xs">
           {t("contact.form.noFormId")}{" "}
           <a href={`mailto:${SITE.email}`} className="underline hover:text-rc-beige/80">
@@ -95,7 +114,7 @@ export function ContactForm() {
       )}
       <button
         type="submit"
-        disabled={!canSubmit}
+        disabled={!CAN_SUBMIT}
         className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 disabled:opacity-60 inline-flex h-10 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
       >
         {t("contact.form.submit")}

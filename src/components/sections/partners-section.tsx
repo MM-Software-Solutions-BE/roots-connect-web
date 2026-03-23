@@ -77,6 +77,18 @@ export function PartnersSection() {
           </li>
         ))}
       </ul>
+
+      <div className="border-rc-blue/15 mt-12 flex flex-col items-start gap-4 rounded-xl border bg-white/50 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-rc-beige font-medium">
+          {t("partners.interested")}
+        </p>
+        <a
+          href="#contact"
+          className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 inline-flex h-10 shrink-0 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
+        >
+          {t("about.cta")}
+        </a>
+      </div>
     </SectionShell>
   );
 }

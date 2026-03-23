@@ -5,6 +5,7 @@
   "home.intro": "Roots Connect is the first Belgian network of lawyers and (young) legal professionals committed to empowering students and young professionals from underrepresented backgrounds, in particular those with bicultural roots and first-generation academic trajectories.",
   "home.cta.events": "Stay informed about our upcoming events",
   "home.cta.peers": "Find a peer in our network",
+  "home.cta.partner": "Become our partner",
 
   "about.title": "About us",
   "about.para1": "Roots Connect was founded by three lawyers united by a shared mission to make the legal profession more inclusive and representative. Redouan Lakhal (President-Director, Lawyer, Employment Law), Anass Arbage (VP Director, Lawyer, Corporate & Commercial Law) and Houda Berrada (VP Director, Lawyer, Environmental Law) combine their professional expertise and personal experiences to bridge the gap between law students from underrepresented backgrounds and the legal sector.",
@@ -41,6 +42,7 @@
 
   "partners.title": "Our partners",
   "partners.intro": "We work with long-term partners and sponsors who share our mission and help us create meaningful opportunities for students and young professionals.",
+  "partners.interested": "Interested in becoming a partner?",
   "partners.website": "Website",
   "partners.linkedIn": "LinkedIn",
   "partner.levl.tagline": "Sponsor",
@@ -106,6 +108,12 @@
   "peers.backToHome": "← Back to home",
   "peers.title": "Peer Network",
   "peers.intro": "In partnership with our sponsors, Roots Connect has set up a network of enthusiastic lawyers and legal professionals with whom bicultural and first-generation students can connect in an accessible way. Feel free to reach out for an introduction or a question about a career in law.",
+  "peers.contactTip": "In your message, mention where you study and what your question is about — that helps us respond better.",
+  "peers.notSureWho": "Not sure who to contact?",
+  "peers.contactUs": "Get in touch with us",
+  "peers.meetAtEvents": "You can also meet peers in person at our events.",
+  "peers.viewEvents": "View upcoming events",
+  "peers.ourPeers": "Our peers",
   "peers.photoComingSoon": "Photo coming soon",
   "peers.lawyerPrefix": "Lawyer",
   "peers.email": "Email",

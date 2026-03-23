@@ -5,6 +5,7 @@
   "home.intro": "Roots Connect est le premier réseau belge d'avocats et de (jeunes) professionnels du droit engagés à autonomiser les étudiants et jeunes professionnels issus de milieux sous-représentés, en particulier ceux ayant des racines biculturelles et des parcours académiques de première génération.",
   "home.cta.events": "Restez informé de nos prochains événements",
   "home.cta.peers": "Trouvez un pair dans notre réseau",
+  "home.cta.partner": "Devenez notre partenaire",
 
   "about.title": "À propos",
   "about.para1": "Roots Connect a été fondé par trois avocats unis par une mission commune : rendre la profession juridique plus inclusive et représentative. Redouan Lakhal (Président-Directeur, Avocat, Droit du travail), Anass Arbage (VP Directeur, Avocat, Droit des sociétés et commercial) et Houda Berrada (VP Directeur, Avocate, Droit de l'environnement) combinent leur expertise professionnelle et leurs expériences personnelles pour combler le fossé entre les étudiants en droit issus de milieux sous-représentés et le secteur juridique.",
@@ -41,6 +42,7 @@
 
   "partners.title": "Nos partenaires",
   "partners.intro": "Nous travaillons avec des partenaires et sponsors à long terme qui partagent notre mission et nous aident à créer des opportunités significatives pour les étudiants et jeunes professionnels.",
+  "partners.interested": "Intéressé à devenir partenaire ?",
   "partners.website": "Site web",
   "partners.linkedIn": "LinkedIn",
   "partner.levl.tagline": "Sponsor",
@@ -106,6 +108,12 @@
   "peers.backToHome": "← Retour à l'accueil",
   "peers.title": "Réseau de pairs",
   "peers.intro": "En partenariat avec nos sponsors, Roots Connect a mis en place un réseau d'avocats et de professionnels du droit enthousiastes avec lesquels les étudiants biculturels et de première génération peuvent entrer en contact de manière accessible. N'hésitez pas à nous contacter pour une présentation ou une question sur une carrière juridique.",
+  "peers.contactTip": "Dans votre message, mentionnez où vous étudiez et le sujet de votre question — cela nous aide à mieux vous répondre.",
+  "peers.notSureWho": "Vous ne savez pas qui contacter ?",
+  "peers.contactUs": "Contactez-nous",
+  "peers.meetAtEvents": "Vous pouvez aussi rencontrer nos pairs en personne lors de nos événements.",
+  "peers.viewEvents": "Voir nos événements",
+  "peers.ourPeers": "Nos pairs",
   "peers.photoComingSoon": "Photo à venir",
   "peers.lawyerPrefix": "Avocat",
   "peers.email": "E-mail",

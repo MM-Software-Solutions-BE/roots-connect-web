@@ -5,6 +5,7 @@
   "home.intro": "Roots Connect is het eerste Belgische netwerk van advocaten en (jonge) juristen dat zich inzet om studenten en young professionals uit ondervertegenwoordigde achtergronden te empoweren, in het bijzonder hen met biculturele wortels en eerste-generatie academische trajecten.",
   "home.cta.events": "Blijf op de hoogte van onze aankomende events",
   "home.cta.peers": "Vind een peer in ons netwerk",
+  "home.cta.partner": "Word onze partner",
 
   "about.title": "Over ons",
   "about.para1": "Roots Connect werd opgericht door drie advocaten verenigd door een gedeelde missie om het juridisch beroep inclusiever en representatiever te maken. Redouan Lakhal (President-Directeur, Advocaat, Arbeidsrecht), Anass Arbage (VP Directeur, Advocaat, Vennootschaps- en Handelsrecht) en Houda Berrada (VP Directeur, Advocaat, Milieurecht) combineren hun professionele expertise en persoonlijke ervaringen om de kloof te overbruggen tussen rechtenstudenten uit ondervertegenwoordigde achtergronden en de juridische sector.",
@@ -41,6 +42,7 @@
 
   "partners.title": "Onze partners",
   "partners.intro": "We werken samen met lange-termijn partners en sponsors die onze missie delen en ons helpen zinvolle kansen te creëren voor studenten en young professionals.",
+  "partners.interested": "Interesse om partner te worden?",
   "partners.website": "Website",
   "partners.linkedIn": "LinkedIn",
   "partner.levl.tagline": "Sponsor",
@@ -106,6 +108,12 @@
   "peers.backToHome": "← Terug naar home",
   "peers.title": "Peer Network",
   "peers.intro": "In samenwerking met onze partners heeft Roots Connect een netwerk opgezet van enthousiaste advocaten en juristen waarmee biculturele en eerste generatie studenten op een laagdrempelige manier in contact kunnen komen. Neem gerust contact op voor een kennismaking of een vraag over carrière in de advocatuur.",
+  "peers.contactTip": "Vermeld in je bericht waar je studeert en waarover je vraag gaat — zo kunnen we beter helpen.",
+  "peers.notSureWho": "Niet zeker wie je het beste aanspreekt?",
+  "peers.contactUs": "Neem contact met ons op",
+  "peers.meetAtEvents": "Je kunt peers ook live ontmoeten op onze events.",
+  "peers.viewEvents": "Bekijk onze events",
+  "peers.ourPeers": "Onze peers",
   "peers.photoComingSoon": "Foto volgt",
   "peers.lawyerPrefix": "Advocaat",
   "peers.email": "E-mail",

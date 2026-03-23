@@ -8,12 +8,23 @@ export const PRIMARY_NAV = [
   { id: "contact", label: "Contact" },
 ] as const;
 
-export const SECONDARY_NAV = [
+export type SecondaryNavItem =
+  | { id: string; label: string; href?: never }
+  | { id?: never; href: string; label: string };
+
+export const SECONDARY_NAV: SecondaryNavItem[] = [
   { id: "our-team", label: "Our Team" },
   { id: "our-partners", label: "Our Partners" },
   { id: "events", label: "Events" },
-] as const;
+  { href: "/peers", label: "Peer Network" },
+];
 
+/** Hash-only, for same-page anchors (e.g. contact form links on homepage). */
 export function sectionHref(id: string) {
   return `#${id}`;
+}
+
+/** Full path to homepage section — use for nav so links work from any page (e.g. /peers → /#contact). */
+export function homeSectionHref(id: string) {
+  return `/${sectionHref(id)}`;
 }

@@ -14,23 +14,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { isLocaleCode, LOCALE_STORAGE_KEY, LOCALES, type LocaleCode } from "@/config/locales";
+import { isLocaleCode, LOCALES, type LocaleCode } from "@/config/locales";
+import { useTranslations } from "@/lib/translations";
 
 export function LanguageMenu() {
-  const [locale, setLocale] = React.useState<LocaleCode>("en");
-
-  React.useEffect(() => {
-    const raw = localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (raw && isLocaleCode(raw)) setLocale(raw);
-  }, []);
-
+  const { t, locale, setLocale } = useTranslations();
   const current = LOCALES.find((l) => l.code === locale) ?? LOCALES[2];
 
-  const handleChange = React.useCallback((value: string | null) => {
-    if (!value || !isLocaleCode(value)) return;
-    setLocale(value);
-    localStorage.setItem(LOCALE_STORAGE_KEY, value);
-  }, []);
+  const handleChange = React.useCallback(
+    (value: string | null) => {
+      if (!value || !isLocaleCode(value)) return;
+      setLocale(value as LocaleCode);
+    },
+    [setLocale]
+  );
 
   return (
     <DropdownMenu>
@@ -41,7 +38,7 @@ export function LanguageMenu() {
             variant="ghost"
             size="sm"
             className="text-rc-blue hover:bg-rc-blue/10 gap-1.5 px-2 font-normal"
-            aria-label={`Language: ${current.name}. Site content is English only for now.`}
+            aria-label={t("language.aria", { name: current.name })}
           />
         }
       >
@@ -50,12 +47,9 @@ export function LanguageMenu() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-44">
         <DropdownMenuGroup>
-          <DropdownMenuLabel className="text-xs font-normal text-muted-foreground">
-            Language
+          <DropdownMenuLabel className="text-rc-blue/75 text-xs font-normal">
+            {t("language.label")}
           </DropdownMenuLabel>
-          <p className="text-muted-foreground px-1.5 pb-1 text-[0.65rem] leading-snug">
-            Translations coming soon — content stays in English.
-          </p>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={locale} onValueChange={handleChange}>
@@ -67,7 +61,7 @@ export function LanguageMenu() {
               closeOnClick
             >
               <span className="font-medium tabular-nums">{l.short}</span>
-              <span className="text-muted-foreground ml-2">{l.name}</span>
+              <span className="text-rc-blue/80 ml-2">{l.name}</span>
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

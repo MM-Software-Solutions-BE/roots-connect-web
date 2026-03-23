@@ -1,6 +1,10 @@
+"use client";
+
 import { SectionShell } from "@/components/sections/section-shell";
+import { useTranslations } from "@/lib/translations";
 
 export function ApproachSection() {
+  const { t } = useTranslations();
   return (
     <SectionShell
       id="our-approach"
@@ -11,39 +15,34 @@ export function ApproachSection() {
         id="approach-heading"
         className="text-rc-blue mb-8 text-3xl font-semibold tracking-tight"
       >
-        Our approach
+        {t("approach.title")}
       </h2>
-      <p className="text-rc-blue/85 mb-10 max-w-3xl text-pretty leading-relaxed">
-        Roots Connect acts as a bridge between students and the legal profession. We focus on
-        being the point of contact for law students who have questions about legal careers.
+      <p className="text-rc-blue/85 mb-10 max-w-3xl text-left leading-relaxed">
+        {t("approach.intro")}
       </p>
-      <ul className="text-rc-blue/85 space-y-8 text-pretty leading-relaxed">
-        <li className="list-none">
-          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
-            Pillar 1 — Impactful events
+      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <li className="border-rc-blue/15 border-l-4 border-l-rc-brown/60 bg-white/50 rc-card-hover flex flex-col rounded-xl border p-5">
+          <h3 className="text-rc-beige mb-2 text-lg font-semibold">
+            {t("approach.pillar1.title")}
           </h3>
-          <p>
-            Interactive events for students featuring (bi-cultural) lawyers and legal
-            professionals who share their personal experiences and engage in open and honest
-            conversations about careers, diversity and inclusion.
+          <p className="text-rc-beige/85 text-left leading-relaxed">
+            {t("approach.pillar1.desc")}
           </p>
         </li>
-        <li className="list-none">
-          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
-            Pillar 2 — Dialogue with the sector
+        <li className="border-rc-blue/15 border-l-4 border-l-rc-brown/60 bg-white/50 rc-card-hover flex flex-col rounded-xl border p-5">
+          <h3 className="text-rc-beige mb-2 text-lg font-semibold">
+            {t("approach.pillar2.title")}
           </h3>
-          <p>
-            Dialogue with law firms, the legal sector more broadly, the judiciary, companies,
-            universities and student associations to share knowledge and experiences.
+          <p className="text-rc-beige/85 text-left leading-relaxed">
+            {t("approach.pillar2.desc")}
           </p>
         </li>
-        <li className="list-none">
-          <h3 className="text-rc-blue mb-2 text-lg font-semibold">
-            Pillar 3 — Sustainable partnerships
+        <li className="border-rc-blue/15 border-l-4 border-l-rc-brown/60 bg-white/50 rc-card-hover flex flex-col rounded-xl border p-5">
+          <h3 className="text-rc-beige mb-2 text-lg font-semibold">
+            {t("approach.pillar3.title")}
           </h3>
-          <p>
-            We seek long-term partners who share our mission. With their support, we can organise
-            events, remunerate speakers and further strengthen our network.
+          <p className="text-rc-beige/85 text-left leading-relaxed">
+            {t("approach.pillar3.desc")}
           </p>
         </li>
       </ul>

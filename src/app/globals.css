@@ -5,9 +5,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Brand (Colors.txt) — use: bg-rc-beige, text-rc-blue, border-rc-brown, etc. */
-  --color-rc-beige: #f3f3e7;
-  --color-rc-blue: #0e293e;
+  /* Brand palette — use consistently across the site:
+   * rc-beige #0e293e (dark navy): page bg, primary dark, card text on light cards
+   * rc-blue  #f3f3e7 (light cream): text on dark bg, card bg (footer/buttons)
+   * rc-brown #a28772 (accent): labels, underlines, secondary accents
+   * Light cards: bg-white/50, border-rc-blue/15, text-rc-beige
+   * Section divider: border-rc-blue/10
+   * Intro text opacity: text-rc-blue/85
+   */
+  --color-rc-beige: #0e293e;
+  --color-rc-blue: #f3f3e7;
   --color-rc-brown: #a28772;
 
   --color-background: var(--background);
@@ -54,21 +61,21 @@
 }
 
 :root {
-  /* Semantic mapping: beige canvas, blue text/primary, brown accents */
-  --background: #f3f3e7;
-  --foreground: #0e293e;
-  --card: #f3f3e7;
-  --card-foreground: #0e293e;
-  --popover: #f3f3e7;
-  --popover-foreground: #0e293e;
-  --primary: #0e293e;
-  --primary-foreground: #f3f3e7;
-  --secondary: color-mix(in oklab, #a28772 18%, #f3f3e7);
-  --secondary-foreground: #0e293e;
-  --muted: color-mix(in oklab, #0e293e 8%, #f3f3e7);
-  --muted-foreground: color-mix(in oklab, #0e293e 72%, white);
-  --accent: color-mix(in oklab, #a28772 22%, #f3f3e7);
-  --accent-foreground: #0e293e;
+  /* Semantic mapping: blue canvas, beige text/primary, brown accents */
+  --background: #0e293e;
+  --foreground: #f3f3e7;
+  --card: #0e293e;
+  --card-foreground: #f3f3e7;
+  --popover: #0e293e;
+  --popover-foreground: #f3f3e7;
+  --primary: #f3f3e7;
+  --primary-foreground: #0e293e;
+  --secondary: color-mix(in oklab, #a28772 22%, #0e293e);
+  --secondary-foreground: #f3f3e7;
+  --muted: color-mix(in oklab, #f3f3e7 10%, #0e293e);
+  --muted-foreground: color-mix(in oklab, #f3f3e7 78%, #0e293e);
+  --accent: color-mix(in oklab, #a28772 24%, #0e293e);
+  --accent-foreground: #f3f3e7;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);

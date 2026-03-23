@@ -5,6 +5,7 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { JsonLd } from "@/components/json-ld";
 import { SkipLink } from "@/components/skip-link";
 import { SiteHeader } from "@/components/site-header";
+import { TranslationsProvider } from "@/lib/translations";
 import { defaultOgImages, defaultTwitterMetadata } from "@/config/og";
 import { SITE_DESCRIPTION, SITE_URL } from "@/config/site";
 import "./globals.css";
@@ -53,11 +54,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <JsonLd />
-        <SkipLink />
-        <SiteHeader />
-        {children}
-        <CookieBanner />
+        <TranslationsProvider>
+          <JsonLd />
+          <SkipLink />
+          <SiteHeader />
+          {children}
+          <CookieBanner />
+        </TranslationsProvider>
       </body>
     </html>
   );

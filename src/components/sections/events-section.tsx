@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { PrimaryCtaLink } from "@/components/primary-cta-link";
 import { SectionShell } from "@/components/sections/section-shell";
 import { EVENT_HIGHLIGHTS } from "@/data/events";
@@ -33,21 +31,12 @@ export function EventsSection() {
       <ul className="space-y-6">
         {EVENT_HIGHLIGHTS.map((ev) => (
           <li key={ev.id}>
-            <article className="border-rc-blue/15 bg-white/45 rc-card-hover rounded-xl border p-5 shadow-sm">
-              <div className="border-rc-blue/20 bg-rc-beige/80 relative mb-4 aspect-[16/9] overflow-hidden rounded-lg border">
-                <Image
-                  src={ev.imageSrc}
-                  alt={ev.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 768px"
-                  className="object-cover"
-                />
-              </div>
-              <p className="text-rc-brown mb-1 text-xs font-semibold tracking-wide uppercase">
-                {ev.whenWhere}
-              </p>
-              <h3 className="text-rc-blue text-lg font-semibold">{ev.title}</h3>
-              <p className="text-rc-blue/80 mt-2 text-sm leading-relaxed">{ev.blurb}</p>
+            <article className="border-rc-blue/15 bg-white/50 rc-card-hover rounded-xl border p-5 shadow-sm">
+                <p className="text-rc-beige/70 mb-1 text-xs font-medium uppercase tracking-wide">
+                  {ev.whenWhere}
+                </p>
+                <h3 className="text-rc-beige text-lg font-semibold">{ev.title}</h3>
+                <p className="text-rc-beige/80 mt-2 text-sm leading-relaxed">{ev.blurb}</p>
             </article>
           </li>
         ))}

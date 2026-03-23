@@ -19,11 +19,11 @@ export function AboutSection() {
           Roots Connect was founded by three lawyers united by a shared mission to make the
           legal profession more inclusive and representative.{" "}
           <strong className="text-rc-blue font-semibold">Redouan Lakhal</strong>{" "}
-          (President-Director, Lawyer Employment Law),{" "}
-          <strong className="text-rc-blue font-semibold">Anass Arbage</strong> (VP Director,
-          Lawyer Corporate &amp; Commercial Law) and{" "}
-          <strong className="text-rc-blue font-semibold">Houda Berrada</strong> (VP Director,
-          Lawyer Environmental Law) combine their professional expertise and personal
+          (President-Director, Lawyer, Employment Law),{" "}
+          <strong className="text-rc-blue font-semibold">Anass Arbage</strong>{" "}
+          (VP Director, Lawyer, Corporate &amp; Commercial Law) and{" "}
+          <strong className="text-rc-blue font-semibold">Houda Berrada</strong>{" "}
+          (VP Director, Lawyer, Environmental Law) combine their professional expertise and personal
           experiences to bridge the gap between law students from underrepresented backgrounds
           and the legal sector.
         </p>

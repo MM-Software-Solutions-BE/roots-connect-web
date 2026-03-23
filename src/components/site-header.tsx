@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { MenuIcon, MoreVerticalIcon } from "lucide-react";
 
 import { PRIMARY_NAV, SECONDARY_NAV, sectionHref } from "@/config/navigation";
@@ -28,10 +29,6 @@ import { cn } from "@/lib/utils";
 
 const navLinkClass =
   "text-rc-blue/90 hover:text-rc-blue focus-visible:ring-ring rounded-md text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none focus-visible:ring-offset-rc-beige";
-
-function scrollToSection(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
 
 export function SiteHeader() {
   return (
@@ -77,15 +74,24 @@ export function SiteHeader() {
                 </DropdownMenuLabel>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
-              {SECONDARY_NAV.map(({ id, label }) => (
-                <DropdownMenuItem
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className="cursor-pointer"
-                >
-                  {label}
-                </DropdownMenuItem>
-              ))}
+              {SECONDARY_NAV.map((item) =>
+                "href" in item ? (
+                  <DropdownMenuItem key={item.href}>
+                    <Link href={item.href!} className={navLinkClass}>
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ) : (
+                  <DropdownMenuItem key={item.id}>
+                    <Link
+                      href={`/${sectionHref(item.id)}`}
+                      className={navLinkClass}
+                    >
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ),
+              )}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -130,20 +136,35 @@ export function SiteHeader() {
                 <p className="text-muted-foreground mt-6 mb-2 text-xs font-medium tracking-wide uppercase">
                   More
                 </p>
-                {SECONDARY_NAV.map(({ id, label }) => (
-                  <SheetClose
-                    key={id}
-                    nativeButton={false}
-                    render={
-                      <a
-                        href={sectionHref(id)}
-                        className={cn(navLinkClass, "py-2")}
-                      />
-                    }
-                  >
-                    {label}
-                  </SheetClose>
-                ))}
+                {SECONDARY_NAV.map((item) =>
+                  "href" in item ? (
+                    <SheetClose
+                      key={item.href}
+                      nativeButton={false}
+                      render={
+                        <Link
+                          href={item.href!}
+                          className={cn(navLinkClass, "block py-2")}
+                        />
+                      }
+                    >
+                      {item.label}
+                    </SheetClose>
+                  ) : (
+                    <SheetClose
+                      key={item.id}
+                      nativeButton={false}
+                      render={
+                        <a
+                          href={`/${sectionHref(item.id)}`}
+                          className={cn(navLinkClass, "block py-2")}
+                        />
+                      }
+                    >
+                      {item.label}
+                    </SheetClose>
+                  ),
+                )}
               </nav>
             </SheetContent>
           </Sheet>

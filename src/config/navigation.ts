@@ -8,11 +8,16 @@ export const PRIMARY_NAV = [
   { id: "contact", label: "Contact" },
 ] as const;
 
-export const SECONDARY_NAV = [
+export type SecondaryNavItem =
+  | { id: string; label: string; href?: never }
+  | { id?: never; href: string; label: string };
+
+export const SECONDARY_NAV: SecondaryNavItem[] = [
   { id: "our-team", label: "Our Team" },
   { id: "our-partners", label: "Our Partners" },
   { id: "events", label: "Events" },
-] as const;
+  { href: "/peers", label: "Peer Network" },
+];
 
 export function sectionHref(id: string) {
   return `#${id}`;

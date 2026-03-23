@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { SiteFooter } from "@/components/sections";
 import { defaultOgImages } from "@/config/og";
 import { SITE } from "@/config/site";
 import { PeersContent } from "./peers-content";
@@ -26,5 +27,10 @@ export const metadata: Metadata = {
 };
 
 export default function PeersPage() {
-  return <PeersContent />;
+  return (
+    <>
+      <PeersContent />
+      <SiteFooter />
+    </>
+  );
 }

@@ -28,6 +28,7 @@ export function ContactForm() {
     <form
       action={formAction}
       method="POST"
+      autoComplete="off"
       className="border-rc-blue/15 bg-white/50 max-w-xl space-y-4 rounded-xl border p-6 shadow-sm"
     >
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
@@ -43,6 +44,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
+          autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
           placeholder={t("contact.form.namePlaceholder")}
         />
@@ -57,6 +59,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
+          autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
           placeholder={t("contact.form.emailPlaceholder")}
         />
@@ -71,6 +74,7 @@ export function ContactForm() {
           name="message"
           required
           rows={4}
+          autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full resize-y rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
           placeholder={t("contact.form.messagePlaceholder")}
         />

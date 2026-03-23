@@ -23,18 +23,18 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Houda Berrada",
     role: "VP Director",
     practice: "Environmental Law",
-    imageSrc: null,
+    imageSrc: "/images/team/houda-berrada.png",
   },
   {
     name: "Mina Boel",
     role: "Public Relations Manager",
     practice: "Environmental Law",
-    imageSrc: null,
+    imageSrc: "/images/team/mina-boel.png",
   },
   {
     name: "Yuan Sun",
     role: "Marketing Manager",
     practice: "Commercial Law",
-    imageSrc: null,
+    imageSrc: "/images/team/yuan-sun.png",
   },
 ];

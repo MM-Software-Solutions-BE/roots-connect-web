@@ -120,10 +120,10 @@ export function PeersContent() {
             {t("peers.noResults")}
           </p>
         ) : (
-        <ul className="grid grid-cols-2 gap-6 sm:gap-12 lg:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-6 sm:gap-12 lg:grid-cols-3 items-stretch">
           {filteredPeers.map((member) => (
-            <li key={member.name}>
-              <article className="rc-card-hover flex flex-col rounded-xl border border-rc-blue/10 bg-white/5 p-4 shadow-sm sm:p-6">
+            <li key={member.name} className="flex">
+              <article className="rc-card-hover flex min-h-full flex-1 flex-col rounded-xl border border-rc-blue/10 bg-white/5 p-4 shadow-sm sm:p-6">
                 <div className="border-rc-blue/15 relative mb-3 aspect-[4/5] w-full overflow-hidden rounded-lg border bg-rc-blue/5 shadow-sm sm:mb-5">
                   {member.imageSrc ? (
                     <Image

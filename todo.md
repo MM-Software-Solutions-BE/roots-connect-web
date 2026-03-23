@@ -4,7 +4,7 @@ Bronnen: **Landingspagina informatie.pdf** (hoofdbriefing), **Booklet Roots Conn
 
 Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te doen
 
-**Volgende focus:** hosting (**0.1** / **T.2**) · dedicated **OG 1200×630** · §8.2 formulier · optioneel **Dependabot** (**T.16**).
+**Volgende focus:** hosting (**0.1** / **T.2**) · dedicated **OG 1200×630** · optioneel **Dependabot** (**T.16**).
 
 ---
 
@@ -21,8 +21,8 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | 0.5c | 0.5 | `twitter:card` **summary_large_image** (met placeholder-logo) | ✅ |
 | 3.x | §3 | Copy finetunen na goedkeuring klant (tone, lengte) | ⬜ |
 | 5.x | §5.2 | Afstemmen: booklet zegt **4** collaboraties, PDF zegt “Multiple” — één wording kiezen | ⬜ |
-| 6.x | §6 | Foto’s: Redouan + Anass in `team/*.png`; Houda, Mina, Yuan nog toevoegen → `src/data/team.ts` | 🟡 |
-| 8.x | §8.2 | Kiezen: alleen `mailto:` vs. formulier (Netlify/Vercel/Resend) + spamstrategie | ⬜ |
+| 6.x | §6 | Foto’s: alle vijf in `team/*.png`, gekoppeld in `src/data/team.ts` | ✅ |
+| 8.x | §8.2 | Formspree formulier geïntegreerd; native submit + redirect | ✅ |
 | 9.x | §9 | LinkedIn + Instagram gezet ([company](https://be.linkedin.com/company/roots-connectnetwork), @rootsconnectnetwork) | ✅ |
 | 10.x | §10 | Privacytekst door klant of template BE | ⬜ |
 
@@ -112,9 +112,9 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | ✅ | 6.1 | Per persoon: **foto** (indien beschikbaar), naam, functie, rechtsdomein. Data: `src/data/team.ts`, UI: `team-section.tsx`. | PDF |
 | ✅ | 6.2 | Redouan Lakhal — foto `redouan-lakhal.png`. | PDF |
 | ✅ | 6.3 | Anass Arbage — foto `anass-arbage.png`. | PDF |
-| 🟡 | 6.4 | Houda Berrada — nog geen foto (placeholder). | PDF |
-| 🟡 | 6.5 | Mina Boel — nog geen foto (placeholder). | PDF |
-| 🟡 | 6.6 | Yuan Sun — nog geen foto (placeholder). | PDF |
+| ✅ | 6.4 | Houda Berrada — foto `houda-berrada.png`. | PDF |
+| ✅ | 6.5 | Mina Boel — foto `mina-boel.png`. | PDF |
+| ✅ | 6.6 | Yuan Sun — foto `yuan-sun.png`. | PDF |
 
 ---
 
@@ -122,7 +122,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 7.1 | Grid met **voorbeeld-partners** (duidelijk gelabeld). Vervang in `src/data/partners.ts` + `public/images/partners/`. | PDF |
+| ✅ | 7.1 | Grid met LEVL-partner + placeholder "Wil je hier zichtbaar zijn?" CTA. | PDF |
 | ✅ | 7.2 | Structuur: `PartnerEntry[]` in `partners.ts`, optioneel `logoSrc`. | PDF |
 
 ---
@@ -131,9 +131,9 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
-| 🟡 | 8.1 | **Contact:** kaart met `SITE.email`, LinkedIn/Instagram, placeholder telefoon/adres. | PDF |
-| ⬜ | 8.2 | Formulier vs. mailto + eventuele bevestiging (nu o.a. `mailto` met subject voor events). | Best practice |
-| 🟡 | 8.3 | **Events:** voorbeelden in `src/data/events.ts`, CTA naar `#contact`. Vervang door echte agenda. | PDF |
+| 🟡 | ✅ | 8.1 | **Contact:** formulier + "Inschrijven events" CTA, e-mail/adres in footer. | PDF |
+| ✅ | 8.2 | Formspree formulier geïntegreerd; native submit + `_next` redirect naar site. | Best practice |
+| ✅ | 8.3 | **Events:** kaarten in `events.ts`, CTA naar `#contact`. Vervang door echte agenda wanneer beschikbaar. | PDF |
 
 ---
 
@@ -142,7 +142,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
 | ✅ | 9.1 | Quicklinks **LinkedIn**, **Instagram** (`site.ts`, officiële company + IG). | PDF |
-| 🟡 | 9.2 | Contact: e-mail **info@rootsconnect.be**; telefoon/adres indien beschikbaar. | PDF |
+| ✅ | 9.2 | Contact: e-mail **info@rootsconnect.be**, adres Koningslaan 107, 1190 Vorst. | PDF |
 | ✅ | 9.3 | **Ondernemingsnummer:** BE1026.631.469. | PDF |
 | ✅ | 9.4 | Link naar **Privacy Policy** → `/privacy`. | PDF |
 | ✅ | 9.5 | Onderaan **©** + jaartal + **Website:** credit (`SITE.webCredit` in `site.ts`). | PDF |
@@ -156,7 +156,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | Status | ID | Taak | Bron |
 | :---: |----|------|------|
 | 🟡 | 10.1 | Pagina **`/privacy`** — startertekst (EN); juridisch laten nakijken voor BE/GDPR. | PDF |
-| 🟡 | 10.2 | **Cookiebanner** (`CookieBanner`) + `localStorage`; keuze essential / all. GA later: alleen laden bij `consentAllowsAnalytics()` in `cookie-consent.ts`. | GDPR |
+| ✅ | 10.2 | **Cookiebanner** (`CookieBanner`) + `localStorage`; keuze essential / all. GA later: alleen laden bij `consentAllowsAnalytics()`. | GDPR |
 
 ---
 
@@ -167,7 +167,7 @@ Legenda status: **✅** klaar · **🟡** gestart / skeleton · **⬜** nog te d
 | ⬜ | 11.1 | Officiële **foto’s team** (6 personen), rechten en crop. | PDF |
 | ⬜ | 11.2 | **Logo**-bestanden (SVG/PNG), lichte/donkere variant indien nodig. | PDF |
 | ⬜ | 11.3 | **Partnerlogo’s** wanneer beschikbaar. | PDF |
-| ⬜ | 11.4 | URLs **LinkedIn** en **Instagram** Roots Connect. | PDF + booklet (QR verwijst naar zelfde) |
+| ✅ | 11.4 | URLs **LinkedIn** en **Instagram** Roots Connect (in `site.ts`). | PDF + booklet (QR verwijst naar zelfde) |
 
 ---
 
@@ -193,7 +193,7 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 | 🟡 | T.4 | **`app/icon.jpg`** + **`app/apple-icon.jpg`** (kopie logo). *Optioneel:* `manifest`, aparte `.ico`. | Tab/bladwijzer. |
 | ✅ | T.5 | **JSON-LD** `Organization` + `WebSite` (`JsonLd` in `layout.tsx`). | Rich results mogelijk. |
 | ⬜ | T.6 | **Security headers** in `next.config` (o.a. HSTS via platform, `X-Frame-Options`, CSP indien haalbaar). | Geen zichtbare feature. |
-| ⬜ | T.7 | **Images**: `next/image`, formaten en sizes; lazy loading waar passend. | Sneller laden. |
+| ✅ | T.7 | **Images**: `next/image`, formaten en sizes; lazy loading waar passend. | Sneller laden. |
 | ⬜ | T.8 | **Fonts**: subset/limit FOIT; geen onnodige font-weights. | Performance. |
 | ✅ | T.9 | **`not-found.tsx`** + `#main` op 404/home/privacy. | Professioneel. |
 | 🟡 | T.10 | **`.env.example`** (placeholders). *Geen secrets in repo.* | Alleen voor developers. |
@@ -246,4 +246,4 @@ Taken die vooral **betrouwbaarheid, onderhoud, SEO-techniek, veiligheid en prest
 
 - **Legenda** bovenaan (✅ / 🟡 / ⬜).
 - **Volgorde suggestie:** **1** (nav) → **2–9** (content + footer) → **10** + **11** assets → **T** pre-launch.
-- **Laatste update:** cookiebanner + privacy §4; `consentAllowsAnalytics()` voor toekomstige GA. *Build:* `npm run build` slaagt.
+- **Laatste update:** Formspree geïntegreerd (§8.2); teamfoto's Houda/Mina/Yuan; partners LEVL + placeholder; i18n (EN/NL/FR); Peer Network-pagina; content max-width 1920px; contact autocomplete uit. *Build:* `npm run build` slaagt.

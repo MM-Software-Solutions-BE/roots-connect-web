@@ -24,7 +24,7 @@ export function PartnersSection() {
         {PARTNERS.map((p) => (
           <li key={p.id}>
             <article className="border-rc-blue/15 bg-white/50 flex h-full flex-col rounded-xl border p-5 shadow-sm">
-              <div className="border-rc-blue/20 bg-rc-beige/80 relative mb-4 flex aspect-[3/2] items-center justify-center overflow-hidden rounded-lg border">
+              <div className="relative mb-4 flex aspect-[3/2] items-center justify-center overflow-hidden rounded-lg bg-white">
                 {p.logoSrc ? (
                   <Image
                     src={p.logoSrc}
@@ -35,10 +35,41 @@ export function PartnersSection() {
                   />
                 ) : null}
               </div>
-              <h3 className="text-rc-blue text-base font-semibold">{p.name}</h3>
+              <h3 className="text-rc-beige text-base font-semibold">{p.name}</h3>
               {p.tagline ? (
-                <p className="text-rc-blue/70 mt-1 text-sm leading-relaxed">{p.tagline}</p>
+                <p className="text-rc-beige/60 mt-1 text-xs font-medium uppercase tracking-wide">
+                  {p.tagline}
+                </p>
               ) : null}
+              {p.description ? (
+                <p className="text-rc-beige/80 mt-3 text-sm leading-relaxed">
+                  {p.description}
+                </p>
+              ) : null}
+              {(p.websiteUrl || p.linkedInUrl) && (
+                <p className="text-rc-beige/60 mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                  {p.websiteUrl && (
+                    <a
+                      href={p.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-rc-beige"
+                    >
+                      Website
+                    </a>
+                  )}
+                  {p.linkedInUrl && (
+                    <a
+                      href={p.linkedInUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-rc-beige"
+                    >
+                      LinkedIn
+                    </a>
+                  )}
+                </p>
+              )}
             </article>
           </li>
         ))}

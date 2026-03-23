@@ -19,6 +19,12 @@ export const SECONDARY_NAV: SecondaryNavItem[] = [
   { href: "/peers", label: "Peer Network" },
 ];
 
+/** Hash-only, for same-page anchors (e.g. contact form links on homepage). */
 export function sectionHref(id: string) {
   return `#${id}`;
+}
+
+/** Full path to homepage section — use for nav so links work from any page (e.g. /peers → /#contact). */
+export function homeSectionHref(id: string) {
+  return `/${sectionHref(id)}`;
 }

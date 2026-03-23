@@ -7,6 +7,7 @@ import {
   LOCALE_STORAGE_KEY,
 } from "@/config/locales";
 import type { LocaleCode } from "@/config/locales";
+import DEFAULT_TRANSLATIONS from "@/locales/en.json";
 
 export type Translations = Record<string, string>;
 
@@ -18,7 +19,10 @@ export async function loadTranslations(
   if (cachedTranslations[locale]) {
     return cachedTranslations[locale]!;
   }
-
+  if (locale === "en") {
+    cachedTranslations.en = DEFAULT_TRANSLATIONS as Translations;
+    return Promise.resolve(cachedTranslations.en);
+  }
   const mod = await import(`@/locales/${locale}.json`);
   const translations = mod.default as Translations;
   cachedTranslations[locale] = translations;
@@ -61,9 +65,9 @@ export function TranslationsProvider({
 }) {
   const [locale, setLocaleState] = React.useState<LocaleCode>(DEFAULT_LOCALE);
   const [translations, setTranslations] = React.useState<Translations | null>(
-    null
+    () => DEFAULT_TRANSLATIONS as Translations
   );
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
     let raw: string | null = null;

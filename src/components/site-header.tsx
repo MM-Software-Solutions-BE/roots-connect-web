@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { MenuIcon, MoreVerticalIcon } from "lucide-react";
 
-import { PRIMARY_NAV, SECONDARY_NAV, sectionHref } from "@/config/navigation";
+import { PRIMARY_NAV, SECONDARY_NAV, homeSectionHref } from "@/config/navigation";
 import { useTranslations } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import {
@@ -53,7 +53,7 @@ export function SiteHeader() {
     <header className="bg-rc-beige/95 supports-backdrop-filter:bg-rc-beige/90 sticky top-0 z-50 border-b border-rc-blue/10 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a
-          href={sectionHref("home")}
+          href="/"
           className="text-rc-blue/90 hover:text-rc-blue shrink-0 rounded-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
         >
           <span className="text-base font-semibold tracking-tight sm:text-lg">{SITE.name}</span>
@@ -64,7 +64,7 @@ export function SiteHeader() {
           aria-label="Main"
         >
           {PRIMARY_NAV.map(({ id, label }) => (
-            <a key={id} href={sectionHref(id)} className={navLinkClass}>
+            <a key={id} href={homeSectionHref(id)} className={navLinkClass}>
               {getNavLabel({ id, label }, t)}
             </a>
           ))}
@@ -93,22 +93,22 @@ export function SiteHeader() {
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               {SECONDARY_NAV.map((item) =>
-                "href" in item ? (
-                  <DropdownMenuItem key={item.href}>
-                    <Link href={item.href!} className={navLinkClass}>
-                      {getNavLabel(item, t)}
-                    </Link>
-                  </DropdownMenuItem>
-                ) : (
-                  <DropdownMenuItem key={item.id}>
-                    <Link
-                      href={`/${sectionHref(item.id!)}`}
-                      className={navLinkClass}
-                    >
-                      {getNavLabel(item, t)}
-                    </Link>
-                  </DropdownMenuItem>
-                ),
+                  "href" in item ? (
+                    <DropdownMenuItem key={item.href}>
+                      <Link href={item.href!} className={navLinkClass}>
+                        {getNavLabel(item, t)}
+                      </Link>
+                    </DropdownMenuItem>
+                  ) : (
+                    <DropdownMenuItem key={item.id}>
+                      <a
+                        href={homeSectionHref(item.id!)}
+                        className={navLinkClass}
+                      >
+                        {getNavLabel(item, t)}
+                      </a>
+                    </DropdownMenuItem>
+                  ),
               )}
             </DropdownMenuContent>
           </DropdownMenu>
@@ -143,8 +143,8 @@ export function SiteHeader() {
                     nativeButton={false}
                     render={
                       <a
-                        href={sectionHref(id)}
-                        className={cn(navLinkClass, "py-2")}
+                        href={homeSectionHref(id)}
+                        className={cn(navLinkClass, "block py-2")}
                       />
                     }
                   >
@@ -174,7 +174,7 @@ export function SiteHeader() {
                       nativeButton={false}
                       render={
                         <a
-                          href={`/${sectionHref(item.id!)}`}
+                          href={homeSectionHref(item.id!)}
                           className={cn(navLinkClass, "block py-2")}
                         />
                       }

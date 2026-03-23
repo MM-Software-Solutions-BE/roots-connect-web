@@ -151,30 +151,33 @@ export function PeersContent() {
                 <div className="mt-auto flex flex-wrap gap-2 sm:gap-3">
                   <a
                     href={getMailtoHref(member)}
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center gap-1.5 rounded-lg border border-transparent px-3 text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:gap-2 sm:px-4 sm:text-sm"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
+                    aria-label={t("peers.email")}
                   >
-                    <MailIcon className="size-4" aria-hidden />
-                    {t("peers.email")}
+                    <MailIcon className="size-4 shrink-0" aria-hidden />
+                    <span className="hidden sm:inline">{t("peers.email")}</span>
                   </a>
                   {member.linkedIn ? (
                     <a
                       href={member.linkedIn}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center gap-1.5 rounded-lg border border-transparent px-3 text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:gap-2 sm:px-4 sm:text-sm"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
+                      aria-label={t("peers.linkedIn")}
                     >
-                      <LinkedinIcon className="size-4" aria-hidden />
-                      {t("peers.linkedIn")}
+                      <LinkedinIcon className="size-4 shrink-0" aria-hidden />
+                      <span className="hidden sm:inline">{t("peers.linkedIn")}</span>
                     </a>
                   ) : (
                     <a
                       href={SITE.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center gap-1.5 rounded-lg border border-transparent px-3 text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:gap-2 sm:px-4 sm:text-sm"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
+                      aria-label={t("peers.linkedIn")}
                     >
-                      <LinkedinIcon className="size-4" aria-hidden />
-                      {t("peers.linkedIn")}
+                      <LinkedinIcon className="size-4 shrink-0" aria-hidden />
+                      <span className="hidden sm:inline">{t("peers.linkedIn")}</span>
                     </a>
                   )}
                 </div>

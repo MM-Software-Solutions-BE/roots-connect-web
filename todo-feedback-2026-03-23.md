@@ -11,7 +11,7 @@ Statuslegende: ⬜ nog te doen · 🟡 bezig · ✅ klaar · ❓ onduidelijk / t
 - ✅ **Kleurschema home/site evalueren**: hero kreeg blauwe achtergrond + beige typography/CTA voor strakkere first impression.
 - 🟡 **Tekstuitlijning verbeteren**: eerste pass toegepast (o.a. Approach-tekst expliciet links); rest van secties nog nalopen.
 - ✅ **Pillars visueel als balkjes/cards**: `Our approach` pillars omgezet naar duidelijke cards.
-- 🟡 **Hero bij openen**: foto-first op mobiel toegepast met huidige asset; extra samenwerkingfoto’s nog nodig uit Drive.
+- ✅ **Hero bij openen**: foto-first op mobiel toegepast met huidige asset; extra samenwerkingfoto’s nog nodig uit Drive.
 
 ## 2) Copy & content fixes
 
@@ -30,13 +30,13 @@ Statuslegende: ⬜ nog te doen · 🟡 bezig · ✅ klaar · ❓ onduidelijk / t
 
 ## 4) Peers-functionaliteit
 
-- ⬜ **Peer-pagina toevoegen** (`/peers`) geïnspireerd op Bridges-structuur:
+- ✅ **Peer-pagina toevoegen** (`/peers`) geïnspireerd op Bridges-structuur:
   - overzicht met peers
-  - foto + korte bio + contact
+  - foto + role/practice + email/LinkedIn-knoppen
   - schaalbaar voor veel profielen
 - ⬜ **Homepage CTA naar peers** toevoegen (aparte knop of aparte sectie met link).
-- ⬜ **Data-structuur voor peers** opzetten in code (zodat team later eenvoudig peers kan toevoegen).
-- ⬜ **Navigatiebeslissing**: “Peers” in hoofdmenu of onder “More”.
+- ✅ **Data-structuur voor peers** opzetten in code (TEAM_LEADS, PEERS, TEAM_MEMBERS in `team.ts`).
+- ✅ **Navigatiebeslissing**: “Peer Network” onder “More” menu.
 
 ## 5) Content-aanlevering (klant)
 
@@ -74,8 +74,8 @@ Statuslegende: ⬜ nog te doen · 🟡 bezig · ✅ klaar · ❓ onduidelijk / t
 - CTA-structuur klaarzetten met tijdelijke links.
 
 ### Fase B — Kernuitbreiding
-- `/peers` pagina + homepage CTA naar peers.
-- Data-driven peers-lijst (gemakkelijk uitbreidbaar).
+- ✅ `/peers` pagina; ⬜ homepage CTA naar peers.
+- ✅ Data-driven peers-lijst (gemakkelijk uitbreidbaar).
 
 ### Fase C — Content finaliseren
 - Echte foto’s en Google Form integreren.

@@ -42,14 +42,15 @@ export function HomeSection() {
             Same max-w-5xl shell as the rest of the site (was max-w-6xl before).
           */}
           <div className="border-rc-blue/25 relative aspect-square w-full max-w-sm overflow-hidden rounded-2xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.45)] ring-1 ring-rc-blue/20">
-            {/* Crop: object-[x%] lager = meer linkerkant zichtbaar (Redouan links) */}
+            {/* Crop: focus op presenter + samenwerking; portrait-first voor mobiel */}
             <Image
               src={HOME_HERO_IMAGE.src}
               alt={HOME_HERO_IMAGE.alt}
               fill
               priority
+              loading="eager"
               sizes="(max-width: 1024px) 100vw, 384px"
-              className="origin-center object-cover object-[20%_center] [transform:scale(1.1)]"
+              className="origin-center object-cover object-[35%_38%] [transform:scale(1.05)]"
             />
           </div>
         </div>

@@ -9,6 +9,16 @@ export const GOOGLE_SITE_VERIFICATION: string | null = null;
 export const SITE_DESCRIPTION =
   "Connecting roots through law — Empowering the next generation of legal talent. Belgian network of lawyers supporting students from underrepresented backgrounds." as const;
 
+/** CTA 1 (technisch): Google Form link voor event-updates. */
+export const GOOGLE_FORM_EVENT_UPDATES: string | null = null;
+
+/**
+ * Technische integratie: contactformulier via Formspree.
+ * Maak een form op https://formspree.io, stel ontvanger in op info@rootsconnect.be,
+ * en plak hier het form-ID (bv. "mabcxyzw" uit https://formspree.io/f/mabcxyzw).
+ */
+export const FORMSPREE_FORM_ID: string | null = "maqprqwj";
+
 export const SITE = {
   name: "Roots Connect",
   legalName: "Roots Connect vzw",
@@ -24,13 +34,3 @@ export const SITE = {
     instagram: "https://www.instagram.com/rootsconnectnetwork/",
   },
 } as const;
-
-/** CTA 1 (technisch): Google Form link voor event-updates. */
-export const GOOGLE_FORM_EVENT_UPDATES: string | null = null;
-
-/**
- * Technische integratie: contactformulier via Formspree.
- * Maak een form op https://formspree.io, stel ontvanger in op info@rootsconnect.be,
- * en plak hier het form-ID (bv. "mabcxyzw" uit https://formspree.io/f/mabcxyzw).
- */
-export const FORMSPREE_FORM_ID: string | null = "maqprqwj";

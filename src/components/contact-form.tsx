@@ -2,13 +2,13 @@
 
 import * as React from "react";
 
-import { SITE, SITE_URL } from "@/config/site";
+import { FORMSPREE_FORM_ID, SITE, SITE_URL } from "@/config/site";
 import { useTranslations } from "@/lib/translations";
 
-const FORM_ACTION = SITE.formspreeFormId
-  ? `https://formspree.io/f/${SITE.formspreeFormId}`
+const FORM_ACTION = FORMSPREE_FORM_ID
+  ? `https://formspree.io/f/${FORMSPREE_FORM_ID}`
   : undefined;
-const CAN_SUBMIT = !!SITE.formspreeFormId;
+const CAN_SUBMIT = !!FORMSPREE_FORM_ID;
 const NEXT_URL = `${SITE_URL}/?submitted=1#contact`;
 
 export function ContactForm() {

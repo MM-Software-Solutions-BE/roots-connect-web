@@ -3,6 +3,7 @@
  * Social links (LinkedIn company page, Instagram).
  */
 export const SITE_URL = "https://rootsconnect.be" as const;
+export const GOOGLE_SITE_VERIFICATION: string | null = null;
 
 /** Shared for metadata, JSON-LD, manifest. */
 export const SITE_DESCRIPTION =
@@ -22,12 +23,14 @@ export const SITE = {
     linkedin: "https://be.linkedin.com/company/roots-connectnetwork",
     instagram: "https://www.instagram.com/rootsconnectnetwork/",
   },
-  /** CTA 1: Google Form voor event-updates. Vul in zodra klant link levert. */
-  googleFormEventUpdates: null as string | null,
-  /**
-   * CTA 2: Contactformulier → emails naar info@rootsconnect.be.
-   * Maak een form op https://formspree.io, stel ontvanger in op info@rootsconnect.be,
-   * en plak hier het form-ID (bv. "mabcxyzw" uit https://formspree.io/f/mabcxyzw).
-   */
-  formspreeFormId: "maqprqwj" as string | null,
 } as const;
+
+/** CTA 1 (technisch): Google Form link voor event-updates. */
+export const GOOGLE_FORM_EVENT_UPDATES: string | null = null;
+
+/**
+ * Technische integratie: contactformulier via Formspree.
+ * Maak een form op https://formspree.io, stel ontvanger in op info@rootsconnect.be,
+ * en plak hier het form-ID (bv. "mabcxyzw" uit https://formspree.io/f/mabcxyzw).
+ */
+export const FORMSPREE_FORM_ID: string | null = "maqprqwj";

@@ -7,7 +7,11 @@ import { SkipLink } from "@/components/skip-link";
 import { SiteHeader } from "@/components/site-header";
 import { TranslationsProvider } from "@/lib/translations";
 import { defaultOgImages, defaultTwitterMetadata } from "@/config/og";
-import { SITE_DESCRIPTION, SITE_URL } from "@/config/site";
+import {
+  GOOGLE_SITE_VERIFICATION,
+  SITE_DESCRIPTION,
+  SITE_URL,
+} from "@/config/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,9 +32,6 @@ export const viewport: Viewport = {
   themeColor: "#0e293e",
 };
 
-const googleVerification =
-  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -38,8 +39,8 @@ export const metadata: Metadata = {
     template: "%s | Roots Connect",
   },
   description: SITE_DESCRIPTION,
-  ...(googleVerification
-    ? { verification: { google: googleVerification } }
+  ...(GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
     : {}),
   openGraph: {
     type: "website",

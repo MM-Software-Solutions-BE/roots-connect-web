@@ -31,7 +31,7 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant/confirm · ✅ klaar
 |------|:------:|---------|
 | **Hero foto**: “Roots Connect in een aula” | ✅ | Ontvangen en verwerkt in hero |
 | **Eventfoto’s** (vorige events) | 🟡 | Zie lijst “Foto’s (al geïdentificeerd)” hieronder |
-| **Sfeerfoto** (pagina ergens) | 🟡 | Foto 2 (zie hieronder) |
+| **Sfeerfoto** (pagina ergens) | ✅ | Foto 2 geplaatst als full-width beeldblok op de homepage |
 | **Anass extra comments** | 🟡 | “Onder voorbehoud van extra comments van Anass” |
 | **Peers (fase 1)**: 5–10 leden | 🟡 | Excel + foto’s (zie “Peer pagina import”) |
 

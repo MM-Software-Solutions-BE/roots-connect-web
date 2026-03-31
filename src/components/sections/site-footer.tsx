@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { InstagramIcon, LinkedinIcon } from "lucide-react";
 
 import { SiteLogo } from "@/components/site-logo";
 import { SITE } from "@/config/site";
@@ -29,9 +30,10 @@ export function SiteFooter() {
                   href={SITE.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`${linkClass} inline-flex items-center gap-2`}
                 >
-                  {t("partners.linkedIn")}
+                  <LinkedinIcon className="size-4 shrink-0" aria-hidden />
+                  <span>{t("partners.linkedIn")}</span>
                 </a>
               </li>
               <li>
@@ -39,9 +41,10 @@ export function SiteFooter() {
                   href={SITE.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`${linkClass} inline-flex items-center gap-2`}
                 >
-                  {t("footer.instagram")}
+                  <InstagramIcon className="size-4 shrink-0" aria-hidden />
+                  <span>{t("footer.instagram")}</span>
                 </a>
               </li>
             </ul>

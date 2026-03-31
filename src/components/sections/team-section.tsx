@@ -31,7 +31,7 @@ export function TeamSection() {
                     alt={member.name}
                     fill
                     sizes="(max-width: 1024px) 45vw, 28vw"
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 ) : (
                   <div className="text-rc-blue/45 flex h-full items-center justify-center p-4 text-center text-sm">

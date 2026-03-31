@@ -46,7 +46,7 @@ export function TeamSection() {
                 <p className="text-rc-brown text-xs font-medium sm:text-sm">
                   {member.role}
                 </p>
-                <p className="text-rc-blue/80 mt-auto text-xs leading-snug sm:text-sm">
+                <p className="text-rc-blue/80 mt-1 text-xs leading-snug sm:text-sm">
                   {t("team.lawyerPrefix")}, {member.practice}
                 </p>
               </div>

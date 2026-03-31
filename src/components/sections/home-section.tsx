@@ -47,22 +47,22 @@ export function HomeSection() {
         </div>
 
         <div className="order-3 lg:order-2">
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:max-w-sm lg:flex-col">
             <PrimaryCtaLink
               href="/peers"
-              className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 w-full sm:w-auto"
+              className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 w-full"
             >
               {t("home.cta.peers")}
             </PrimaryCtaLink>
             <Link
               href={GOOGLE_FORM_EVENT_UPDATES ?? homeSectionHref("contact")}
-              className="inline-flex h-10 min-w-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige w-full sm:w-auto"
+              className="inline-flex h-10 min-w-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige w-full"
             >
               {t("home.cta.events")}
             </Link>
             <a
               href={homeSectionHref("contact")}
-              className="inline-flex h-10 min-w-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige w-full sm:w-auto"
+              className="inline-flex h-10 min-w-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige w-full"
             >
               {t("home.cta.partner")}
             </a>

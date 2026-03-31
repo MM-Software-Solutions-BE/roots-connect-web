@@ -11,15 +11,17 @@ export function ApproachSection() {
       aria-labelledby="approach-heading"
       className="border-b border-rc-blue/10"
     >
-      <h2
-        id="approach-heading"
-        className="text-rc-blue mb-8 text-3xl font-semibold tracking-tight"
-      >
-        {t("approach.title")}
-      </h2>
-      <p className="text-rc-blue/85 mb-10 max-w-3xl text-left leading-relaxed">
-        {t("approach.intro")}
-      </p>
+      <div className="border-rc-brown/25 border-l-4 pl-6">
+        <h2
+          id="approach-heading"
+          className="text-rc-blue mb-4 text-xl font-semibold tracking-tight"
+        >
+          {t("approach.title")}
+        </h2>
+        <p className="text-rc-blue/85 mb-10 max-w-3xl text-left leading-relaxed">
+          {t("approach.intro")}
+        </p>
+      </div>
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <li className="border-rc-blue/15 border-l-4 border-l-rc-brown/60 bg-white/50 rc-card-hover flex flex-col rounded-xl border p-5">
           <h3 className="text-rc-beige mb-2 text-lg font-semibold">

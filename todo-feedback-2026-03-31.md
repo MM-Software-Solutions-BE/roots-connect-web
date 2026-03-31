@@ -15,7 +15,7 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant/confirm · ✅ klaar
 |------|:------:|-----------------|
 | **Layout**: meer witruimte / minder “full width” | ✅ | `SectionShell` max-width genormaliseerd (minder full width, meer rust) |
 | **Hero**: bovenaan foto vervangen (aula “Roots Connect”) rechts of onder tekst | ✅ | Ingeladen als `public/images/home/hero-aula-roots-connect.jpeg` + layout aangepast (desktop split / mobiel onder tekst) |
-| **Our Approach** degraderen naar subtitel (zoals Our mission) | ⬜ | `approach-section` heading stijl aanpassen (zelfde layout als mission subtitle) |
+| **Our Approach** degraderen naar subtitel (zoals Our mission) | ✅ | `approach-section` heading stijl aangepast naar mission-stijl (linkse border + kleinere titel) |
 | **Team grid**: kleiner + rijvolgorde (Anass/Houda/Mohamed op 1 rij, Yuan/Mina eronder) | ✅ | Grid compacter op desktop + cards gelijke hoogte (practice naar onder), volgorde in `team.ts` |
 | **Partners**: “extra partners” vak weg; enkel **LEVL** behouden | ✅ | `partners-section` / `partners.ts`: placeholders/CTA’s verwijderen, alleen LEVL tonen |
 | **Sign up for events** quicklink → Google Form | ✅ | Linken naar `https://forms.gle/u8KX9VchjDtZfE658` (CTA/quicklink waar “Sign up…” staat) |

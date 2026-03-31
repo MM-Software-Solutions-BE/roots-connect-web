@@ -35,10 +35,10 @@ export function EventsSection() {
         </a>
         {t("events.introAfter")}
       </p>
-      <ul className="space-y-6">
+      <ul className="grid gap-6 lg:grid-cols-2">
         {EVENT_HIGHLIGHTS.map((ev) => (
-          <li key={ev.id}>
-            <article className="border-rc-blue/15 bg-white/50 rc-card-hover overflow-hidden rounded-xl border shadow-sm">
+          <li key={ev.id} className="flex">
+            <article className="border-rc-blue/15 bg-white/50 rc-card-hover flex min-h-full w-full flex-col overflow-hidden rounded-xl border shadow-sm">
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-rc-beige/10">
                 <Image
                   src={ev.imageSrc}
@@ -48,7 +48,7 @@ export function EventsSection() {
                   className="object-cover object-center"
                 />
               </div>
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <p className="text-rc-beige/70 mb-1 text-xs font-medium uppercase tracking-wide">
                   {ev.whenWhere.startsWith("events.") ? t(ev.whenWhere) : ev.whenWhere}
                 </p>

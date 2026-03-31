@@ -10,7 +10,8 @@ export const SITE_DESCRIPTION =
   "Connecting roots through law — Empowering the next generation of legal talent. Belgian network of lawyers supporting students from underrepresented backgrounds." as const;
 
 /** CTA 1 (technisch): Google Form link voor event-updates. */
-export const GOOGLE_FORM_EVENT_UPDATES: string | null = null;
+export const GOOGLE_FORM_EVENT_UPDATES: string | null =
+  "https://forms.gle/u8KX9VchjDtZfE658";
 
 /**
  * Technische integratie: contactformulier via Formspree.

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { InstagramIcon, LinkedinIcon } from "lucide-react";
 
-import { SiteLogo } from "@/components/site-logo";
 import { SITE } from "@/config/site";
 import { useTranslations } from "@/lib/translations";
 
@@ -13,12 +13,8 @@ export function SiteFooter() {
   const { t } = useTranslations();
   return (
     <footer className="border-t border-rc-blue/15 bg-rc-blue text-rc-beige">
-      <div className="mx-auto w-full max-w-[1920px] px-4 py-12 sm:px-6 lg:px-8">
-        <div className="bg-rc-beige/95 mb-10 inline-flex rounded-lg p-3 shadow-sm">
-          <SiteLogo variant="footer" />
-        </div>
-
-        <div className="mb-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-10 grid items-stretch gap-10 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <h2 className="text-rc-brown mb-3 text-xs font-semibold tracking-widest uppercase">
               {t("footer.followUs")}
@@ -29,9 +25,10 @@ export function SiteFooter() {
                   href={SITE.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`${linkClass} inline-flex items-center gap-2`}
                 >
-                  {t("partners.linkedIn")}
+                  <LinkedinIcon className="size-4 shrink-0" aria-hidden />
+                  <span>{t("partners.linkedIn")}</span>
                 </a>
               </li>
               <li>
@@ -39,9 +36,10 @@ export function SiteFooter() {
                   href={SITE.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`${linkClass} inline-flex items-center gap-2`}
                 >
-                  {t("footer.instagram")}
+                  <InstagramIcon className="size-4 shrink-0" aria-hidden />
+                  <span>{t("footer.instagram")}</span>
                 </a>
               </li>
             </ul>

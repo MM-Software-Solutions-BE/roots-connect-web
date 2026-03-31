@@ -28,10 +28,4 @@ export const PARTNERS: PartnerEntry[] = [
     websiteUrl: "https://www.levl.be/",
     linkedInUrl: "https://www.linkedin.com/company/levl-be/",
   },
-  {
-    id: "join",
-    name: "",
-    logoSrc: null,
-    description: "",
-  },
 ];

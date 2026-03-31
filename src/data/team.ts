@@ -13,34 +13,34 @@ export type TeamMember = {
 /** Shared: team leads appear in both TEAM_MEMBERS (Our Team) and PEERS (Peer Network). */
 const TEAM_LEADS: TeamMember[] = [
   {
-    name: "Redouan Lakhal",
-    role: "President-Director",
-    practice: "Employment Law",
-    imageSrc: "/images/team/redouan-lakhal.png",
-  },
-  {
     name: "Anass Arbage",
     role: "VP Director",
     practice: "Corporate & Commercial Law",
-    imageSrc: "/images/team/anass-arbage.png",
+    imageSrc: "/images/team/anass-arbage.jpeg",
   },
   {
     name: "Houda Berrada",
     role: "VP Director",
     practice: "Environmental Law",
-    imageSrc: "/images/team/houda-berrada.png",
+    imageSrc: "/images/team/houda-berrada.jpeg",
+  },
+  {
+    name: "Redouan Lakhal",
+    role: "President-Director",
+    practice: "Employment Law",
+    imageSrc: "/images/team/redouan-lakhal.jpeg",
+  },
+  {
+    name: "Yuan Sun",
+    role: "Marketing Manager",
+    practice: "Commercial Law",
+    imageSrc: "/images/team/yuan-sun.jpeg",
   },
   {
     name: "Mina Boel",
     role: "Public Relations Manager",
     practice: "Environmental Law",
     imageSrc: "/images/team/mina-boel.png",
-  },
-  {
-    name: "Yuan Sun",
-    role: "Marketing Manager",
-    practice: "Commercial Law",
-    imageSrc: "/images/team/yuan-sun.png",
   },
 ];
 

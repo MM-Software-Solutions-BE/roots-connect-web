@@ -2,6 +2,6 @@
  * Hero and future home imagery. Add files under `public/images/home/` and reference here.
  */
 export const HOME_HERO_IMAGE = {
-  src: "/images/home/hero-workshop.jpeg",
-  alt: "Roots Connect workshop: professionals in collaboration during a presentation.",
+  src: "/images/home/hero-aula-roots-connect.jpeg",
+  alt: "Roots Connect event in an auditorium: students and young professionals listening to a talk.",
 } as const;

@@ -14,16 +14,16 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant/confirm · ✅ klaar
 | Item | Status | Locatie / actie |
 |------|:------:|-----------------|
 | **Layout**: meer witruimte / minder “full width” | ⬜ | Algemene layout tunen: sectie max-width + spacing (middenweg tussen v1 en huidige) |
-| **Logo** overal zonder blauwe achtergrond | ⬜ | Logo container/achtergrond weghalen zodat logo fully zichtbaar is (header/sections/cards waar van toepassing) |
 | **Hero**: bovenaan foto vervangen (aula “Roots Connect”) rechts of onder tekst | 🟡 | Nieuwe hero foto ontvangen + integreren in `home`/hero layout (desktop split: tekst + image) |
 | **Our Approach** degraderen naar subtitel (zoals Our mission) | ⬜ | `approach-section` heading stijl aanpassen (zelfde layout als mission subtitle) |
 | **Team grid**: kleiner + rijvolgorde (Anass/Houda/Mohamed op 1 rij, Yuan/Mina eronder) | ⬜ | `team-section` layout/grid + image sizing aanpassen |
-| **Partners**: “extra partners” vak weg; enkel **LEVL** behouden | ⬜ | `partners-section` / `partners.ts`: placeholders/CTA’s verwijderen, alleen LEVL tonen |
+| **Partners**: “extra partners” vak weg; enkel **LEVL** behouden | ✅ | `partners-section` / `partners.ts`: placeholders/CTA’s verwijderen, alleen LEVL tonen |
 | **Sign up for events** quicklink → Google Form | ✅ | Linken naar `https://forms.gle/u8KX9VchjDtZfE658` (CTA/quicklink waar “Sign up…” staat) |
 | **Contact form**: veld “Organisation/Company” toevoegen | ⬜ | Contact form: nieuw input veld + doorsturen via Formspree/mailto |
 | **Footer quicklinks**: Instagram + LinkedIn met logo’s | ⬜ | Footer/social icons toevoegen met links (zie hieronder) |
 | **Events**: enkel vorige events + foto’s | 🟡 | Zodra foto’s binnen zijn: events-sectie vullen met fotokaarten (geen toekomstige events) |
 | **Peer pagina**: import flow voorbereiden (Excel + foto’s) | 🟡 | Beschrijven/implementeren: data ingest (eerste batch 5–10 peers) |
+| **Logo** overal zonder blauwe achtergrond | ⬜ | (Reset) Logo container/achtergrond weghalen zodat logo fully zichtbaar is (header/sections/cards waar van toepassing) |
 
 ### Door klant (content-aanlevering / confirm)
 

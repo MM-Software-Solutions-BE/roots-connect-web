@@ -13,7 +13,7 @@ export function SiteFooter() {
   const { t } = useTranslations();
   return (
     <footer className="border-t border-rc-blue/15 bg-rc-blue text-rc-beige">
-      <div className="mx-auto w-full max-w-[1920px] px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="bg-rc-beige/95 mb-10 inline-flex rounded-lg p-3 shadow-sm">
           <SiteLogo variant="footer" />
         </div>

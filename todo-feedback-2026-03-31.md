@@ -13,10 +13,10 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant/confirm · ✅ klaar
 
 | Item | Status | Locatie / actie |
 |------|:------:|-----------------|
-| **Layout**: meer witruimte / minder “full width” | ⬜ | Algemene layout tunen: sectie max-width + spacing (middenweg tussen v1 en huidige) |
-| **Hero**: bovenaan foto vervangen (aula “Roots Connect”) rechts of onder tekst | 🟡 | Nieuwe hero foto ontvangen + integreren in `home`/hero layout (desktop split: tekst + image) |
+| **Layout**: meer witruimte / minder “full width” | ✅ | `SectionShell` max-width genormaliseerd (minder full width, meer rust) |
+| **Hero**: bovenaan foto vervangen (aula “Roots Connect”) rechts of onder tekst | ✅ | Ingeladen als `public/images/home/hero-aula-roots-connect.jpeg` + layout aangepast (desktop split / mobiel onder tekst) |
 | **Our Approach** degraderen naar subtitel (zoals Our mission) | ⬜ | `approach-section` heading stijl aanpassen (zelfde layout als mission subtitle) |
-| **Team grid**: kleiner + rijvolgorde (Anass/Houda/Mohamed op 1 rij, Yuan/Mina eronder) | ⬜ | `team-section` layout/grid + image sizing aanpassen |
+| **Team grid**: kleiner + rijvolgorde (Anass/Houda/Mohamed op 1 rij, Yuan/Mina eronder) | ✅ | Grid compacter op desktop + cards gelijke hoogte (practice naar onder), volgorde in `team.ts` |
 | **Partners**: “extra partners” vak weg; enkel **LEVL** behouden | ✅ | `partners-section` / `partners.ts`: placeholders/CTA’s verwijderen, alleen LEVL tonen |
 | **Sign up for events** quicklink → Google Form | ✅ | Linken naar `https://forms.gle/u8KX9VchjDtZfE658` (CTA/quicklink waar “Sign up…” staat) |
 | **Contact form**: veld “Organisation/Company” toevoegen | ⬜ | Contact form: nieuw input veld + doorsturen via Formspree/mailto |
@@ -29,7 +29,7 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant/confirm · ✅ klaar
 
 | Item | Status | Details |
 |------|:------:|---------|
-| **Hero foto**: “Roots Connect in een aula” | 🟡 | Bezorg bestand + gewenste crop (liefst horizontaal, hoge resolutie) |
+| **Hero foto**: “Roots Connect in een aula” | ✅ | Ontvangen en verwerkt in hero |
 | **Eventfoto’s** (vorige events) | 🟡 | Zie lijst “Foto’s (al geïdentificeerd)” hieronder |
 | **Sfeerfoto** (pagina ergens) | 🟡 | Foto 2 (zie hieronder) |
 | **Anass extra comments** | 🟡 | “Onder voorbehoud van extra comments van Anass” |

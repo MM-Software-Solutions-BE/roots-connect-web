@@ -26,7 +26,7 @@ export function SectionShell({
     >
       <div
         className={cn(
-          "mx-auto w-full max-w-[1920px] px-4 py-16 sm:px-6 lg:px-10 lg:py-20",
+          "mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20",
           containerClassName,
         )}
       >

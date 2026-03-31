@@ -19,7 +19,7 @@ Statuslegende: ⬜ nog te doen · 🟡 wacht op klant/confirm · ✅ klaar
 | **Team grid**: kleiner + rijvolgorde (Anass/Houda/Mohamed op 1 rij, Yuan/Mina eronder) | ✅ | Grid compacter op desktop + cards gelijke hoogte (practice naar onder), volgorde in `team.ts` |
 | **Partners**: “extra partners” vak weg; enkel **LEVL** behouden | ✅ | `partners-section` / `partners.ts`: placeholders/CTA’s verwijderen, alleen LEVL tonen |
 | **Sign up for events** quicklink → Google Form | ✅ | Linken naar `https://forms.gle/u8KX9VchjDtZfE658` (CTA/quicklink waar “Sign up…” staat) |
-| **Contact form**: veld “Organisation/Company” toevoegen | ⬜ | Contact form: nieuw input veld + doorsturen via Formspree/mailto |
+| **Contact form**: veld “Organisation/Company” toevoegen | ✅ | Contact form: nieuw input veld (`organisation`) + i18n labels toegevoegd |
 | **Footer quicklinks**: Instagram + LinkedIn met logo’s | ⬜ | Footer/social icons toevoegen met links (zie hieronder) |
 | **Events**: enkel vorige events + foto’s | 🟡 | Zodra foto’s binnen zijn: events-sectie vullen met fotokaarten (geen toekomstige events) |
 | **Peer pagina**: import flow voorbereiden (Excel + foto’s) | 🟡 | Beschrijven/implementeren: data ingest (eerste batch 5–10 peers) |

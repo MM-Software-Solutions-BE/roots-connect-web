@@ -74,6 +74,8 @@
   "contact.form.namePlaceholder": "Uw naam",
   "contact.form.email": "E-mail",
   "contact.form.emailPlaceholder": "uw@email.be",
+  "contact.form.organisation": "Organisatie / bedrijf",
+  "contact.form.organisationPlaceholder": "Optioneel",
   "contact.form.message": "Bericht",
   "contact.form.messagePlaceholder": "Uw bericht...",
   "contact.form.submit": "Verstuur",

@@ -85,6 +85,20 @@ export function ContactForm() {
       </div>
 
       <div>
+        <label htmlFor="contact-organisation" className="text-rc-beige mb-1 block text-sm font-medium">
+          {t("contact.form.organisation")}
+        </label>
+        <input
+          id="contact-organisation"
+          name="organisation"
+          type="text"
+          autoComplete="off"
+          className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
+          placeholder={t("contact.form.organisationPlaceholder")}
+        />
+      </div>
+
+      <div>
         <label htmlFor="contact-message" className="text-rc-beige mb-1 block text-sm font-medium">
           {t("contact.form.message")}
         </label>

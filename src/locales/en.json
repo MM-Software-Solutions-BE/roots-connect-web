@@ -74,6 +74,8 @@
   "contact.form.namePlaceholder": "Your name",
   "contact.form.email": "Email",
   "contact.form.emailPlaceholder": "your@email.be",
+  "contact.form.organisation": "Organisation / Company",
+  "contact.form.organisationPlaceholder": "Optional",
   "contact.form.message": "Message",
   "contact.form.messagePlaceholder": "Your message...",
   "contact.form.submit": "Submit",

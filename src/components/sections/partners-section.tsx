@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ExternalLink, LinkedinIcon } from "lucide-react";
 
 import { PARTNERS } from "@/data/partners";
 import { SectionShell } from "@/components/sections/section-shell";
@@ -50,15 +51,16 @@ export function PartnersSection() {
                 </p>
               ) : null}
               {(p.websiteUrl || p.linkedInUrl) && (
-                <p className="text-rc-beige/60 mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                <p className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
                   {p.websiteUrl && (
                     <a
                       href={p.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline hover:text-rc-beige"
+                      className="text-rc-beige/80 hover:text-rc-beige inline-flex items-center gap-2 underline underline-offset-4 decoration-rc-brown/40 hover:decoration-rc-beige/60 transition-colors"
                     >
-                      {t("partners.website")}
+                      <ExternalLink className="size-4" aria-hidden />
+                      <span>{t("partners.website")}</span>
                     </a>
                   )}
                   {p.linkedInUrl && (
@@ -66,9 +68,10 @@ export function PartnersSection() {
                       href={p.linkedInUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline hover:text-rc-beige"
+                      className="text-rc-beige/80 hover:text-rc-beige inline-flex items-center gap-2 underline underline-offset-4 decoration-rc-brown/40 hover:decoration-rc-beige/60 transition-colors"
                     >
-                      {t("partners.linkedIn")}
+                      <LinkedinIcon className="size-4" aria-hidden />
+                      <span>{t("partners.linkedIn")}</span>
                     </a>
                   )}
                 </p>

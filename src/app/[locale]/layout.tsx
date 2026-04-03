@@ -5,7 +5,10 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { JsonLd } from "@/components/json-ld";
 import { SkipLink } from "@/components/skip-link";
 import { SiteHeader } from "@/components/site-header";
-import { defaultOgImages, OG_IMAGE_ABSOLUTE_URL } from "@/config/og";
+import {
+  openGraphImagesForLocale,
+  twitterImageAbsoluteForLocale,
+} from "@/config/og";
 import { GOOGLE_SITE_VERIFICATION, SITE } from "@/config/site";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { metadataBaseFromSiteUrl } from "@/lib/site-metadata-base";
@@ -37,17 +40,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: locale === "nl" ? "nl_BE" : "en_BE",
+      alternateLocale: locale === "nl" ? ["en_BE"] : ["nl_BE"],
       url: `/${locale}`,
       siteName: SITE.name,
       title: m.meta.title,
       description: m.meta.description,
-      images: defaultOgImages,
+      images: openGraphImagesForLocale(locale),
     },
     twitter: {
       card: "summary_large_image",
       title: m.meta.title,
       description: m.meta.description,
-      images: [OG_IMAGE_ABSOLUTE_URL],
+      images: [twitterImageAbsoluteForLocale(locale)],
     },
     alternates: {
       canonical: `/${locale}`,

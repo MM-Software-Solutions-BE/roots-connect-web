@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { defaultOgImages, OG_IMAGE_ABSOLUTE_URL } from "@/config/og";
+import {
+  openGraphImagesForLocale,
+  twitterImageAbsoluteForLocale,
+} from "@/config/og";
 import { SITE } from "@/config/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { buildLocaleAlternates } from "@/lib/metadata-helpers";
@@ -27,17 +30,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: locale === "nl" ? "nl_BE" : "en_BE",
+      alternateLocale: locale === "nl" ? ["en_BE"] : ["nl_BE"],
       url: `/${locale}/privacy`,
       siteName: SITE.name,
       title,
       description,
-      images: defaultOgImages,
+      images: openGraphImagesForLocale(locale),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [OG_IMAGE_ABSOLUTE_URL],
+      images: [twitterImageAbsoluteForLocale(locale)],
     },
   };
 }

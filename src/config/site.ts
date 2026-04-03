@@ -3,7 +3,16 @@
  * Social links (LinkedIn company page, Instagram).
  */
 export const SITE_URL = "https://rootsconnect.be" as const;
-export const GOOGLE_SITE_VERIFICATION: string | null = null;
+
+/**
+ * Google Search Console — set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in `.env` / hosting
+ * (value from the meta tag `content` attribute, not the full tag).
+ */
+export const GOOGLE_SITE_VERIFICATION: string | null =
+  typeof process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION === "string" &&
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION.trim() !== ""
+    ? process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION.trim()
+    : null;
 
 /** Shared for metadata, JSON-LD, manifest. */
 export const SITE_DESCRIPTION =

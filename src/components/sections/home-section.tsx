@@ -8,10 +8,10 @@ import { SectionShell } from "@/components/sections/section-shell";
 import { homeSectionHref } from "@/config/navigation";
 import { GOOGLE_FORM_EVENT_UPDATES } from "@/config/site";
 import { HOME_HERO_IMAGE } from "@/data/home-media";
-import { useTranslations } from "@/lib/translations";
+import { useLocaleContext } from "@/providers/locale-provider";
 
 export function HomeSection() {
-  const { t } = useTranslations();
+  const { messages: m, locale } = useLocaleContext();
   return (
     <SectionShell
       id="home"
@@ -21,19 +21,18 @@ export function HomeSection() {
       <div className="grid items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="order-1 min-w-0 lg:order-1">
           <h1 className="text-rc-blue mb-4 max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[2.75rem] lg:leading-[1.1]">
-            {t("home.title")}
+            {m.home.title}
           </h1>
           <p className="text-rc-blue/90 mb-6 max-w-xl text-lg sm:text-xl">
-            {t("home.subtitle")}
+            {m.home.subtitle}
           </p>
           <p className="text-rc-blue/80 mb-6 max-w-xl leading-relaxed sm:mb-10">
-            {t("home.intro")}
+            {m.home.intro}
           </p>
         </div>
 
         <div className="order-2 relative flex w-full justify-center lg:order-2 lg:row-span-2 lg:justify-end">
           <div className="border-rc-blue/25 relative aspect-[16/10] w-full max-w-sm overflow-hidden rounded-2xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.45)] ring-1 ring-rc-blue/20 sm:aspect-[4/5]">
-            {/* Crop: focus op presenter + samenwerking; portrait-first voor mobiel */}
             <Image
               src={HOME_HERO_IMAGE.src}
               alt={HOME_HERO_IMAGE.alt}
@@ -49,22 +48,22 @@ export function HomeSection() {
         <div className="order-3 lg:order-2">
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:max-w-sm lg:flex-col">
             <PrimaryCtaLink
-              href="/peers"
+              href={`/${locale}/peers`}
               className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 w-full"
             >
-              {t("home.cta.peers")}
+              {m.home.cta.peers}
             </PrimaryCtaLink>
             <Link
-              href={GOOGLE_FORM_EVENT_UPDATES ?? homeSectionHref("contact")}
+              href={GOOGLE_FORM_EVENT_UPDATES ?? homeSectionHref(locale, "contact")}
               className="inline-flex h-10 min-w-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige w-full"
             >
-              {t("home.cta.events")}
+              {m.home.cta.events}
             </Link>
             <a
-              href={homeSectionHref("contact")}
+              href={homeSectionHref(locale, "contact")}
               className="inline-flex h-10 min-w-0 items-center justify-center gap-1.5 rounded-lg border border-rc-blue/40 bg-transparent px-4 text-sm font-medium text-rc-blue transition-colors outline-none hover:bg-rc-blue/10 focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige w-full"
             >
-              {t("home.cta.partner")}
+              {m.home.cta.partner}
             </a>
           </div>
         </div>

@@ -1,17 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { CookieBanner } from "@/components/cookie-banner";
-import { JsonLd } from "@/components/json-ld";
-import { SkipLink } from "@/components/skip-link";
-import { SiteHeader } from "@/components/site-header";
-import { TranslationsProvider } from "@/lib/translations";
+import { HtmlLangSync } from "@/components/html-lang-sync";
 import { defaultOgImages, defaultTwitterMetadata } from "@/config/og";
 import {
   GOOGLE_SITE_VERIFICATION,
   SITE_DESCRIPTION,
   SITE_URL,
 } from "@/config/site";
+import { metadataBaseFromSiteUrl } from "@/lib/site-metadata-base";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,7 +30,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: metadataBaseFromSiteUrl(),
   title: {
     default: "Roots Connect",
     template: "%s | Roots Connect",
@@ -61,18 +58,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="nl"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <TranslationsProvider>
-          <JsonLd />
-          <SkipLink />
-          <SiteHeader />
-          {children}
-          <CookieBanner />
-        </TranslationsProvider>
+        <HtmlLangSync />
+        {children}
       </body>
     </html>
   );

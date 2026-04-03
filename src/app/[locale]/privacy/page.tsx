@@ -1,45 +1,65 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { defaultOgImages, OG_IMAGE_ABSOLUTE_URL } from "@/config/og";
 import { SITE } from "@/config/site";
+import { isLocale, type Locale } from "@/i18n/config";
+import { buildLocaleAlternates } from "@/lib/metadata-helpers";
+import { metadataBaseFromSiteUrl } from "@/lib/site-metadata-base";
+import { getMessages } from "@/messages";
 
-const privacyTitle = "Privacy Policy";
-const privacyDescription = `Privacy policy for ${SITE.name}.`;
+type Props = { params: Promise<{ locale: string }> };
 
-export const metadata: Metadata = {
-  title: privacyTitle,
-  description: privacyDescription,
-  alternates: {
-    canonical: "/privacy",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_BE",
-    url: "/privacy",
-    siteName: SITE.name,
-    title: privacyTitle,
-    description: privacyDescription,
-    images: defaultOgImages,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: privacyTitle,
-    description: privacyDescription,
-    images: [OG_IMAGE_ABSOLUTE_URL],
-  },
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) return {};
+  const locale = raw as Locale;
+  const m = getMessages(locale);
+  const title = m.privacy.title;
+  const description = m.privacy.description;
 
-export default function PrivacyPage() {
+  return {
+    metadataBase: metadataBaseFromSiteUrl(),
+    title,
+    description,
+    ...buildLocaleAlternates(locale, "privacy"),
+    openGraph: {
+      type: "website",
+      locale: locale === "nl" ? "nl_BE" : "en_BE",
+      url: `/${locale}/privacy`,
+      siteName: SITE.name,
+      title,
+      description,
+      images: defaultOgImages,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [OG_IMAGE_ABSOLUTE_URL],
+    },
+  };
+}
+
+export default async function PrivacyPage({ params }: Props) {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) notFound();
+  const locale = raw as Locale;
+  const m = getMessages(locale);
+
   return (
     <main id="main" tabIndex={-1} className="bg-rc-beige text-rc-blue min-h-screen">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         <p className="text-rc-brown mb-2 text-sm font-medium">
-          <Link href="/" className="hover:text-rc-blue underline-offset-2 hover:underline">
-            ← Back to home
+          <Link
+            href={`/${locale}`}
+            className="hover:text-rc-blue underline-offset-2 hover:underline"
+          >
+            {m.privacy.backToHome}
           </Link>
         </p>
-        <h1 className="mb-8 text-3xl font-semibold tracking-tight">Privacy Policy</h1>
+        <h1 className="mb-8 text-3xl font-semibold tracking-tight">{m.privacy.title}</h1>
         <div className="text-rc-blue/85 space-y-6 text-pretty leading-relaxed">
           <p className="text-sm text-rc-blue/70">
             Last updated: March 2026. This is a starter text — have it reviewed for Belgian law

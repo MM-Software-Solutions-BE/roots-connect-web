@@ -4,12 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "@/lib/translations";
 import { type CookieConsentValue, getStoredConsent, setStoredConsent } from "@/lib/cookie-consent";
 import { cn } from "@/lib/utils";
+import { useLocaleContext } from "@/providers/locale-provider";
 
 export function CookieBanner() {
-  const { t } = useTranslations();
+  const { messages: m, locale } = useLocaleContext();
   const [visible, setVisible] = React.useState(false);
 
   React.useEffect(() => {
@@ -41,24 +41,24 @@ export function CookieBanner() {
             id="cookie-banner-title"
             className="text-rc-blue mb-2 text-sm font-semibold tracking-tight"
           >
-            {t("cookie.title")}
+            {m.cookie.title}
           </h2>
           <p
             id="cookie-banner-desc"
             className="text-rc-blue/85 text-pretty text-sm leading-relaxed"
           >
-            {t("cookie.descPrefix")}
-            <strong className="text-rc-blue font-medium">{t("cookie.descAnalytics")}</strong>
-            {t("cookie.descMiddle")}
-            <em>{t("cookie.descAccept")}</em>
-            {t("cookie.descSuffix")}
+            {m.cookie.descPrefix}
+            <strong className="text-rc-blue font-medium">{m.cookie.descAnalytics}</strong>
+            {m.cookie.descMiddle}
+            <em>{m.cookie.descAccept}</em>
+            {m.cookie.descSuffix}
             <Link
-              href="/privacy"
+              href={`/${locale}/privacy`}
               className="text-rc-blue font-medium underline decoration-rc-brown/50 underline-offset-2 hover:decoration-rc-brown"
             >
-              {t("cookie.privacyPolicy")}
+              {m.cookie.privacyPolicy}
             </Link>
-            {t("cookie.descEnd")}
+            {m.cookie.descEnd}
           </p>
         </div>
         <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:items-center">
@@ -68,14 +68,14 @@ export function CookieBanner() {
             className="border-rc-blue/25 text-rc-blue hover:bg-rc-blue/5 w-full sm:w-auto"
             onClick={() => save("essential")}
           >
-            {t("cookie.essentialOnly")}
+            {m.cookie.essentialOnly}
           </Button>
           <Button
             type="button"
             className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 w-full border-0 sm:w-auto"
             onClick={() => save("all")}
           >
-            {t("cookie.acceptAll")}
+            {m.cookie.acceptAll}
           </Button>
         </div>
       </div>

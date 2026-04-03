@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { defaultLocale } from "@/i18n/config";
+
 export const metadata: Metadata = {
   title: "404",
   robots: {
@@ -24,7 +26,7 @@ export default function NotFound() {
         The page you are looking for does not exist or has been moved.
       </p>
       <Link
-        href="/"
+        href={`/${defaultLocale}`}
         className="text-rc-blue focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/80 inline-flex h-10 items-center justify-center rounded-lg px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
       >
         Back to home

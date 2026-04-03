@@ -1,7 +1,3 @@
-import type { Metadata } from "next";
-
-import { defaultOgImages } from "@/config/og";
-import { SITE_DESCRIPTION } from "@/config/site";
 import {
   AboutSection,
   ApproachSection,
@@ -14,19 +10,7 @@ import {
   TeamSection,
 } from "@/components/sections";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    url: "/",
-    title: "Roots Connect",
-    description: SITE_DESCRIPTION,
-    images: defaultOgImages,
-  },
-};
-
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <main id="main" tabIndex={-1}>

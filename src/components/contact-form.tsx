@@ -3,16 +3,16 @@
 import * as React from "react";
 
 import { FORMSPREE_FORM_ID, SITE, SITE_URL } from "@/config/site";
-import { useTranslations } from "@/lib/translations";
+import { useLocaleContext } from "@/providers/locale-provider";
 
 const FORM_ACTION = FORMSPREE_FORM_ID
   ? `https://formspree.io/f/${FORMSPREE_FORM_ID}`
   : undefined;
 const CAN_SUBMIT = !!FORMSPREE_FORM_ID;
-const NEXT_URL = `${SITE_URL}/?submitted=1#contact`;
 
 export function ContactForm() {
-  const { t } = useTranslations();
+  const { messages: m, locale } = useLocaleContext();
+  const nextUrl = `${SITE_URL.replace(/\/$/, "")}/${locale}/?submitted=1#contact`;
   const [mounted, setMounted] = React.useState(false);
   const [showSuccess, setShowSuccess] = React.useState(false);
 
@@ -52,11 +52,11 @@ export function ContactForm() {
     >
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <input type="hidden" name="_subject" value="Contact — Roots Connect website" />
-      <input type="hidden" name="_next" value={NEXT_URL} />
+      <input type="hidden" name="_next" value={nextUrl} />
 
       <div>
         <label htmlFor="contact-name" className="text-rc-beige mb-1 block text-sm font-medium">
-          {t("contact.form.name")}
+          {m.contact.form.name}
         </label>
         <input
           id="contact-name"
@@ -65,13 +65,13 @@ export function ContactForm() {
           required
           autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
-          placeholder={t("contact.form.namePlaceholder")}
+          placeholder={m.contact.form.namePlaceholder}
         />
       </div>
 
       <div>
         <label htmlFor="contact-email" className="text-rc-beige mb-1 block text-sm font-medium">
-          {t("contact.form.email")}
+          {m.contact.form.email}
         </label>
         <input
           id="contact-email"
@@ -80,13 +80,13 @@ export function ContactForm() {
           required
           autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
-          placeholder={t("contact.form.emailPlaceholder")}
+          placeholder={m.contact.form.emailPlaceholder}
         />
       </div>
 
       <div>
         <label htmlFor="contact-organisation" className="text-rc-beige mb-1 block text-sm font-medium">
-          {t("contact.form.organisation")}
+          {m.contact.form.organisation}
         </label>
         <input
           id="contact-organisation"
@@ -94,13 +94,13 @@ export function ContactForm() {
           type="text"
           autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
-          placeholder={t("contact.form.organisationPlaceholder")}
+          placeholder={m.contact.form.organisationPlaceholder}
         />
       </div>
 
       <div>
         <label htmlFor="contact-message" className="text-rc-beige mb-1 block text-sm font-medium">
-          {t("contact.form.message")}
+          {m.contact.form.message}
         </label>
         <textarea
           id="contact-message"
@@ -109,17 +109,17 @@ export function ContactForm() {
           rows={4}
           autoComplete="off"
           className="border-rc-blue/30 text-rc-beige placeholder:text-rc-beige/50 w-full resize-y rounded-lg border bg-white/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rc-beige/30 disabled:opacity-60"
-          placeholder={t("contact.form.messagePlaceholder")}
+          placeholder={m.contact.form.messagePlaceholder}
         />
       </div>
 
       {showSuccess && (
-        <p className="text-rc-beige/90 text-sm">{t("contact.form.success")}</p>
+        <p className="text-rc-beige/90 text-sm">{m.contact.form.success}</p>
       )}
 
       {!CAN_SUBMIT && (
         <p className="text-rc-beige/60 text-xs">
-          {t("contact.form.noFormId")}{" "}
+          {m.contact.form.noFormId}{" "}
           <a href={`mailto:${SITE.email}`} className="underline hover:text-rc-beige/80">
             {SITE.email}
           </a>
@@ -131,7 +131,7 @@ export function ContactForm() {
         disabled={!CAN_SUBMIT}
         className="bg-rc-blue text-rc-beige hover:bg-rc-blue/90 disabled:opacity-60 inline-flex h-10 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
       >
-        {t("contact.form.submit")}
+        {m.contact.form.submit}
       </button>
     </form>
   );

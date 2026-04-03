@@ -4,8 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 import { MenuIcon, MoreVerticalIcon } from "lucide-react";
 
-import { PRIMARY_NAV, SECONDARY_NAV, homeSectionHref } from "@/config/navigation";
-import { useTranslations } from "@/lib/translations";
+import { LocaleSwitcher } from "@/components/locale-switcher";
+import {
+  PRIMARY_NAV,
+  SECONDARY_NAV,
+  homeSectionHref,
+} from "@/config/navigation";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -24,36 +28,41 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { LanguageMenu } from "@/components/language-menu";
 import { SITE } from "@/config/site";
+import type { Messages } from "@/messages/en";
+import { useLocaleContext } from "@/providers/locale-provider";
 import { cn } from "@/lib/utils";
 
 const navLinkClass =
   "text-rc-blue/90 hover:text-rc-blue focus-visible:ring-ring rounded-md text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none focus-visible:ring-offset-rc-beige";
 
-const NAV_LABEL_KEYS: Record<string, string> = {
-  home: "nav.home",
-  "about-us": "nav.aboutUs",
-  "our-approach": "nav.ourApproach",
-  "our-impact": "nav.ourImpact",
-  contact: "nav.contact",
-  "our-team": "nav.ourTeam",
-  "our-partners": "nav.ourPartners",
-  events: "nav.events",
-};
-
-function getNavLabel(item: { id?: string; href?: string; label: string }, t: (k: string) => string): string {
-  if (item.href === "/peers") return t("nav.peerNetwork");
-  return item.id ? t(NAV_LABEL_KEYS[item.id] ?? "nav.home") : item.label;
+function getNavLabel(
+  item: (typeof PRIMARY_NAV)[number] | (typeof SECONDARY_NAV)[number],
+  m: Messages
+): string {
+  if ("href" in item && item.href === "/peers") return m.nav.peerNetwork;
+  if ("id" in item && item.id) {
+    const id = item.id;
+    if (id === "home") return m.nav.home;
+    if (id === "about-us") return m.nav.aboutUs;
+    if (id === "our-approach") return m.nav.ourApproach;
+    if (id === "our-impact") return m.nav.ourImpact;
+    if (id === "contact") return m.nav.contact;
+    if (id === "our-team") return m.nav.ourTeam;
+    if (id === "our-partners") return m.nav.ourPartners;
+    if (id === "events") return m.nav.events;
+  }
+  return "label" in item ? item.label : "";
 }
 
 export function SiteHeader() {
-  const { t } = useTranslations();
+  const { locale, messages: m } = useLocaleContext();
+
   return (
     <header className="bg-rc-beige/95 supports-backdrop-filter:bg-rc-beige/90 sticky top-0 z-50 border-b border-rc-blue/10 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link
-          href="/"
+          href={`/${locale}`}
           className="text-rc-blue/90 hover:text-rc-blue shrink-0 rounded-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
         >
           <span className="text-base font-semibold tracking-tight sm:text-lg">{SITE.name}</span>
@@ -66,16 +75,20 @@ export function SiteHeader() {
           {PRIMARY_NAV.map((item) => (
             <a
               key={"href" in item ? item.href : item.id}
-              href={"href" in item ? item.href : homeSectionHref(item.id)}
+              href={
+                "href" in item
+                  ? `/${locale}/peers`
+                  : homeSectionHref(locale, item.id)
+              }
               className={navLinkClass}
             >
-              {getNavLabel(item, t)}
+              {getNavLabel(item, m)}
             </a>
           ))}
         </nav>
 
         <div className="hidden shrink-0 items-center gap-0.5 lg:flex">
-          <LanguageMenu />
+          <LocaleSwitcher />
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
@@ -83,7 +96,7 @@ export function SiteHeader() {
                   variant="ghost"
                   size="icon"
                   className="text-rc-blue"
-                  aria-label={t("nav.aria.more")}
+                  aria-label={m.nav.aria.more}
                 />
               }
             >
@@ -92,7 +105,7 @@ export function SiteHeader() {
             <DropdownMenuContent align="end" className="min-w-44">
               <DropdownMenuGroup>
                 <DropdownMenuLabel className="text-rc-blue/75 text-xs font-normal">
-                  {t("nav.more")}
+                  {m.nav.more}
                 </DropdownMenuLabel>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
@@ -100,16 +113,16 @@ export function SiteHeader() {
                   "href" in item ? (
                     <DropdownMenuItem key={item.href}>
                       <Link href={item.href!} className={navLinkClass}>
-                        {getNavLabel(item, t)}
+                        {getNavLabel(item, m)}
                       </Link>
                     </DropdownMenuItem>
                   ) : (
                     <DropdownMenuItem key={item.id}>
                       <a
-                        href={homeSectionHref(item.id!)}
+                        href={homeSectionHref(locale, item.id!)}
                         className={navLinkClass}
                       >
-                        {getNavLabel(item, t)}
+                        {getNavLabel(item, m)}
                       </a>
                     </DropdownMenuItem>
                   ),
@@ -119,7 +132,7 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-0.5 lg:hidden">
-          <LanguageMenu />
+          <LocaleSwitcher />
           <Sheet>
             <SheetTrigger
               render={
@@ -127,7 +140,7 @@ export function SiteHeader() {
                   variant="outline"
                   size="icon"
                   className="border-rc-blue/20 text-rc-blue"
-                  aria-label={t("nav.aria.openMenu")}
+                  aria-label={m.nav.aria.openMenu}
                 />
               }
             >
@@ -135,11 +148,11 @@ export function SiteHeader() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[min(100%,20rem)] gap-0">
               <SheetHeader className="border-b border-rc-blue/10 pb-4 text-left">
-                <SheetTitle className="text-rc-blue">{t("nav.menu")}</SheetTitle>
+                <SheetTitle className="text-rc-blue">{m.nav.menu}</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-1 p-4" aria-label="Mobile">
                 <p className="text-rc-blue/75 mb-2 text-xs font-medium tracking-wide uppercase">
-                  {t("nav.navigate")}
+                  {m.nav.navigate}
                 </p>
                 {PRIMARY_NAV.map((item) => (
                   <SheetClose
@@ -147,16 +160,20 @@ export function SiteHeader() {
                     nativeButton={false}
                     render={
                       <a
-                        href={"href" in item ? item.href : homeSectionHref(item.id)}
+                        href={
+                          "href" in item
+                            ? `/${locale}/peers`
+                            : homeSectionHref(locale, item.id)
+                        }
                         className={cn(navLinkClass, "block py-2")}
                       />
                     }
                   >
-                    {getNavLabel(item, t)}
+                    {getNavLabel(item, m)}
                   </SheetClose>
                 ))}
                 <p className="text-rc-blue/75 mt-6 mb-2 text-xs font-medium tracking-wide uppercase">
-                  {t("nav.more")}
+                  {m.nav.more}
                 </p>
                 {SECONDARY_NAV.map((item) =>
                   "href" in item ? (
@@ -170,7 +187,7 @@ export function SiteHeader() {
                         />
                       }
                     >
-                      {getNavLabel(item, t)}
+                      {getNavLabel(item, m)}
                     </SheetClose>
                   ) : (
                     <SheetClose
@@ -178,12 +195,12 @@ export function SiteHeader() {
                       nativeButton={false}
                       render={
                         <a
-                          href={homeSectionHref(item.id!)}
+                          href={homeSectionHref(locale, item.id!)}
                           className={cn(navLinkClass, "block py-2")}
                         />
                       }
                     >
-                      {getNavLabel(item, t)}
+                      {getNavLabel(item, m)}
                     </SheetClose>
                   ),
                 )}

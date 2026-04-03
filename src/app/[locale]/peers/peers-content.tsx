@@ -8,7 +8,7 @@ import { LinkedinIcon, MailIcon, SearchIcon } from "lucide-react";
 import { buildMailto } from "@/lib/mailto";
 import { SITE } from "@/config/site";
 import { PEERS } from "@/data/team";
-import { useTranslations } from "@/lib/translations";
+import { useLocaleContext } from "@/providers/locale-provider";
 
 function getMailtoHref(member: (typeof PEERS)[number]): string {
   const email = member.email ?? SITE.email;
@@ -36,10 +36,10 @@ function matchesSearch(member: (typeof PEERS)[number], query: string): boolean {
 }
 
 export function PeersContent() {
-  const { t } = useTranslations();
+  const { messages: m, locale } = useLocaleContext();
   const [query, setQuery] = React.useState("");
   const filteredPeers = React.useMemo(
-    () => PEERS.filter((m) => matchesSearch(m, query)),
+    () => PEERS.filter((p) => matchesSearch(p, query)),
     [query]
   );
   React.useEffect(() => {
@@ -54,50 +54,50 @@ export function PeersContent() {
       <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <p className="text-rc-brown mb-2 text-sm font-medium">
           <Link
-            href="/"
+            href={`/${locale}`}
             className="hover:text-rc-blue underline-offset-2 hover:underline"
           >
-            {t("peers.backToHome")}
+            {m.peers.backToHome}
           </Link>
         </p>
 
         <h1 className="text-rc-blue mb-6 text-4xl font-semibold tracking-tight sm:text-5xl">
-          {t("peers.title")}
+          {m.peers.title}
         </h1>
         <p className="text-rc-blue/90 mb-4 max-w-2xl text-pretty text-lg leading-relaxed">
-          {t("peers.intro")}
+          {m.peers.intro}
         </p>
         <p className="text-rc-blue/75 mb-10 max-w-2xl text-sm italic">
-          {t("peers.contactTip")}
+          {m.peers.contactTip}
         </p>
 
         <div className="border-rc-blue/15 mb-16 flex flex-col gap-4 rounded-xl border bg-white/5 p-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-rc-blue mb-1 font-medium">
-              {t("peers.notSureWho")}
+              {m.peers.notSureWho}
             </p>
             <p className="text-rc-blue/80 text-sm">
-              {t("peers.meetAtEvents")}
+              {m.peers.meetAtEvents}
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/#contact"
+              href={`/${locale}#contact`}
               className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
             >
-              {t("peers.contactUs")}
+              {m.peers.contactUs}
             </Link>
             <Link
-              href="/#events"
+              href={`/${locale}#events`}
               className="border-rc-blue/25 text-rc-blue hover:bg-rc-blue/5 inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
             >
-              {t("peers.viewEvents")}
+              {m.peers.viewEvents}
             </Link>
           </div>
         </div>
 
         <h2 className="text-rc-blue mb-4 text-xl font-semibold tracking-tight">
-          {t("peers.ourPeers")}
+          {m.peers.ourPeers}
         </h2>
 
         <div className="relative mb-8">
@@ -109,15 +109,15 @@ export function PeersContent() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={t("peers.searchPlaceholder")}
-            aria-label={t("peers.searchPlaceholder")}
+            placeholder={m.peers.searchPlaceholder}
+            aria-label={m.peers.searchPlaceholder}
             className="border-rc-blue/20 text-rc-blue placeholder:text-rc-blue/50 w-full rounded-lg border bg-white/10 py-2.5 pl-10 pr-4 text-sm outline-none focus:ring-2 focus:ring-rc-blue/40"
           />
         </div>
 
         {filteredPeers.length === 0 ? (
           <p className="text-rc-blue/80 py-12 text-center">
-            {t("peers.noResults")}
+            {m.peers.noResults}
           </p>
         ) : (
         <ul className="grid grid-cols-2 gap-6 sm:gap-12 lg:grid-cols-3 items-stretch">
@@ -135,7 +135,7 @@ export function PeersContent() {
                     />
                   ) : (
                     <div className="text-rc-blue/45 flex h-full items-center justify-center p-4 text-center text-sm">
-                      {t("peers.photoComingSoon")}
+                      {m.peers.photoComingSoon}
                     </div>
                   )}
                 </div>
@@ -146,16 +146,16 @@ export function PeersContent() {
                   {member.role}
                 </p>
                 <p className="text-rc-blue/80 mb-4 text-xs sm:mb-6 sm:text-sm">
-                  {t("peers.lawyerPrefix")}, {member.practice}
+                  {m.peers.lawyerPrefix}, {member.practice}
                 </p>
                 <div className="mt-auto flex flex-wrap gap-2 sm:gap-3">
                   <a
                     href={getMailtoHref(member)}
                     className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
-                    aria-label={t("peers.email")}
+                    aria-label={m.peers.email}
                   >
                     <MailIcon className="size-4 shrink-0" aria-hidden />
-                    <span className="hidden sm:inline">{t("peers.email")}</span>
+                    <span className="hidden sm:inline">{m.peers.email}</span>
                   </a>
                   {member.linkedIn ? (
                     <a
@@ -163,10 +163,10 @@ export function PeersContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
-                      aria-label={t("peers.linkedIn")}
+                      aria-label={m.peers.linkedIn}
                     >
                       <LinkedinIcon className="size-4 shrink-0" aria-hidden />
-                      <span className="hidden sm:inline">{t("peers.linkedIn")}</span>
+                      <span className="hidden sm:inline">{m.peers.linkedIn}</span>
                     </a>
                   ) : (
                     <a
@@ -174,10 +174,10 @@ export function PeersContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
-                      aria-label={t("peers.linkedIn")}
+                      aria-label={m.peers.linkedIn}
                     >
                       <LinkedinIcon className="size-4 shrink-0" aria-hidden />
-                      <span className="hidden sm:inline">{t("peers.linkedIn")}</span>
+                      <span className="hidden sm:inline">{m.peers.linkedIn}</span>
                     </a>
                   )}
                 </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { defaultLocale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -37,7 +38,7 @@ export default function AppError({ error, reset }: Props) {
           Try again
         </button>
         <Link
-          href="/"
+          href={`/${defaultLocale}`}
           className={cn(buttonVariants({ variant: "outline", size: "default" }))}
         >
           Back to home

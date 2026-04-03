@@ -7,10 +7,11 @@ import { SectionShell } from "@/components/sections/section-shell";
 import { homeSectionHref } from "@/config/navigation";
 import { GOOGLE_FORM_EVENT_UPDATES, SITE } from "@/config/site";
 import { EVENT_HIGHLIGHTS } from "@/data/events";
-import { useTranslations } from "@/lib/translations";
+import { messageAt } from "@/lib/message-at";
+import { useLocaleContext } from "@/providers/locale-provider";
 
 export function EventsSection() {
-  const { t } = useTranslations();
+  const { messages: m, locale } = useLocaleContext();
   return (
     <SectionShell
       id="events"
@@ -21,19 +22,19 @@ export function EventsSection() {
         id="events-heading"
         className="text-rc-blue mb-8 text-3xl font-semibold tracking-tight"
       >
-        {t("events.title")}
+        {m.events.title}
       </h2>
       <p className="text-rc-blue/85 mb-8 max-w-2xl text-sm leading-relaxed">
-        {t("events.introBefore")}
+        {m.events.introBefore}
         <a
           href={SITE.social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="text-rc-blue font-medium underline decoration-rc-brown/40 underline-offset-2"
         >
-          {t("events.linkedIn")}
+          {m.events.linkedIn}
         </a>
-        {t("events.introAfter")}
+        {m.events.introAfter}
       </p>
       <ul className="grid gap-6 lg:grid-cols-2">
         {EVENT_HIGHLIGHTS.map((ev) => (
@@ -50,18 +51,22 @@ export function EventsSection() {
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <p className="text-rc-beige/70 mb-1 text-xs font-medium uppercase tracking-wide">
-                  {ev.whenWhere.startsWith("events.") ? t(ev.whenWhere) : ev.whenWhere}
+                  {ev.whenWhere.startsWith("events.") ? messageAt(m, ev.whenWhere) : ev.whenWhere}
                 </p>
-                <h3 className="text-rc-beige text-lg font-semibold">{t(ev.titleKey)}</h3>
-                <p className="text-rc-beige/80 mt-2 text-sm leading-relaxed">{t(ev.blurbKey)}</p>
+                <h3 className="text-rc-beige text-lg font-semibold">
+                  {messageAt(m, ev.titleKey)}
+                </h3>
+                <p className="text-rc-beige/80 mt-2 text-sm leading-relaxed">
+                  {messageAt(m, ev.blurbKey)}
+                </p>
               </div>
             </article>
           </li>
         ))}
       </ul>
       <div className="mt-8">
-        <PrimaryCtaLink href={GOOGLE_FORM_EVENT_UPDATES ?? homeSectionHref("contact")}>
-          {t("events.cta")}
+        <PrimaryCtaLink href={GOOGLE_FORM_EVENT_UPDATES ?? homeSectionHref(locale, "contact")}>
+          {m.events.cta}
         </PrimaryCtaLink>
       </div>
     </SectionShell>

@@ -29,7 +29,10 @@ export function sectionHref(id: string) {
   return `#${id}`;
 }
 
-/** Full path to homepage section — use for nav so links work from any page (e.g. /peers → /#contact). */
-export function homeSectionHref(id: string) {
-  return `/${sectionHref(id)}`;
+/**
+ * Full path to homepage section with locale prefix — use for nav so links work from any page
+ * (e.g. `/en/peers` → `/en#contact`).
+ */
+export function homeSectionHref(locale: string, id: string) {
+  return `/${locale}${sectionHref(id)}`;
 }

@@ -60,7 +60,7 @@ export const PEERS: TeamMember[] = [
     name: "Houda Berrada",
     role: "Lawyer",
     practice: "Environmental Law",
-    imageSrc: null,
+    imageSrc: "/images/team/houda-berrada.jpeg",
     email: "Hb@vectilex.eu",
     linkedIn: "https://www.linkedin.com/in/houda-berrada-216507192/?trk=blended-typeahead",
     // TODO(peers): add Houda description/bio

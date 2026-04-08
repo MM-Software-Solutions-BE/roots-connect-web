@@ -61,10 +61,8 @@ export const PEERS: TeamMember[] = [
     role: "Lawyer",
     practice: "Environmental Law",
     imageSrc: null,
-    // TODO(peers): add Houda email
-    email: null,
-    // TODO(peers): add Houda LinkedIn URL
-    linkedIn: null,
+    email: "Hb@vectilex.eu",
+    linkedIn: "https://www.linkedin.com/in/houda-berrada-216507192/?trk=blended-typeahead",
     // TODO(peers): add Houda description/bio
     bio: null,
   },

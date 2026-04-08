@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    // Allow explicit `quality={100}` on <Image /> where we want max sharpness.
+    qualities: [75, 100],
     /** Cache optimized images longer (CDN / browser); reduces repeat work. */
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },

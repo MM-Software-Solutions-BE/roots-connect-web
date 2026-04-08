@@ -26,8 +26,8 @@ export function SiteFooter() {
               alt={SITE.name}
               width={400}
               height={100}
-              className="h-11 w-auto rounded-xl sm:h-12 lg:h-14"
-              sizes="(max-width: 640px) 280px, 360px"
+              className="h-12 w-auto rounded-xl sm:h-14 lg:h-16"
+              sizes="(max-width: 640px) 300px, 400px"
               quality={100}
             />
           </Link>

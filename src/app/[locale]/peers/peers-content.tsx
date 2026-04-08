@@ -10,6 +10,9 @@ import { SITE } from "@/config/site";
 import { PEERS } from "@/data/team";
 import { useLocaleContext } from "@/providers/locale-provider";
 
+/** Visible bio length before "Show more" (word-boundary trim inside truncateAtWord). */
+const PEER_BIO_COLLAPSED_MAX_CHARS = 160;
+
 function truncateAtWord(text: string, maxChars: number): string {
   if (text.length <= maxChars) return text;
   const slice = text.slice(0, maxChars);
@@ -29,7 +32,10 @@ function shuffle<T>(items: T[]): T[] {
 
 function PeerBio({ bio, name }: { bio: string; name: string }) {
   const [expanded, setExpanded] = React.useState(false);
-  const collapsed = truncateAtWord(bio.replace(/\s+/g, " ").trim(), 240);
+  const collapsed = truncateAtWord(
+    bio.replace(/\s+/g, " ").trim(),
+    PEER_BIO_COLLAPSED_MAX_CHARS
+  );
   const isTruncated = collapsed !== bio.replace(/\s+/g, " ").trim();
 
   return (
@@ -125,16 +131,16 @@ export function PeersContent() {
               {m.peers.meetAtEvents}
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex w-full shrink-0 flex-row flex-nowrap gap-2 sm:w-auto sm:gap-3">
             <Link
               href={`/${locale}#contact`}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center rounded-lg border border-transparent px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex min-h-10 flex-1 items-center justify-center rounded-lg border border-transparent px-2 text-center text-xs leading-snug font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:flex-initial sm:px-4 sm:text-sm sm:leading-normal"
             >
               {m.peers.contactUs}
             </Link>
             <Link
               href={`/${locale}#events`}
-              className="border-rc-blue/25 text-rc-blue hover:bg-rc-blue/5 inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none"
+              className="border-rc-blue/25 text-rc-blue hover:bg-rc-blue/5 inline-flex min-h-10 flex-1 items-center justify-center rounded-lg border px-2 text-center text-xs leading-snug font-medium transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:flex-initial sm:px-4 sm:text-sm sm:leading-normal"
             >
               {m.peers.viewEvents}
             </Link>

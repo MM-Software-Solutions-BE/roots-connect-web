@@ -8,6 +8,7 @@ export type PrimaryNavItem =
 export const PRIMARY_NAV: readonly PrimaryNavItem[] = [
   { id: "home", label: "Home" },
   { id: "about-us", label: "About Us" },
+  { id: "events", label: "Events" },
   { id: "our-approach", label: "Our Approach" },
   { id: "our-impact", label: "Our Impact" },
   { href: "/peers", label: "Peer Network" },
@@ -21,7 +22,6 @@ export type SecondaryNavItem =
 export const SECONDARY_NAV: SecondaryNavItem[] = [
   { id: "our-team", label: "Our Team" },
   { id: "our-partners", label: "Our Partners" },
-  { id: "events", label: "Events" },
 ];
 
 /** Hash-only, for same-page anchors (e.g. contact form links on homepage). */

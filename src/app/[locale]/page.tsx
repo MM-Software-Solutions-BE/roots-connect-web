@@ -16,11 +16,11 @@ export default function HomePage() {
       <main id="main" tabIndex={-1}>
         <HomeSection />
         <AboutSection />
+        <EventsSection />
         <ApproachSection />
         <ImpactSection />
         <TeamSection />
         <PartnersSection />
-        <EventsSection />
         <ContactSection />
       </main>
       <SiteFooter />

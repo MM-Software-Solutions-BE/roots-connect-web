@@ -254,14 +254,20 @@ export const PEERS: TeamMember[] = [
     linkedIn: "https://www.linkedin.com/in/anna-d-4492b3221/",
     bio: "Anna De Wandeler specialises in information technology and intellectual property law, focusing on complex transactional and advisory matters across sectors. Anna has joined the Brussels bar in 2023 and currently works at A&O Shearman Belgium.",
   },
+];
+
+/**
+ * TODO(peers): These peers are not shown on the website yet (missing bio).
+ * Add `bio` (and LinkedIn where missing), then move them back into `PEERS`.
+ */
+export const PEERS_PENDING_BIO: TeamMember[] = [
   {
     name: "Paulina Boamah",
     role: "Lawyer",
     practice: "Penal law / civil law / migration law",
     imageSrc: "/images/peers/paulina-boamah.jpg",
     email: "p.boamah@myadv.online",
-    // TODO(peers): add LinkedIn URL (missing)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/paulina-boamah-12089217b/?skipRedirect=true",
     // TODO(peers): add description/bio
     bio: null,
   },
@@ -271,7 +277,8 @@ export const PEERS: TeamMember[] = [
     practice: "Corporate law",
     imageSrc: "/images/peers/merve-ozdemir.jpeg",
     email: "ozdemir.merve1@outlook.com",
-    linkedIn: "https://www.linkedin.com/in/merve%C3%B6zdemir1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    linkedIn:
+      "https://www.linkedin.com/in/merve%C3%B6zdemir1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     // TODO(peers): add description/bio
     bio: null,
   },

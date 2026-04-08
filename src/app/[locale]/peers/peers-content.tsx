@@ -10,6 +10,39 @@ import { SITE } from "@/config/site";
 import { PEERS } from "@/data/team";
 import { useLocaleContext } from "@/providers/locale-provider";
 
+function truncateAtWord(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  const slice = text.slice(0, maxChars);
+  const lastSpace = slice.lastIndexOf(" ");
+  const safe = lastSpace > 60 ? slice.slice(0, lastSpace) : slice;
+  return `${safe.trimEnd()}…`;
+}
+
+function PeerBio({ bio, name }: { bio: string; name: string }) {
+  const [expanded, setExpanded] = React.useState(false);
+  const collapsed = truncateAtWord(bio.replace(/\s+/g, " ").trim(), 240);
+  const isTruncated = collapsed !== bio.replace(/\s+/g, " ").trim();
+
+  return (
+    <div className="mb-4 sm:mb-6">
+      <p className="text-rc-blue/75 text-xs leading-relaxed sm:text-sm">
+        {expanded ? bio : collapsed}
+      </p>
+      {isTruncated ? (
+        <button
+          type="button"
+          className="text-rc-blue/80 hover:text-rc-blue mt-2 text-xs font-medium underline underline-offset-2 sm:text-sm"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          aria-label={`${expanded ? "Show less" : "Show more"} about ${name}`}
+        >
+          {expanded ? "Show less" : "Show more"}
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
 function getMailtoHref(member: (typeof PEERS)[number]): string {
   const email = member.email ?? SITE.email;
   return buildMailto(email, {
@@ -151,9 +184,7 @@ export function PeersContent() {
                   {m.peers.lawyerPrefix}, {member.practice}
                 </p>
                 {member.bio ? (
-                  <p className="text-rc-blue/75 mb-4 text-xs leading-relaxed sm:mb-6 sm:text-sm">
-                    {member.bio}
-                  </p>
+                  <PeerBio bio={member.bio} name={member.name} />
                 ) : null}
                 <div className="mt-auto flex flex-wrap gap-2 sm:gap-3">
                   <a

@@ -254,13 +254,6 @@ export const PEERS: TeamMember[] = [
     linkedIn: "https://www.linkedin.com/in/anna-d-4492b3221/",
     bio: "Anna De Wandeler specialises in information technology and intellectual property law, focusing on complex transactional and advisory matters across sectors. Anna has joined the Brussels bar in 2023 and currently works at A&O Shearman Belgium.",
   },
-];
-
-/**
- * TODO(peers): These peers are not shown on the website yet (missing bio).
- * Add `bio` (and LinkedIn where missing), then move them back into `PEERS`.
- */
-export const PEERS_PENDING_BIO: TeamMember[] = [
   {
     name: "Paulina Boamah",
     role: "Lawyer",
@@ -268,8 +261,7 @@ export const PEERS_PENDING_BIO: TeamMember[] = [
     imageSrc: "/images/peers/paulina-boamah.jpg",
     email: "p.boamah@myadv.online",
     linkedIn: "https://www.linkedin.com/in/paulina-boamah-12089217b/?skipRedirect=true",
-    // TODO(peers): add description/bio
-    bio: null,
+    bio: "Paulina Boamah is a lawyer focusing on penal law, civil law and migration law. Feel free to reach out for questions or an introduction.",
   },
   {
     name: "Merve Özdemir",
@@ -279,8 +271,7 @@ export const PEERS_PENDING_BIO: TeamMember[] = [
     email: "ozdemir.merve1@outlook.com",
     linkedIn:
       "https://www.linkedin.com/in/merve%C3%B6zdemir1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    // TODO(peers): add description/bio
-    bio: null,
+    bio: "Merve Özdemir is a lawyer focusing on corporate law. Feel free to reach out for questions or an introduction.",
   },
   {
     name: "Charles Dianzenza",
@@ -289,7 +280,12 @@ export const PEERS_PENDING_BIO: TeamMember[] = [
     imageSrc: "/images/peers/charles-dianzenza.jpeg",
     email: "cdianzenza-law@outlook.com",
     linkedIn: "https://www.linkedin.com/in/charles-dianzenza-50a872183?trk=contact-info",
-    // TODO(peers): add description/bio
-    bio: null,
+    bio: "Charles Dianzenza is a lawyer focusing on criminal law. Feel free to reach out for questions or an introduction.",
   },
 ];
+
+/**
+ * TODO(peers): These peers are not shown on the website yet (missing bio).
+ * Add `bio` (and LinkedIn where missing), then move them back into `PEERS`.
+ */
+export const PEERS_PENDING_BIO: TeamMember[] = [];

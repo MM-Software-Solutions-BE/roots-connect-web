@@ -47,7 +47,7 @@ export function AboutSection() {
             loading="lazy"
             decoding="async"
             fetchPriority="low"
-            quality={78}
+            quality={100}
             className="h-auto w-full"
             sizes="(max-width: 1024px) 100vw, 352px"
           />

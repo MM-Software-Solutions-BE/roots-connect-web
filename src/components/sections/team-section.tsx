@@ -33,7 +33,7 @@ export function TeamSection() {
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
-                    quality={72}
+                    quality={100}
                     sizes="(max-width: 640px) 46vw, (max-width: 1024px) 33vw, 360px"
                     className="object-cover object-top"
                   />

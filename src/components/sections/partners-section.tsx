@@ -53,7 +53,7 @@ export function PartnersSection() {
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
-                    quality={85}
+                    quality={100}
                     className="object-contain px-4"
                   />
                 ) : null}

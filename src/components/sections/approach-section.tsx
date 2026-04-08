@@ -33,7 +33,7 @@ export function ApproachSection() {
                 loading="lazy"
                 decoding="async"
                 fetchPriority="low"
-                quality={78}
+                quality={100}
                 sizes="(max-width: 1024px) 100vw, 520px"
                 className="object-cover object-center"
               />

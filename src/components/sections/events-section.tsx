@@ -48,7 +48,7 @@ export function EventsSection() {
                   loading="lazy"
                   decoding="async"
                   fetchPriority="low"
-                  quality={75}
+                  quality={100}
                   sizes="(max-width: 1024px) 100vw, 768px"
                   className="object-cover object-center"
                 />

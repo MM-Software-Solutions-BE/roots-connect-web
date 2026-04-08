@@ -178,7 +178,7 @@ export function PeersContent() {
                       loading="lazy"
                       decoding="async"
                       fetchPriority="low"
-                      quality={72}
+                      quality={100}
                       sizes="(max-width: 640px) 46vw, (max-width: 1024px) 32vw, 280px"
                       className="object-cover object-top"
                     />

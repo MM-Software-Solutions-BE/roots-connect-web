@@ -18,6 +18,15 @@ function truncateAtWord(text: string, maxChars: number): string {
   return `${safe.trimEnd()}…`;
 }
 
+function shuffle<T>(items: T[]): T[] {
+  const a = [...items];
+  for (let i = a.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 function PeerBio({ bio, name }: { bio: string; name: string }) {
   const [expanded, setExpanded] = React.useState(false);
   const collapsed = truncateAtWord(bio.replace(/\s+/g, " ").trim(), 240);
@@ -73,9 +82,10 @@ function matchesSearch(member: (typeof PEERS)[number], query: string): boolean {
 export function PeersContent() {
   const { messages: m, locale } = useLocaleContext();
   const [query, setQuery] = React.useState("");
+  const [shuffledPeers] = React.useState(() => shuffle(PEERS));
   const filteredPeers = React.useMemo(
-    () => PEERS.filter((p) => matchesSearch(p, query)),
-    [query]
+    () => shuffledPeers.filter((p) => matchesSearch(p, query)),
+    [query, shuffledPeers]
   );
   React.useEffect(() => {
     window.scrollTo(0, 0);

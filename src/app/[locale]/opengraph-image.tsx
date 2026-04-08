@@ -22,7 +22,7 @@ type Props = {
 
 export default async function OpenGraphImage({ params }: Props) {
   const { locale: raw } = await params;
-  const locale: Locale = isLocale(raw) ? raw : "nl";
+  const locale: Locale = isLocale(raw) ? raw : "en";
   const m = getMessages(locale);
 
   return new ImageResponse(

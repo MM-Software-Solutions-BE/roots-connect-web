@@ -28,10 +28,12 @@ Kind regards,
 function matchesSearch(member: (typeof PEERS)[number], query: string): boolean {
   if (!query.trim()) return true;
   const q = query.toLowerCase().trim();
+  const bio = member.bio?.toLowerCase() ?? "";
   return (
     member.name.toLowerCase().includes(q) ||
     member.practice.toLowerCase().includes(q) ||
-    member.role.toLowerCase().includes(q)
+    member.role.toLowerCase().includes(q) ||
+    bio.includes(q)
   );
 }
 
@@ -145,9 +147,14 @@ export function PeersContent() {
                 <p className="text-rc-brown mb-1 text-sm font-medium">
                   {member.role}
                 </p>
-                <p className="text-rc-blue/80 mb-4 text-xs sm:mb-6 sm:text-sm">
+                <p className="text-rc-blue/80 mb-3 text-xs sm:mb-4 sm:text-sm">
                   {m.peers.lawyerPrefix}, {member.practice}
                 </p>
+                {member.bio ? (
+                  <p className="text-rc-blue/75 mb-4 text-xs leading-relaxed sm:mb-6 sm:text-sm">
+                    {member.bio}
+                  </p>
+                ) : null}
                 <div className="mt-auto flex flex-wrap gap-2 sm:gap-3">
                   <a
                     href={getMailtoHref(member)}
@@ -157,29 +164,16 @@ export function PeersContent() {
                     <MailIcon className="size-4 shrink-0" aria-hidden />
                     <span className="hidden sm:inline">{m.peers.email}</span>
                   </a>
-                  {member.linkedIn ? (
-                    <a
-                      href={member.linkedIn}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
-                      aria-label={m.peers.linkedIn}
-                    >
-                      <LinkedinIcon className="size-4 shrink-0" aria-hidden />
-                      <span className="hidden sm:inline">{m.peers.linkedIn}</span>
-                    </a>
-                  ) : (
-                    <a
-                      href={SITE.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
-                      aria-label={m.peers.linkedIn}
-                    >
-                      <LinkedinIcon className="size-4 shrink-0" aria-hidden />
-                      <span className="hidden sm:inline">{m.peers.linkedIn}</span>
-                    </a>
-                  )}
+                  <a
+                    href={member.linkedIn ?? SITE.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
+                    aria-label={m.peers.linkedIn}
+                  >
+                    <LinkedinIcon className="size-4 shrink-0" aria-hidden />
+                    <span className="hidden sm:inline">{m.peers.linkedIn}</span>
+                  </a>
                 </div>
               </article>
             </li>

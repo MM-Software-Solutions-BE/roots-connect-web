@@ -86,7 +86,7 @@ export function PeersContent() {
       tabIndex={-1}
       className="bg-rc-beige text-rc-blue min-h-screen"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <p className="text-rc-brown mb-2 text-sm font-medium">
           <Link
             href={`/${locale}`}
@@ -106,7 +106,7 @@ export function PeersContent() {
           {m.peers.contactTip}
         </p>
 
-        <div className="border-rc-blue/15 mb-16 flex flex-col gap-4 rounded-xl border bg-white/5 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="border-rc-blue/15 mb-12 flex flex-col gap-4 rounded-xl border bg-white/5 p-5 sm:mb-16 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-rc-blue mb-1 font-medium">
               {m.peers.notSureWho}

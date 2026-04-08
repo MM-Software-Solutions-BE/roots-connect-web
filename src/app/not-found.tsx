@@ -16,7 +16,7 @@ export default function NotFound() {
     <main
       id="main"
       tabIndex={-1}
-      className="bg-rc-beige text-rc-blue flex min-h-[60vh] flex-col items-center justify-center px-4 py-16"
+      className="bg-rc-beige text-rc-blue flex min-h-[60vh] flex-col items-center justify-center px-4 py-12 sm:py-16 lg:py-20"
     >
       <p className="text-rc-brown mb-2 text-sm font-medium">
         Error 404

@@ -20,7 +20,7 @@ export default function AppError({ error, reset }: Props) {
   return (
     <main
       id="main"
-      className="bg-rc-beige text-rc-blue flex min-h-[60vh] flex-col items-center justify-center px-4 py-16 text-center"
+      className="bg-rc-beige text-rc-blue flex min-h-[60vh] flex-col items-center justify-center px-4 py-12 text-center sm:py-16 lg:py-20"
     >
       <p className="text-rc-brown mb-2 text-sm font-medium">Error</p>
       <h1 className="mb-4 text-3xl font-semibold tracking-tight">

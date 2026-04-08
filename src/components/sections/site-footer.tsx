@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { InstagramIcon, LinkedinIcon } from "lucide-react";
 
@@ -13,8 +14,24 @@ const linkClass =
 export function SiteFooter() {
   const { messages: m, locale } = useLocaleContext();
   return (
-    <footer className="border-t border-rc-blue/15 bg-rc-blue text-rc-beige">
+    <footer className="border-t border-rc-blue/20 bg-rc-blue text-rc-beige">
       <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-10 flex flex-col gap-6 border-b border-rc-beige/20 pb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+          <Link
+            href={`/${locale}`}
+            className="inline-flex w-fit max-w-full shrink-0 overflow-hidden rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-rc-beige/50 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-blue"
+          >
+            <Image
+              src="/images/brand/roots-connect-logo-on-blue.jpeg"
+              alt={SITE.name}
+              width={400}
+              height={100}
+              className="h-11 w-auto rounded-xl sm:h-12 lg:h-14"
+              sizes="(max-width: 640px) 280px, 360px"
+              quality={100}
+            />
+          </Link>
+        </div>
         <div className="mb-10 grid items-stretch gap-10 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <h2 className="text-rc-brown mb-3 text-xs font-semibold tracking-widest uppercase">
@@ -80,7 +97,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-rc-beige/20 text-rc-beige/70 border-t pt-8 text-sm">
+        <div className="border-t border-rc-beige/20 pt-8 text-sm text-rc-beige/70">
           <p>
             {interpolate(m.footer.copyright, {
               year: String(new Date().getFullYear()),

@@ -200,8 +200,7 @@ export const PEERS: TeamMember[] = [
     practice: "Corporate and business law",
     imageSrc: null,
     email: "ummugulsum.yasarlar@belisius.be",
-    // TODO(peers): add LinkedIn URL (form had no URL)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/ummugulsum-y-ab6623246/",
     bio: "Ummugulsum specialises in corporate and business law, and in particular in construction law, as well as contract law and administrative law.",
   },
   {
@@ -210,8 +209,7 @@ export const PEERS: TeamMember[] = [
     practice: "Corporate M&A",
     imageSrc: null,
     email: "azeddine.elbastani@advocaat.be",
-    // TODO(peers): add LinkedIn URL (form had no URL)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/azeddine-el-bastani-86200112a/",
     bio: "Azeddine El Bastani specialises in corporate law, and in particular in mergers & acquisitions, the drafting of shareholders' agreements and share transfers, as well as company restructurings and non-profit matters.",
   },
   {
@@ -220,8 +218,7 @@ export const PEERS: TeamMember[] = [
     practice: "Public - environmental law",
     imageSrc: null,
     email: "yuksel.samet.gundogan@boullart.be",
-    // TODO(peers): add LinkedIn URL (form had no URL)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/yukselsametgundogan/",
     bio: "Yüksel Samet Gündogan specializes in public law in general, and in particular in urban planning law, environmental law, public procurement and administrative law",
   },
   {
@@ -230,8 +227,7 @@ export const PEERS: TeamMember[] = [
     practice: "Banking & Finance Law",
     imageSrc: null,
     email: "wael.tasa@hotmail.com",
-    // TODO(peers): add LinkedIn URL (form had no URL)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/wa%C3%ABl-tasakenti-4700a524b/",
     bio: "Waël specialises in banking and finance law, particularly in leveraged finance, real estate finance and corporate lending.",
   },
   {
@@ -240,8 +236,7 @@ export const PEERS: TeamMember[] = [
     practice: "Public law",
     imageSrc: null,
     email: "B.aharr@hotmail.com",
-    // TODO(peers): add LinkedIn URL (form had no URL)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/bahar-k-1a3163213/",
     bio: "Bahar specialises in public law, and in particular in public procurement, as well as real estate law and PPP projects.",
   },
   {
@@ -250,8 +245,7 @@ export const PEERS: TeamMember[] = [
     practice: "Contract and commercial law",
     imageSrc: null,
     email: "cheyenne.byrne@hotmail.com",
-    // TODO(peers): add LinkedIn URL (form had no URL)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/cheyenne-byrne-1b8334185/",
     bio: "Cheyenne Byrne. I focus on commercial and labor law contracts, as well as dispute resolution.",
   },
   {
@@ -260,8 +254,7 @@ export const PEERS: TeamMember[] = [
     practice: "IP / IT Lawyer",
     imageSrc: null,
     email: "Anna.DeWandeler@aoshearman.com",
-    // TODO(peers): add LinkedIn URL (form had no URL)
-    linkedIn: null,
+    linkedIn: "https://www.linkedin.com/in/anna-d-4492b3221/",
     bio: "Anna De Wandeler specialises in information technology and intellectual property law, focusing on complex transactional and advisory matters across sectors. Anna has joined the Brussels bar in 2023 and currently works at A&O Shearman Belgium.",
   },
   {
@@ -270,7 +263,7 @@ export const PEERS: TeamMember[] = [
     practice: "Penal law / civil law / migration law",
     imageSrc: null,
     email: "p.boamah@myadv.online",
-    // TODO(peers): add LinkedIn URL (form had no URL)
+    // TODO(peers): add LinkedIn URL (missing)
     linkedIn: null,
     // TODO(peers): add description/bio
     bio: null,

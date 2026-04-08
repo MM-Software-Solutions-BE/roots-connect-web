@@ -63,8 +63,7 @@ export const PEERS: TeamMember[] = [
     imageSrc: "/images/peers/houda-berrada.jpeg",
     email: "Hb@vectilex.eu",
     linkedIn: "https://www.linkedin.com/in/houda-berrada-216507192/?trk=blended-typeahead",
-    // TODO(peers): add Houda description/bio
-    bio: null,
+    bio: "Houda Berrada is specialising in Environmental Law. As a Co-Founder of Roots Connect, I am motivated to make a tangible, human-centered impact for first generation law students and legal professionals.",
   },
   {
     name: "Mohamed Bouzeya",

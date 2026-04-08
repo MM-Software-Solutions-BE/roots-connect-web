@@ -1,7 +1,7 @@
 export default function Loading() {
   return (
     <div
-      className="bg-rc-beige text-rc-blue flex min-h-[40vh] flex-col items-center justify-center gap-3 px-4 py-16"
+      className="bg-rc-beige text-rc-blue flex min-h-[40vh] flex-col items-center justify-center gap-3 px-4 py-12 sm:py-16 lg:py-20"
       aria-busy="true"
       aria-live="polite"
     >

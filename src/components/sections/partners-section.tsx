@@ -50,6 +50,10 @@ export function PartnersSection() {
                     alt={`${p.name} logo`}
                     width={200}
                     height={120}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                    quality={100}
                     className="object-contain px-4"
                   />
                 ) : null}

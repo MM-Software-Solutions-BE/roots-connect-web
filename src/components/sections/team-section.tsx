@@ -20,17 +20,21 @@ export function TeamSection() {
       >
         {m.team.title}
       </h2>
-      <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-6 sm:gap-10 lg:grid-cols-3">
         {TEAM_MEMBERS.map((member) => (
           <li key={member.name} className="flex">
-            <article className="border-rc-blue/15 bg-white/50 rc-card-hover flex min-h-full w-full flex-col overflow-hidden rounded-xl border shadow-sm">
-              <div className="border-rc-blue/15 relative aspect-[4/5] w-full overflow-hidden bg-rc-blue/5">
+            <div className="flex w-full flex-col">
+              <div className="border-rc-blue/15 relative aspect-[4/5] w-full overflow-hidden rounded-xl border bg-rc-blue/5 shadow-sm">
                 {member.imageSrc ? (
                   <Image
                     src={member.imageSrc}
                     alt={member.name}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 384px"
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                    quality={100}
+                    sizes="(max-width: 640px) 46vw, (max-width: 1024px) 33vw, 360px"
                     className="object-cover object-top"
                   />
                 ) : (
@@ -39,14 +43,16 @@ export function TeamSection() {
                   </div>
                 )}
               </div>
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-rc-beige text-lg font-semibold">{member.name}</h3>
+              <div className="mt-4">
+                <h3 className="text-rc-blue text-base font-semibold sm:text-lg">
+                  {member.name}
+                </h3>
                 <p className="text-rc-brown mt-1 text-sm font-medium">{member.role}</p>
-                <p className="text-rc-beige/85 mt-3 text-sm leading-relaxed">
+                <p className="text-rc-blue/80 mt-2 text-sm leading-relaxed">
                   {m.team.lawyerPrefix}, {member.practice}
                 </p>
               </div>
-            </article>
+            </div>
           </li>
         ))}
       </ul>

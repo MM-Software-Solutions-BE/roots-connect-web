@@ -4,7 +4,8 @@ import * as React from "react";
 import Link from "next/link";
 import { MenuIcon, MoreVerticalIcon } from "lucide-react";
 
-import { LocaleSwitcher } from "@/components/locale-switcher";
+// TODO(i18n): Re-enable locale picker once translations are finalized.
+// import { LocaleSwitcher } from "@/components/locale-switcher";
 import {
   PRIMARY_NAV,
   SECONDARY_NAV,
@@ -88,7 +89,8 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden shrink-0 items-center gap-0.5 lg:flex">
-          <LocaleSwitcher />
+          {/* TODO(i18n): Re-enable locale picker once translations are finalized. */}
+          {/* <LocaleSwitcher /> */}
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
@@ -132,7 +134,8 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-0.5 lg:hidden">
-          <LocaleSwitcher />
+          {/* TODO(i18n): Re-enable locale picker once translations are finalized. */}
+          {/* <LocaleSwitcher /> */}
           <Sheet>
             <SheetTrigger
               render={

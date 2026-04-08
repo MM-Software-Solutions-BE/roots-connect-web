@@ -10,6 +10,48 @@ import { SITE } from "@/config/site";
 import { PEERS } from "@/data/team";
 import { useLocaleContext } from "@/providers/locale-provider";
 
+function truncateAtWord(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  const slice = text.slice(0, maxChars);
+  const lastSpace = slice.lastIndexOf(" ");
+  const safe = lastSpace > 60 ? slice.slice(0, lastSpace) : slice;
+  return `${safe.trimEnd()}…`;
+}
+
+function shuffle<T>(items: T[]): T[] {
+  const a = [...items];
+  for (let i = a.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function PeerBio({ bio, name }: { bio: string; name: string }) {
+  const [expanded, setExpanded] = React.useState(false);
+  const collapsed = truncateAtWord(bio.replace(/\s+/g, " ").trim(), 240);
+  const isTruncated = collapsed !== bio.replace(/\s+/g, " ").trim();
+
+  return (
+    <div className="mb-4 sm:mb-6">
+      <p className="text-rc-blue/75 text-xs leading-relaxed sm:text-sm">
+        {expanded ? bio : collapsed}
+      </p>
+      {isTruncated ? (
+        <button
+          type="button"
+          className="text-rc-blue/80 hover:text-rc-blue mt-2 text-xs font-medium underline underline-offset-2 sm:text-sm"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          aria-label={`${expanded ? "Show less" : "Show more"} about ${name}`}
+        >
+          {expanded ? "Show less" : "Show more"}
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
 function getMailtoHref(member: (typeof PEERS)[number]): string {
   const email = member.email ?? SITE.email;
   return buildMailto(email, {
@@ -28,19 +70,22 @@ Kind regards,
 function matchesSearch(member: (typeof PEERS)[number], query: string): boolean {
   if (!query.trim()) return true;
   const q = query.toLowerCase().trim();
+  const bio = member.bio?.toLowerCase() ?? "";
   return (
     member.name.toLowerCase().includes(q) ||
     member.practice.toLowerCase().includes(q) ||
-    member.role.toLowerCase().includes(q)
+    member.role.toLowerCase().includes(q) ||
+    bio.includes(q)
   );
 }
 
 export function PeersContent() {
   const { messages: m, locale } = useLocaleContext();
   const [query, setQuery] = React.useState("");
+  const [shuffledPeers] = React.useState(() => shuffle(PEERS));
   const filteredPeers = React.useMemo(
-    () => PEERS.filter((p) => matchesSearch(p, query)),
-    [query]
+    () => shuffledPeers.filter((p) => matchesSearch(p, query)),
+    [query, shuffledPeers]
   );
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,7 +96,7 @@ export function PeersContent() {
       tabIndex={-1}
       className="bg-rc-beige text-rc-blue min-h-screen"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <p className="text-rc-brown mb-2 text-sm font-medium">
           <Link
             href={`/${locale}`}
@@ -71,7 +116,7 @@ export function PeersContent() {
           {m.peers.contactTip}
         </p>
 
-        <div className="border-rc-blue/15 mb-16 flex flex-col gap-4 rounded-xl border bg-white/5 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="border-rc-blue/15 mb-12 flex flex-col gap-4 rounded-xl border bg-white/5 p-5 sm:mb-16 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-rc-blue mb-1 font-medium">
               {m.peers.notSureWho}
@@ -130,7 +175,11 @@ export function PeersContent() {
                       src={member.imageSrc}
                       alt={member.name}
                       fill
-                      sizes="(max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
+                      quality={100}
+                      sizes="(max-width: 640px) 46vw, (max-width: 1024px) 32vw, 280px"
                       className="object-cover object-top"
                     />
                   ) : (
@@ -145,9 +194,12 @@ export function PeersContent() {
                 <p className="text-rc-brown mb-1 text-sm font-medium">
                   {member.role}
                 </p>
-                <p className="text-rc-blue/80 mb-4 text-xs sm:mb-6 sm:text-sm">
+                <p className="text-rc-blue/80 mb-3 text-xs sm:mb-4 sm:text-sm">
                   {m.peers.lawyerPrefix}, {member.practice}
                 </p>
+                {member.bio ? (
+                  <PeerBio bio={member.bio} name={member.name} />
+                ) : null}
                 <div className="mt-auto flex flex-wrap gap-2 sm:gap-3">
                   <a
                     href={getMailtoHref(member)}
@@ -157,29 +209,16 @@ export function PeersContent() {
                     <MailIcon className="size-4 shrink-0" aria-hidden />
                     <span className="hidden sm:inline">{m.peers.email}</span>
                   </a>
-                  {member.linkedIn ? (
-                    <a
-                      href={member.linkedIn}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
-                      aria-label={m.peers.linkedIn}
-                    >
-                      <LinkedinIcon className="size-4 shrink-0" aria-hidden />
-                      <span className="hidden sm:inline">{m.peers.linkedIn}</span>
-                    </a>
-                  ) : (
-                    <a
-                      href={SITE.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
-                      aria-label={m.peers.linkedIn}
-                    >
-                      <LinkedinIcon className="size-4 shrink-0" aria-hidden />
-                      <span className="hidden sm:inline">{m.peers.linkedIn}</span>
-                    </a>
-                  )}
+                  <a
+                    href={member.linkedIn ?? SITE.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-transparent transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige focus-visible:outline-none sm:h-10 sm:w-auto sm:gap-2 sm:px-4 sm:text-sm sm:font-medium"
+                    aria-label={m.peers.linkedIn}
+                  >
+                    <LinkedinIcon className="size-4 shrink-0" aria-hidden />
+                    <span className="hidden sm:inline">{m.peers.linkedIn}</span>
+                  </a>
                 </div>
               </article>
             </li>

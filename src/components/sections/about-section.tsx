@@ -44,6 +44,10 @@ export function AboutSection() {
             alt={ABOUT_IMAGES.atmosphere.alt}
             width={ABOUT_IMAGES.atmosphere.width}
             height={ABOUT_IMAGES.atmosphere.height}
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            quality={100}
             className="h-auto w-full"
             sizes="(max-width: 1024px) 100vw, 352px"
           />

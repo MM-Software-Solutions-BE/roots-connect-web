@@ -15,6 +15,13 @@ export type EventHighlight = {
 
 export const EVENT_HIGHLIGHTS: EventHighlight[] = [
   {
+    id: "evt-4",
+    titleKey: "events.evt4.title",
+    blurbKey: "events.evt4.blurb",
+    whenWhere: "January 2026",
+    imageSrc: "/images/events/training-session-lawyers-asylum-migration-jan-2026.jpeg",
+  },
+  {
     id: "evt-1",
     titleKey: "events.evt1.title",
     blurbKey: "events.evt1.blurb",

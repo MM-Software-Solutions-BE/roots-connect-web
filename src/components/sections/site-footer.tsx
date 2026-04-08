@@ -59,10 +59,10 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <span className="text-rc-beige/70">{m.footer.companyNo} {SITE.companyNumber}</span>
+                {m.footer.companyNo} {SITE.companyNumber}
               </li>
               <li>
-                <span className="text-rc-beige/70">{m.footer.bank} {SITE.bankAccount}</span>
+                {m.footer.bank} {SITE.bankAccount}
               </li>
             </ul>
           </div>

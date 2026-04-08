@@ -91,6 +91,10 @@ const nlMessages = {
     "whenWhere": {
       "tbc": "Binnenkort · Datum en locatie volgen"
     },
+    "evt4": {
+      "title": "Training sessie voor advocaten — Asiel- en migratierecht",
+      "blurb": "Samen met Ms Sehrish Raja organiseerden we een training sessie en netwerkevent voor advocaten in asiel- en migratierecht."
+    },
     "evt1": {
       "title": "From Roots to Succes x BLS Consultancy",
       "blurb": "Event gericht op praktische carrière-inzichten, netwerken en open dialoog met juridische professionals."

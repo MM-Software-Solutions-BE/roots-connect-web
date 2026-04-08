@@ -89,6 +89,10 @@ export const en = {
     "whenWhere": {
       "tbc": "Upcoming · Date & location TBC"
     },
+    "evt4": {
+      "title": "Training Session Lawyers - Asylum and Migration Law",
+      "blurb": "Together with Ms Sehrish Raja, we organised a training session and networking event for asylum and migration lawyers."
+    },
     "evt1": {
       "title": "From Roots to Succes x BLS Consultancy",
       "blurb": "Event focused on practical career insights, networking, and open dialogue with legal professionals."

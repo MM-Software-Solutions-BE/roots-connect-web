@@ -45,6 +45,10 @@ export function EventsSection() {
                   src={ev.imageSrc}
                   alt=""
                   fill
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                  quality={75}
                   sizes="(max-width: 1024px) 100vw, 768px"
                   className="object-cover object-center"
                 />

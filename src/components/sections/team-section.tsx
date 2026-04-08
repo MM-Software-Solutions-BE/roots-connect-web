@@ -30,7 +30,11 @@ export function TeamSection() {
                     src={member.imageSrc}
                     alt={member.name}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 384px"
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                    quality={72}
+                    sizes="(max-width: 640px) 46vw, (max-width: 1024px) 33vw, 360px"
                     className="object-cover object-top"
                   />
                 ) : (

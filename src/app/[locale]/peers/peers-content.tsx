@@ -175,7 +175,11 @@ export function PeersContent() {
                       src={member.imageSrc}
                       alt={member.name}
                       fill
-                      sizes="(max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
+                      quality={72}
+                      sizes="(max-width: 640px) 46vw, (max-width: 1024px) 32vw, 280px"
                       className="object-cover object-top"
                     />
                   ) : (

@@ -27,3 +27,10 @@ Korte referentie voor spacing, layout en consistentie (mobiel + desktop). Gebase
 - **Secties**: `src/components/sections/*.tsx`
 - **Pages**: `src/app/**`
 
+## Afbeeldingen (performance)
+
+- **Next.js optimalisatie**: `next/image` + `next.config.ts` → `formats: ["image/avif", "image/webp"]` en `minimumCacheTTL` voor caching.
+- **LCP / above-the-fold**: alleen de home hero gebruikt `priority` + `loading="eager"` (`home-section.tsx`).
+- **Peers grid (veel foto’s)**: expliciet `loading="lazy"`, `decoding="async"`, `fetchPriority="low"`, lagere `quality` (~72) en strakke `sizes` zodat de browser kleinere varianten kiest.
+- **Overige sectie-foto’s** (team, events, approach, about, partners): lazy + lage fetch priority; logo’s iets hogere `quality` voor scherpte.
+

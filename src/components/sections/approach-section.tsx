@@ -30,6 +30,10 @@ export function ApproachSection() {
                 src="/images/approach/approach-community.jpeg"
                 alt=""
                 fill
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
+                quality={78}
                 sizes="(max-width: 1024px) 100vw, 520px"
                 className="object-cover object-center"
               />

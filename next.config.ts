@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    /** Cache optimized images longer (CDN / browser); reduces repeat work. */
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   async headers() {
     return [

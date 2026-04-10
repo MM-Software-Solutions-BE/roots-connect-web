@@ -14,6 +14,16 @@ export const GOOGLE_SITE_VERIFICATION: string | null =
     ? process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION.trim()
     : null;
 
+/**
+ * Google Analytics 4 measurement ID (e.g. "G-XXXXXXXXXX").
+ * Set `NEXT_PUBLIC_GA_ID` in `.env` / hosting.
+ */
+export const GA_ID: string | null =
+  typeof process.env.NEXT_PUBLIC_GA_ID === "string" &&
+  process.env.NEXT_PUBLIC_GA_ID.trim() !== ""
+    ? process.env.NEXT_PUBLIC_GA_ID.trim()
+    : "G-8F3GL7BEC1";
+
 /** Shared for metadata, JSON-LD, manifest. */
 export const SITE_DESCRIPTION =
   "Connecting roots through law — Empowering the next generation of legal talent. Belgian network of lawyers supporting students from underrepresented backgrounds." as const;

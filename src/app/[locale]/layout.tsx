@@ -32,7 +32,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     metadataBase: metadataBaseFromSiteUrl(),
-    title: m.meta.title,
     description: m.meta.description,
     ...(GOOGLE_SITE_VERIFICATION
       ? { verification: { google: GOOGLE_SITE_VERIFICATION } }

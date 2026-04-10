@@ -6,6 +6,7 @@ import { MenuIcon, MoreVerticalIcon } from "lucide-react";
 
 // TODO(i18n): Re-enable locale picker once translations are finalized.
 // import { LocaleSwitcher } from "@/components/locale-switcher";
+import { SiteLogo } from "@/components/site-logo";
 import {
   PRIMARY_NAV,
   SECONDARY_NAV,
@@ -66,7 +67,12 @@ export function SiteHeader() {
           href={`/${locale}`}
           className="text-rc-blue/90 hover:text-rc-blue shrink-0 rounded-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-rc-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-rc-beige"
         >
-          <span className="text-base font-semibold tracking-tight sm:text-lg">{SITE.name}</span>
+          <span className="flex items-center gap-2">
+            <SiteLogo variant="nav" priority className="shrink-0" />
+            <span className="text-base font-semibold tracking-tight sm:text-lg">
+              {SITE.name}
+            </span>
+          </span>
         </Link>
 
         <nav
